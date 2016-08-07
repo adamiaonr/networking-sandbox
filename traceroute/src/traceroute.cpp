@@ -1,0 +1,529 @@
+#include <string.h>
+#include <unistd.h>
+#include <errno.h>
+#include <signal.h>
+#include <sys/types.h>
+#include <sys/time.h>
+
+#include <iostream>
+#include <thread>
+
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <netinet/ip.h>
+#include <netinet/ip_icmp.h>
+#include <netinet/udp.h>        // struct udphdr
+#include <netinet/in.h>
+#include <netinet/in_systm.h>
+#include <netdb.h>              // getaddrinfo()
+
+#include "argvparser.h"
+#include "signal-handler.h"
+
+#define TIMEOUT_REPLY       -3
+#define TTL_EXCEEDED_REPLY  -2
+#define HOSTNAME_HIT_REPLY  -1
+
+#define NUM_RETRIES     3       // send up to NUM_RETRIES udp packets per ttl
+#define REPLY_TIMEOUT   3       // wait REPLY_TIMEOUT secs for an icmp reply
+#define DST_PORT        32768 + 666 // this is how Stevens sets the upd dst 
+                                    // port. i'll follow the same (note that 
+                                    // the sockaddr_in->sin_port attr. is a 
+                                    // 16 bit unsigned value, which can go up 
+                                    // till 65536)
+
+#define MAX_TTL         30          // following Stevens' lead again
+// Steven's unp book sets the icmp's ECHO optional data field (i.e. after the 
+// 8 byte icmp header) to 56 bytes, which yields a 84 byte ipv4 datagram:
+//  -# 20 byte ipv4 header
+//  -# 8 byte icmp header
+//  -# 56 byte for icmp optional data (we only use 8 byte for a timeval struct)
+#define ICMP_DATA_LEN   56
+#define SERVICE_HTTP    "http"
+// as defined in Steven's unp book, fig. 28.4
+#define MAX_BUFFER_SIZE 1500
+#define MAX_STRING_SIZE 256
+
+#define OPTION_HOSTNAME     (char *) "hostname"
+
+using namespace CommandLineProcessing;
+
+struct snd_record {
+
+    uint16_t snd_seq;
+    uint16_t snd_ttl;
+    struct timeval snd_timestamp;
+};
+
+ArgvParser * create_argv_parser() {
+
+    ArgvParser * parser = new ArgvParser();
+
+    parser->setIntroductoryDescription("\n\ntraceroute (yet another ping)\n\n\nby adamiaonr@gmail.com");
+    parser->setHelpOption("h", "help", "help page");
+
+    parser->defineOption(
+            OPTION_HOSTNAME,
+            "hostname to ping",
+            ArgvParser::OptionRequiresValue | ArgvParser::OptionRequired);
+
+    return parser;
+}
+
+struct timeval * tv_sub(struct timeval * out, struct timeval * in) {
+
+    if ((out->tv_usec -= in->tv_usec) < 0) {   /* out -= in */
+
+        --out->tv_sec;
+        out->tv_usec += 1000000;
+    }
+    
+    out->tv_sec -= in->tv_sec;
+
+    return out;
+}
+
+int get_updhdr_from_icmp(
+    char * pckt_buff, 
+    int ipv4_hdr_len, 
+    int icmp_len,
+    struct udphdr * & udp_hdr) {
+
+    // the reply should at least have its icmp header + an ip header within 
+    // its payload
+    if (icmp_len < 8 + (int) sizeof(struct ip)) {
+
+        std::cerr << "traceroute::get_updhdr_from_icmp() : [ERROR] malformed ICMP "\
+            "reply. payload too short to be meaningful (" 
+            << icmp_len << "byte). skip processing." << std::endl;  
+
+        return -1;            
+    }
+
+    // let's now look at the ip header embedded in the icmp reply
+    struct ip * in_ipv4_hdr = (struct ip *) (pckt_buff + ipv4_hdr_len + 8);
+    int in_ipv4_hdr_len = in_ipv4_hdr->ip_hl << 2;
+
+    if (icmp_len < 8 + in_ipv4_hdr_len + 4) {
+
+        std::cerr << "traceroute::get_updhdr_from_icmp() : [ERROR] not "\
+            "enough data to look at udp ports (" << icmp_len << "byte). skip "\
+            "processing." << std::endl;  
+
+        return -1;              
+    }
+
+    if (in_ipv4_hdr->ip_p != IPPROTO_UDP) {
+
+        std::cerr << "traceroute::get_updhdr_from_icmp() : [ERROR] not "\
+            "and udp packet (proto code = " << in_ipv4_hdr->ip_p << "). skip "\
+            "processing." << std::endl;  
+
+        return -1;                      
+    }
+
+    udp_hdr = (struct udphdr *) (pckt_buff + ipv4_hdr_len + 8 + in_ipv4_hdr_len);
+
+    return 0;
+}
+
+int get_icmp_response(
+    int rcv_sckt_fd,
+    sockaddr * rcv_addr,
+    socklen_t * rcv_addrlen,
+    int snd_seq,
+    int snd_src_port,
+    SignalHandler signal_handler,
+    struct timeval * rcv_timestamp) {
+
+    int rcv_bytes = 0, return_code = 0;
+    char rcv_buff[MAX_STRING_SIZE] = "";
+    // we'll need to read both ipv4, icmp and udp headers
+    struct ip * ipv4_hdr = NULL;
+    struct icmp * icmp_hdr = NULL;
+    struct udphdr * udp_hdr = NULL;
+
+    // raise SIGALRM in 3 seconds and disarm the signal
+    signal_handler.disarm_signal();
+    alarm(3);
+
+    for ( ; ; ) {
+
+        if (signal_handler.is_signal())
+            return TIMEOUT_REPLY;
+
+        if ((rcv_bytes = recvfrom(rcv_sckt_fd, rcv_buff, sizeof(rcv_buff), 0, rcv_addr, rcv_addrlen)) < 0) {
+
+            // since we're using a SIGALRM handler, recvfrom() may have been 
+            // interrupted due to it. we therefore 're-cycle' to check if this is 
+            // what really happened.
+            if (errno == EINTR) {
+                continue;
+            } else {
+
+                std::cerr << "traceroute::get_icmp_response() : [ERROR] error in recvfrom(): " 
+                    << strerror(errno) << std::endl;
+            }
+        }
+
+        // we start by reading the ipv4 header. this is as simple as typecasting 
+        // the byte payload into a struct ip *
+        ipv4_hdr = (struct ip *) rcv_buff;
+        // 1st, the ipv4 header len : in ipv4, the header length isn't fixed (as 
+        // with ipv6, fixed as 40 byte). this is the total length of the header, 
+        // including options. therefore we must retrieve it to know 'where' the 
+        // icmp header starts. also note the '<< 2': the length field is 4 bit 
+        // long, and its unit is '4 byte blocks'. to know the length in bytes, 
+        // one should thus multiply it by 4, i.e. the same as left-shifting by 
+        // 2 bit ('<< 2').
+        int ipv4_hdr_len = ipv4_hdr->ip_hl << 2;
+        // if the protocol field isn't ICMP, abort
+        if (ipv4_hdr->ip_p != IPPROTO_ICMP) {
+
+            std::cerr << "traceroute::get_icmp_response() : [ERROR] not an ICMP "\
+                "packet. skip processing." << std::endl;        
+
+            continue;
+        }
+
+        // with the ipv4 header length, we now know the start of the icmp 
+        // header
+        icmp_hdr = (struct icmp *) (rcv_buff + ipv4_hdr_len);
+        // the icmp_len should be at least 8 byte (size of icmp header). 
+        // if not, abort.
+        int icmp_len = 0;
+        if ((icmp_len = rcv_bytes - ipv4_hdr_len) < 8) {
+
+            std::cerr << "traceroute::get_icmp_response() : [ERROR] malformed ICMP "\
+                "packet. header too short (" << icmp_len << "byte). skip "\
+                "processing." << std::endl;  
+
+            continue;              
+        }
+
+        // we now check if this is an icmp reply sent by a router-in-the-middle 
+        // which dropped the ttl to 0.
+        // NOTE: why '&&' and not '||'?
+        if (icmp_hdr->icmp_type == ICMP_TIMXCEED &&
+            icmp_hdr->icmp_code == ICMP_TIMXCEED_INTRANS) {
+
+            // get the udp header
+            if (get_updhdr_from_icmp(rcv_buff, ipv4_hdr_len, icmp_len, udp_hdr) < 0) {
+
+                continue;
+            }
+
+            std::cout << "got udp packet w/ src port " << ntohs(udp_hdr->uh_sport) << " vs. " << snd_src_port
+                << " dst port " << ntohs(udp_hdr->uh_dport) << " vs. " << DST_PORT + snd_seq << std::endl;
+
+            // if the protocol, src and dst port checks pass, we're in the 
+            // presence of a TTL_EXCEEDED reply
+            if (udp_hdr->uh_sport == htons(snd_src_port) &&
+                udp_hdr->uh_dport == htons(DST_PORT + snd_seq)) {
+
+                return_code = TTL_EXCEEDED_REPLY;
+                break;
+            }
+
+        } else if (icmp_hdr->icmp_type == ICMP_UNREACH) {
+
+            // get the udp header
+            if (get_updhdr_from_icmp(rcv_buff, ipv4_hdr_len, icmp_len, udp_hdr) < 0) {
+
+                continue;
+            }
+
+            // if the protocol, src and dst port checks pass, we're in the 
+            // presence of a TTL_EXCEEDED reply
+            if (udp_hdr->uh_sport == htons(snd_src_port) &&
+                udp_hdr->uh_dport == htons(DST_PORT + snd_seq)) {
+
+                if (icmp_hdr->icmp_code == ICMP_UNREACH_PORT)
+                    return_code = HOSTNAME_HIT_REPLY;
+                else
+                    return_code = icmp_hdr->icmp_code;
+
+                break;
+            }
+        }
+
+        // if this is an icmp packet but not of the indented type, post the contents 
+        // anyway...
+        std::cerr << "traceroute::get_icmp_response() : [WARNING] not an expected "\
+            << "ICMP reply. processing anyway..." << std::endl;
+
+        std::cout << "got " << icmp_len << " bytes from " 
+            << inet_ntoa(ipv4_hdr->ip_src)
+            << " : type = " << (uint16_t) icmp_hdr->icmp_type 
+            << ", code = " << (uint16_t) icmp_hdr->icmp_code << std::endl;    
+    }    
+
+    // important: don't leave the alarm running
+    alarm(0);
+    gettimeofday(rcv_timestamp, NULL);
+
+    return return_code;
+}
+
+// here's how traceroute's works:  
+//  -# send udp datagrams to hostname, with a progressively large ip header 
+//     ttl value (starting at 1)
+//  -# receive icmp TIMXCEED or TIMXCEED_INTRANS from intermediate routers, 
+//     which include the originating udp datagram in its icmp payload.
+//     this happens because the ttl field reaches 0 at the router.
+//  -# some routers may not send back icmp messages. therefore we cannot 
+//     wait indefinitely for an answer. traceroute does the following:
+//      - for every udp packet with ttl = t, wait for 3 seconds for an 
+//        icmp reply, retry 2 times (so 3 udp messages are sent per ttl). 
+//      - if no icmp reply arrives, increase the ttl, restart the procedure
+//  -# the process ends when an icmp UNREACH message is received, indicating 
+//     the udp packet got to hosname and hit a port which isn't used. to 
+//     maximize the chances of hitting an unused port, we set the dst port 
+//     to a diff. random value at each of the 3 retries.
+int main (int argc, char ** argv) {
+
+    char hostname[MAX_STRING_SIZE] = "";
+
+    ArgvParser * arg_parser = create_argv_parser();
+    int parse_result = arg_parser->parse(argc, argv);
+
+    if (parse_result != ArgvParser::NoParserError) {
+
+        std::cerr << arg_parser->parseErrorDescription(parse_result).c_str() << std::endl;
+        std::cerr << "traceroute::main() : [ERROR] use option -h for help." << std::endl;
+
+        delete arg_parser;
+        return -1;
+
+    } else if (parse_result == ArgvParser::ParserHelpRequested) {
+
+        delete arg_parser;
+        return -1;
+
+    } else {
+
+        if (arg_parser->foundOption(OPTION_HOSTNAME))
+            strncpy(hostname, (char *) arg_parser->optionValue(OPTION_HOSTNAME).c_str(), MAX_STRING_SIZE);
+    }
+
+    delete arg_parser;
+
+    int rcv_sckt_fd = 0, snd_sckt_fd = 0, rc = 0;
+    // buffer to hold payload of udp packets (snd messages)
+    char snd_buff[MAX_BUFFER_SIZE];
+    // also, we bind the sending socket to a particular src port, so that 
+    // we can 'authenticate' icmp replies by looking into the udp header of 
+    // the icmp reply payload
+    uint16_t snd_src_port = 0;
+    struct sockaddr rcv_addr;
+    struct sockaddr last_rcv_addr;
+    socklen_t rcv_addrlen = sizeof(struct sockaddr_in); 
+    // used to fill the payload of snd packets
+    struct snd_record * snd_rec;
+    // addrinfo structs for hostname-to-ipv4 translation via getaddrinfo()
+    struct addrinfo hints, * answer;
+
+    // open the send (udp) and recv (raw, icmp) sockets
+    if ((snd_sckt_fd = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
+
+        std::cerr << "traceroute::main() : [ERROR] error opening send (udp) "\
+            "socket: " << strerror(errno) << std::endl;
+
+        return -1;
+    }
+
+    // we set snd_src_port to the traceroute's process pid and bind() 
+    // snd_sckt_fd to it
+    struct sockaddr_in src_addr;
+    src_addr.sin_family = AF_INET;
+    src_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+    snd_src_port = (getpid() & 0xFFFF) | 0x8000;
+    src_addr.sin_port = htons(snd_src_port);
+
+    if (bind(snd_sckt_fd, (struct sockaddr *) &src_addr, sizeof(src_addr)) < 0) {
+
+        std::cerr << "traceroute::main() : [ERROR] error binding socket to "\
+            "port (udp) " << strerror(errno) << std::endl;
+
+        return -1;
+    }
+
+    if ((rcv_sckt_fd = socket(AF_INET, SOCK_RAW, IPPROTO_ICMP)) < 0) {
+
+        std::cerr << "traceroute::main() : [ERROR] error opening send (raw, icmp) "\
+            "socket: " << strerror(errno) << std::endl;
+
+        return -1;
+    }
+
+    // following the lead of Steven's UNP, setuid(getuid()) gives up the 
+    // superuser privileges necessary to create RAW sockets. it is a good 
+    // practice to give up on superuser privileges as soon as these are not 
+    // necessary.
+    setuid(getuid());
+
+    // given the target hostname (e.g. google.com), extract its ip address 
+    // via getaddrinfo().
+    memset(&hints, 0, sizeof hints);
+    hints.ai_family = AF_INET;          // we're interested in ipv4 
+    hints.ai_socktype = SOCK_STREAM;    // tcp
+
+    if ((rc = getaddrinfo(hostname, SERVICE_HTTP, &hints, &answer)) != 0) {
+
+        // gai_error() translates a getaddrinfo() error code into 'english'
+        std::cerr << "traceroute::main() : [ERROR] error while getting address "\
+            "of " << hostname << " (" << gai_strerror(rc) << ")" << std::endl;
+    }
+
+    // understand what's going on here? we want to translate a raw bit 
+    // representation of an ipv4 addr to its 'dotted-decimal' representation. 
+    // to do so, we use inet_ntoa(), which takes a sockaddr_in * as arg. 
+    // we get sockaddr_in * from the struct addrinfo * provided by 
+    // getaddrinfo(). struct addrinfo has one sockaddr * attribute, which can 
+    // be typecast to sockaddr_in * in this case, since we're dealing with 
+    // AF_INET family addresses.
+    std::cout << "traceroute::main() : [INFO] " << hostname << " translated to IPv4 addr "\
+         << inet_ntoa(((struct sockaddr_in *) answer->ai_addr)->sin_addr) << std::endl;
+
+    // unlike the ping example, we nest the 'recv code' within the 'sending 
+    // loop' code. this is because the parameters of the sent packets must be 
+    // changed according to the recv outcome.
+    int snd_seq = 0, icmp_rc = 0;         
+    bool done = false;
+    struct timeval rcv_timestamp;
+    // a C++11 lambda expression to convert struct timeval to msecs
+    auto to_msec = [] (struct timeval tv) { return (tv.tv_sec * 1000.0 + tv.tv_usec / 1000.0); };
+
+    // set the SIGALRM signal handler
+    SignalHandler signal_handler;
+
+    try {
+
+        signal_handler.set_signal_handler(SIGALRM);
+
+    } catch (SignalException& e) {
+
+        std::cerr << "traceroute::main() : [ERROR] SignalException: " 
+            << e.what() << ". SIGALRM handling won't work. aborting." << std::endl;
+
+        return -1;
+    }
+
+    for (int ttl = 1; ttl <= MAX_TTL && !(done); ttl++) {
+
+        // we can use setsockopt() to set the ttl value in the outgoing udp 
+        // datagrams. the option to set is IP_TTL. the setsockopt() interface 
+        // goes as follows:
+        //  -# fd of socket to set option
+        //  -# the protocol level at which the option resides. in our case, the 
+        //     ttl field is in the ipv4 header, so IPPROTO_IP
+        //  -# option name, IP_TTL
+        //  -# the option value (void *). here we leave a int * (&ttl)
+        //  -# size of the option : sizeof(int)
+        if (setsockopt(snd_sckt_fd, IPPROTO_IP, IP_TTL, &ttl, sizeof(int)) < 0) {
+
+            std::cerr << "traceroute::main() : [ERROR] error setting ttl: "
+                << strerror(errno) << std::endl;
+
+            return -1;            
+        }
+
+        // clear the last_rcv_addr for a new ttl
+        bzero(&last_rcv_addr, sizeof(struct sockaddr_in));
+
+        for (int retries = NUM_RETRIES; retries > 0; retries--) {
+
+            // the payload of the udp packet is set in a 'cool' way (again, 
+            // typecasting a char * is the answer). to match icmp reply to 
+            // the udp packet just sent, we set the following info on the 
+            // udp payload:
+            //  -# sequence number
+            //  -# ttl packet left with
+            //  -# time at which packet left (struct timeval)
+            // this is kept in a struct (struct snd_record), defined above
+            snd_rec = (struct snd_record *) snd_buff;
+            snd_rec->snd_seq = ++snd_seq;
+            snd_rec->snd_ttl = ttl;
+            gettimeofday(&(snd_rec->snd_timestamp), NULL);
+
+            // set the port of the outgoing udp packet to a diff. value than 
+            // before. we alter the struct sockaddr snd_addr to accomplish 
+            // that, first by typecasting the general struct to a AF_INET 
+            // sockaddr_in. the sin_port attribute must respect network byte 
+            // ordering.
+            ((struct sockaddr_in *) answer->ai_addr)->sin_port = htons(DST_PORT + snd_seq);
+
+            // send the upd packet
+            if (sendto(snd_sckt_fd, snd_buff, sizeof(struct snd_record), 0, answer->ai_addr, answer->ai_addrlen) < 0) {
+
+                std::cerr << "traceroute::main() : [ERROR] error sending udp packet: "
+                    << strerror(errno) << std::endl;                
+            }
+
+            // now we call get_icmp_response() and handle it differently 
+            // according to the return code
+            // NOTE-TO-SELF: that below looks horrible...
+            if ((icmp_rc = get_icmp_response(
+                                    rcv_sckt_fd,
+                                    &rcv_addr,
+                                    &rcv_addrlen,
+                                    snd_seq,
+                                    snd_src_port,
+                                    signal_handler,
+                                    &rcv_timestamp)
+                ) == TIMEOUT_REPLY) {
+
+                std::cout << " ?";
+
+            } else {
+
+                // ok, we got something... 
+
+                // if for some reason the ip address 
+                // of the icmp reply changes when compared to the previous, 
+                // we print a <hostname> (if possible) (<ipv4 address>) 
+                // message. we use memcmp() for that, which compares the first 
+                // n bytes of 2 const void *.
+                if (memcmp(
+                    &last_rcv_addr, 
+                    &rcv_addr, 
+                    sizeof(struct sockaddr_in)) != 0) {
+
+                    char reply_hostname[MAX_STRING_SIZE] = "";
+
+                    // getnameinfo() has a 0 success return code
+                    if (getnameinfo(
+                            &rcv_addr, rcv_addrlen, 
+                            reply_hostname, sizeof(reply_hostname),
+                            NULL, 0, 0) == 0) {
+
+                        std::cout << " " << inet_ntoa(((struct sockaddr_in *) &rcv_addr)->sin_addr) 
+                            << " (" << reply_hostname << ")";
+                    } else {
+                        std::cout << " " << inet_ntoa(((struct sockaddr_in *) &rcv_addr)->sin_addr);                        
+                    }
+
+                    // keep track of the rcv_addr which was received last
+                    memcpy(&last_rcv_addr, &rcv_addr, sizeof(struct sockaddr_in));
+                }
+
+                // print the rtt of the snd udp > rcv icmp cycle
+                std::cout << " " << to_msec(*(tv_sub(&rcv_timestamp, &(snd_rec->snd_timestamp)))) << " msec";
+
+                if (icmp_rc == HOSTNAME_HIT_REPLY) {
+                    done = true;
+                } else if (icmp_rc >= 0) {
+                    std::cout << " unknown icmp code (" << icmp_rc << ")";
+                }
+            }
+
+            std::cout << std::endl;
+        }
+    }
+
+    // all the storage returned by getaddrinfo() are allocated dynamically 
+    // (i.e. w/ malloc()). so one must free it w/ freeaddrinfo()
+    freeaddrinfo(answer);
+
+    return 0;
+}
