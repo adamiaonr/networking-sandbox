@@ -26,7 +26,7 @@
 #define TTL_EXCEEDED_REPLY  -2
 #define HOSTNAME_HIT_REPLY  -1
 
-#define NUM_RETRIES     3       // send up to NUM_RETRIES udp packets per ttl
+#define NUM_RETRIES     1       // send up to NUM_RETRIES udp packets per ttl
 #define REPLY_TIMEOUT   1       // wait REPLY_TIMEOUT secs for an icmp reply
 #define DST_PORT        32768 + 666 // this is how Stevens sets the upd dst 
                                     // port. i'll follow the same (note that 
@@ -115,11 +115,11 @@ uint16_t in_cksum(uint16_t * addr, int len) {
         sum += answer;
     }
 
-        /* add back carry outs from top 16 bits to low 16 bits */
+    /* add back carry outs from top 16 bits to low 16 bits */
     sum = (sum >> 16) + (sum & 0xffff); /* add hi 16 to low 16 */
     sum += (sum >> 16);         /* add carry */
     answer = ~sum;              /* truncate to 16 bits */
-    
+
     return answer;
 }
 
@@ -147,8 +147,10 @@ int get_icmphdr_from_icmp(
 
     if (icmp_len < 8 + in_ipv4_hdr_len + 4) {
 
+        std::cout << 8 + in_ipv4_hdr_len + 4 << std::endl;
+
         std::cerr << "traceroute::get_icmphdr_from_icmp() : [ERROR] not "\
-            "enough data to look at udp ports (" << icmp_len << " byte). skip "\
+            "enough data to validate answer (" << icmp_len << " byte). skip "\
             "processing." << std::endl;  
 
         return -1;              
@@ -321,8 +323,8 @@ int get_icmp_response(
 
         // we now check if this is an icmp reply sent by a router-in-the-middle 
         // which dropped the ttl to 0.
-        if (icmp_hdr->icmp_type == ICMP_TIMXCEED &&
-            icmp_hdr->icmp_code == ICMP_TIMXCEED_INTRANS) {
+        if (icmp_hdr->icmp_type == ICMP_TIMXCEED 
+            && icmp_hdr->icmp_code == ICMP_TIMXCEED_INTRANS) {
 
             // if icmp echos were used as probes, we should read the payload 
             // of the 'outer' icmp packet as an icmp packet, otherwise as an 
@@ -360,24 +362,18 @@ int get_icmp_response(
                 }
             }
 
-        } else if (icmp_hdr->icmp_type == ICMP_UNREACH) {
+        } else if (icmp_hdr->icmp_type == ICMP_UNREACH 
+            || icmp_hdr->icmp_type == ICMP_ECHOREPLY) {
 
             if (icmp_echo_probe) {
-
-                if (get_icmphdr_from_icmp(rcv_buff, rcv_bytes, ipv4_hdr_len, icmp_len, in_icmp_hdr) < 0)
-                    continue;
  
                 // since we don't have access to port numbers w/ icmp packets, 
                 // we validate the reply based on the payload fields
-                struct snd_record * snd_rec = (struct snd_record *) in_icmp_hdr->icmp_data;          
+                struct snd_record * snd_rec = (struct snd_record *) icmp_hdr->icmp_data;          
 
                 if ((snd_rec->snd_seq == snd_seq) && (snd_rec->snd_ttl == snd_ttl)) {
 
-                    if (icmp_hdr->icmp_code == ICMP_UNREACH_PORT)
-                        return_code = HOSTNAME_HIT_REPLY;
-                    else
-                        return_code = icmp_hdr->icmp_code;
-
+                    return_code = HOSTNAME_HIT_REPLY;
                     break;
                 }
 
@@ -431,17 +427,24 @@ struct icmp * prepare_icmp_pckt(
     // the <type, code> tuple identifies the icmp message purpose
     icmp_pckt->icmp_type = type;
     icmp_pckt->icmp_code = code;
-    // we set the identifier field of the icmp message as the calling process 
-    // pid
-    icmp_pckt->icmp_id = (getpid() & 0xFFFF);
-    // the icmp message is started w/ a seq number of 0, it will be increased 
-    // as needed in subsequent uses of the icmp struct
-    icmp_pckt->icmp_seq = 0;    
+
     // following Steven's UNP book, we fill the data portion with '0XA5', then 
     // with data
     memset(icmp_pckt->icmp_data, 0xA5, ICMP_DATA_LEN);
 
     return icmp_pckt;
+}
+
+void print_icmp_hdr(struct icmp * icmp_pckt) {
+
+    std::cout << std::endl << "traceroute::print_icmp_hdr() : [INFO] icmp header fields :" << std::endl;
+    std::cout << "\ticmp_type = " << std::hex << (uint16_t) icmp_pckt->icmp_type 
+        << " icmp_code = " << std::hex << (uint16_t) icmp_pckt->icmp_code 
+        << " icmp_cksum = " << std::hex << (uint16_t) icmp_pckt->icmp_cksum 
+        << std::endl;
+    std::cout << "\ticmp_id = " << std::hex << (uint16_t) icmp_pckt->icmp_id 
+        << " icmp_seq = " << std::hex << (uint16_t) icmp_pckt->icmp_seq 
+        << std::endl;
 }
 
 // here's how traceroute's works:  
@@ -642,13 +645,22 @@ int main (int argc, char ** argv) {
             // snd_buff differently
             if (use_icmp_echo) {
 
+                // this step seems important to achieve a correct timestamp
+                memset(snd_buff, 0x00, 8 + ICMP_DATA_LEN);
+
                 // if an icmp echo, we first build add an icmp header (8 byte) 
                 // and then the 56 byte optional playload, more than enough 
                 // to accommodate a struct snd_record (6 byte)
                 icmp_pckt = prepare_icmp_pckt(snd_buff, ICMP_ECHO, 0);
 
+                // we set the identifier field of the icmp message as the calling process 
+                // pid
+                icmp_pckt->icmp_id = htons(getpid() & 0xFFFF);
+                // the icmp message is started w/ a seq number of 0, it will be increased 
+                // as needed in subsequent uses of the icmp struct
+                icmp_pckt->icmp_seq = htons((uint16_t) ++snd_seq);
+
                 snd_buff_len = 8 + ICMP_DATA_LEN;
-                icmp_pckt->icmp_seq = ++snd_seq;
 
                 // the snd_record struct should start after the icmp header, 
                 // i.e. at snd_buff + 8 byte
@@ -667,6 +679,8 @@ int main (int argc, char ** argv) {
                 // icmp packets carry a 2 byte checksum, which is calculated 
                 // over its entire length
                 icmp_pckt->icmp_cksum = in_cksum((u_short *) icmp_pckt, snd_buff_len);
+
+                //print_icmp_hdr(icmp_pckt);
 
             } else {
 
