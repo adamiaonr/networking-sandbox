@@ -1,4 +1,5 @@
 #include <string.h>
+#include <math.h>
 #include <unistd.h>
 #include <errno.h>
 #include <signal.h>
@@ -6,6 +7,7 @@
 #include <sys/time.h>
 
 #include <iostream>
+#include <iomanip>
 #include <thread>
 
 #include <sys/socket.h>
@@ -34,11 +36,13 @@
 
 #define MAX_TTL         30          // following Stevens' lead again
 // Steven's unp book sets the icmp's ECHO optional data field (i.e. after the 
-// 8 byte icmp header) to 56 bytes, which yields a 84 byte ipv4 datagram:
+// 8 byte icmp header) to 56 bytes, which yields a 84 byte ipv4 datagram. after 
+// checking what the real traceroute does (and to avoid fragmentation), we set 
+// it to 32 byte, yielding a 60 byte ipv4 diagram:
 //  -# 20 byte ipv4 header
 //  -# 8 byte icmp header
-//  -# 56 byte for icmp optional data (we only use 8 byte for a timeval struct)
-#define ICMP_DATA_LEN   56
+//  -# 32 byte for icmp optional data (we only use 8 byte for a timeval struct)
+#define ICMP_DATA_LEN   32
 #define SERVICE_HTTP    "http"
 // as defined in Steven's unp book, fig. 28.4
 #define MAX_BUFFER_SIZE 1500
@@ -92,7 +96,7 @@ struct timeval * tv_sub(struct timeval * out, struct timeval * in) {
 uint16_t in_cksum(uint16_t * addr, int len) {
     int nleft = len;
     int sum = 0;
-    uint16_t *w = addr;
+    uint16_t * w = addr;
     uint16_t answer = 0;
 
     /*
@@ -514,6 +518,8 @@ int main (int argc, char ** argv) {
     // the socket type and protocol
     if (use_icmp_echo) {
 
+        std::cout << "traceroute::main() : [INFO] using icmp echo" << std::endl;
+
         snd_sckt_type = SOCK_RAW;
         snd_sckt_proto = IPPROTO_ICMP;
     }
@@ -626,6 +632,9 @@ int main (int argc, char ** argv) {
 
         // clear the last_rcv_addr for a new ttl
         bzero(&last_rcv_addr, sizeof(struct sockaddr_in));
+
+        // the displayed lines should start w/ the sending ttl
+        std::cout << std::setw(log(MAX_TTL)) << ttl;
 
         for (int retries = NUM_RETRIES; retries > 0; retries--) {
 

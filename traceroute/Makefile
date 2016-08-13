@@ -16,7 +16,7 @@ CFLAGS := -g -ggdb -Wall -std=c++11
 # search for libs here
 #LDFLAGS += -Llib/ldns-1.6.17
 # add these libs for linking
-LIB := -pthread
+LIB := -pthread -lm
 # special include dirs to add
 INC := -Iinclude 
 
