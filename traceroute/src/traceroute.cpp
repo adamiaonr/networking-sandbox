@@ -21,6 +21,7 @@
 
 #include "argvparser.h"
 #include "signal-handler.h"
+#include "icmp-utils.h"
 
 #define TIMEOUT_REPLY       -3
 #define TTL_EXCEEDED_REPLY  -2
@@ -35,14 +36,7 @@
                                     // till 65536)
 
 #define MAX_TTL         30          // following Stevens' lead again
-// Steven's unp book sets the icmp's ECHO optional data field (i.e. after the 
-// 8 byte icmp header) to 56 bytes, which yields a 84 byte ipv4 datagram. after 
-// checking what the real traceroute does (and to avoid fragmentation), we set 
-// it to 32 byte, yielding a 60 byte ipv4 diagram:
-//  -# 20 byte ipv4 header
-//  -# 8 byte icmp header
-//  -# 32 byte for icmp optional data (we only use 8 byte for a timeval struct)
-#define ICMP_DATA_LEN   32
+
 #define SERVICE_HTTP    "http"
 // as defined in Steven's unp book, fig. 28.4
 #define MAX_BUFFER_SIZE 1500
@@ -91,158 +85,6 @@ struct timeval * tv_sub(struct timeval * out, struct timeval * in) {
     out->tv_sec -= in->tv_sec;
 
     return out;
-}
-
-uint16_t in_cksum(uint16_t * addr, int len) {
-    int nleft = len;
-    int sum = 0;
-    uint16_t * w = addr;
-    uint16_t answer = 0;
-
-    /*
-     * the algorithm is simple: using a 32 bit accumulator (sum), we add
-     * sequential 16 bit words to it, and at the end, fold back all the
-     * carry bits from the top 16 bits into the lower 16 bits.
-     */
-    while (nleft > 1)  {
-        sum += *w++;
-        nleft -= 2;
-    }
-
-    /* mop up an odd byte, if necessary */
-    if (nleft == 1) {
-        *(unsigned char *) (&answer) = *(unsigned char *) w ;
-        sum += answer;
-    }
-
-    /* add back carry outs from top 16 bits to low 16 bits */
-    sum = (sum >> 16) + (sum & 0xffff); /* add hi 16 to low 16 */
-    sum += (sum >> 16);         /* add carry */
-    answer = ~sum;              /* truncate to 16 bits */
-
-    return answer;
-}
-
-int get_icmphdr_from_icmp(
-    char * pckt_buff, 
-    int pckt_bytes,
-    int ipv4_hdr_len, 
-    int icmp_len,
-    struct icmp * & in_icmp_hdr) {
-
-    // the reply should at least have its icmp header + an ip header within 
-    // its payload
-    if (icmp_len < 8 + (int) sizeof(struct ip)) {
-
-        std::cerr << "traceroute::get_icmphdr_from_icmp() : [ERROR] malformed ICMP "\
-            "reply. payload too short to be meaningful (" 
-            << icmp_len << " byte). skip processing." << std::endl;  
-
-        return -1;            
-    }
-
-    // let's now look at the ip header embedded in the icmp reply
-    struct ip * in_ipv4_hdr = (struct ip *) (pckt_buff + ipv4_hdr_len + 8);
-    int in_ipv4_hdr_len = in_ipv4_hdr->ip_hl << 2;
-
-    if (icmp_len < 8 + in_ipv4_hdr_len + 4) {
-
-        std::cout << 8 + in_ipv4_hdr_len + 4 << std::endl;
-
-        std::cerr << "traceroute::get_icmphdr_from_icmp() : [ERROR] not "\
-            "enough data to validate answer (" << icmp_len << " byte). skip "\
-            "processing." << std::endl;  
-
-        return -1;              
-    }
-
-    if (in_ipv4_hdr->ip_p != IPPROTO_ICMP) {
-
-        std::cerr << "traceroute::get_icmphdr_from_icmp() : [ERROR] not "\
-            "an icmp packet (proto code = " << in_ipv4_hdr->ip_p << "). skip "\
-            "processing." << std::endl;  
-
-        return -1;                      
-    }
-
-    // we offset the pckt_buff starting address with the length of all the 
-    // headers in between, till the start of the icmp header
-    in_icmp_hdr = (struct icmp *) (pckt_buff + ipv4_hdr_len + 8 + in_ipv4_hdr_len);
-    // the icmp_len should be at least 8 byte (size of icmp header). 
-    // if not, abort.
-    int in_icmp_len = pckt_bytes - (ipv4_hdr_len + 8 + in_ipv4_hdr_len);
-
-    if (in_icmp_len < 8) {
-
-        std::cerr << "traceroute::get_icmphdr_from_icmp() : [ERROR] malformed ICMP "\
-            "packet. header too short (" << icmp_len << " byte). not "\
-            "processing." << std::endl;  
-
-        return -1;              
-    }
-
-    // return a positive int if inner icmp packet isn't an icmp ECHO reply
-    if (in_icmp_hdr->icmp_type == ICMP_ECHOREPLY) {
-
-        if (icmp_len < 16) {
-
-            std::cerr << "traceroute::get_icmphdr_from_icmp() : [ERROR] malformed ICMP "\
-                "echo reply. payload too short to be meaningful (" 
-                << icmp_len << " byte). not processing." << std::endl;  
-
-            return -1;            
-        }
-
-    } else {
-
-        return (in_icmp_hdr->icmp_type);
-    }
-
-    return 0;
-}
-
-int get_updhdr_from_icmp(
-    char * pckt_buff, 
-    int ipv4_hdr_len, 
-    int icmp_len,
-    struct udphdr * & udp_hdr) {
-
-    // the reply should at least have its icmp header + an ip header within 
-    // its payload
-    if (icmp_len < 8 + (int) sizeof(struct ip)) {
-
-        std::cerr << "traceroute::get_updhdr_from_icmp() : [ERROR] malformed ICMP "\
-            "reply. payload too short to be meaningful (" 
-            << icmp_len << " byte). skip processing." << std::endl;  
-
-        return -1;            
-    }
-
-    // let's now look at the ip header embedded in the icmp reply
-    struct ip * in_ipv4_hdr = (struct ip *) (pckt_buff + ipv4_hdr_len + 8);
-    int in_ipv4_hdr_len = in_ipv4_hdr->ip_hl << 2;
-
-    if (icmp_len < 8 + in_ipv4_hdr_len + 4) {
-
-        std::cerr << "traceroute::get_updhdr_from_icmp() : [ERROR] not "\
-            "enough data to look at udp ports (" << icmp_len << " byte). skip "\
-            "processing." << std::endl;  
-
-        return -1;              
-    }
-
-    if (in_ipv4_hdr->ip_p != IPPROTO_UDP) {
-
-        std::cerr << "traceroute::get_updhdr_from_icmp() : [ERROR] not "\
-            "and udp packet (proto code = " << in_ipv4_hdr->ip_p << "). skip "\
-            "processing." << std::endl;  
-
-        return -1;                      
-    }
-
-    udp_hdr = (struct udphdr *) (pckt_buff + ipv4_hdr_len + 8 + in_ipv4_hdr_len);
-
-    return 0;
 }
 
 int get_icmp_response(
@@ -331,7 +173,7 @@ int get_icmp_response(
             // udp packet.
             if (icmp_echo_probe) {
 
-                if (get_icmphdr_from_icmp(rcv_buff, rcv_bytes, ipv4_hdr_len, icmp_len, in_icmp_hdr) < 0)
+                if (ICMPUtils::get_icmphdr_from_icmp(rcv_buff, rcv_bytes, ipv4_hdr_len, icmp_len, in_icmp_hdr) < 0)
                     continue;
  
                 // since we don't have access to port numbers w/ icmp packets, 
@@ -346,7 +188,7 @@ int get_icmp_response(
 
             } else {
 
-                if (get_updhdr_from_icmp(rcv_buff, ipv4_hdr_len, icmp_len, udp_hdr) < 0)
+                if (ICMPUtils::get_updhdr_from_icmp(rcv_buff, ipv4_hdr_len, icmp_len, udp_hdr) < 0)
                     continue;
 
                 // std::cout << "got udp packet w/ src port " << ntohs(udp_hdr->uh_sport) << " vs. " << snd_src_port
@@ -379,7 +221,7 @@ int get_icmp_response(
 
             } else {
 
-                if (get_updhdr_from_icmp(rcv_buff, ipv4_hdr_len, icmp_len, udp_hdr) < 0)
+                if (ICMPUtils::get_updhdr_from_icmp(rcv_buff, ipv4_hdr_len, icmp_len, udp_hdr) < 0)
                     continue;
 
                 // if the protocol, src and dst port checks pass, we're in the 
@@ -413,38 +255,6 @@ int get_icmp_response(
     gettimeofday(rcv_timestamp, NULL);
 
     return return_code;
-}
-
-struct icmp * prepare_icmp_pckt(
-    char * buffer,
-    uint8_t type, 
-    uint8_t code) {
-
-    // we allocate memory with a char[] (passed as arg), and then use the memory 
-    // block for the struct icmp *
-    struct icmp * icmp_pckt = (struct icmp *) buffer;
-
-    // the <type, code> tuple identifies the icmp message purpose
-    icmp_pckt->icmp_type = type;
-    icmp_pckt->icmp_code = code;
-
-    // following Steven's UNP book, we fill the data portion with '0XA5', then 
-    // with data
-    memset(icmp_pckt->icmp_data, 0xA5, ICMP_DATA_LEN);
-
-    return icmp_pckt;
-}
-
-void print_icmp_hdr(struct icmp * icmp_pckt) {
-
-    std::cout << std::endl << "traceroute::print_icmp_hdr() : [INFO] icmp header fields :" << std::endl;
-    std::cout << "\ticmp_type = " << std::hex << (uint16_t) icmp_pckt->icmp_type 
-        << " icmp_code = " << std::hex << (uint16_t) icmp_pckt->icmp_code 
-        << " icmp_cksum = " << std::hex << (uint16_t) icmp_pckt->icmp_cksum 
-        << std::endl;
-    std::cout << "\ticmp_id = " << std::hex << (uint16_t) icmp_pckt->icmp_id 
-        << " icmp_seq = " << std::hex << (uint16_t) icmp_pckt->icmp_seq 
-        << std::endl;
 }
 
 // here's how traceroute's works:  
@@ -645,21 +455,23 @@ int main (int argc, char ** argv) {
             // snd_buff differently
             if (use_icmp_echo) {
 
-                // this step seems important to achieve a correct timestamp
+                // this step seems important to achieve a correct checksum
                 memset(snd_buff, 0x00, 8 + ICMP_DATA_LEN);
 
                 // if an icmp echo, we first build add an icmp header (8 byte) 
                 // and then the 56 byte optional playload, more than enough 
                 // to accommodate a struct snd_record (6 byte)
-                icmp_pckt = prepare_icmp_pckt(snd_buff, ICMP_ECHO, 0);
+                icmp_pckt = ICMPUtils::prepare_icmp_pckt(snd_buff, ICMP_ECHO, 0);
 
-                // we set the identifier field of the icmp message as the calling process 
-                // pid
+                // we set the identifier field of the icmp message as the 
+                // calling process pid
                 icmp_pckt->icmp_id = htons(getpid() & 0xFFFF);
-                // the icmp message is started w/ a seq number of 0, it will be increased 
-                // as needed in subsequent uses of the icmp struct
+                // the icmp message is started w/ a seq number of 0, it will be 
+                // increased as needed in subsequent uses of the icmp struct
                 icmp_pckt->icmp_seq = htons((uint16_t) ++snd_seq);
 
+                // 8 bytes for icmp header + ICMP_DATA_LEN (snd_record + 
+                // 'stuffing')
                 snd_buff_len = 8 + ICMP_DATA_LEN;
 
                 // the snd_record struct should start after the icmp header, 
@@ -678,7 +490,7 @@ int main (int argc, char ** argv) {
 
                 // icmp packets carry a 2 byte checksum, which is calculated 
                 // over its entire length
-                icmp_pckt->icmp_cksum = in_cksum((u_short *) icmp_pckt, snd_buff_len);
+                icmp_pckt->icmp_cksum = ICMPUtils::in_cksum((u_short *) icmp_pckt, snd_buff_len);
 
                 //print_icmp_hdr(icmp_pckt);
 
