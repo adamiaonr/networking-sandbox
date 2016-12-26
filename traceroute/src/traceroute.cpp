@@ -54,6 +54,17 @@ struct snd_record {
     struct timeval snd_timestamp;
 };
 
+struct traceroute_params {
+
+    int snd_sckt_fd;
+    int rcv_sckt_fd;
+
+    struct sockaddr rcv_addr;
+
+    bool icmp_echo_probe;
+    SignalHandler signal_handler;
+};
+
 ArgvParser * create_argv_parser() {
 
     ArgvParser * parser = new ArgvParser();

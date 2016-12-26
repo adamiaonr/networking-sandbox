@@ -4,15 +4,391 @@
 		"selected_items":
 		[
 			[
-				"uint",
-				"uint16_t"
+				"rcv_ad",
+				"rcv_addrlen"
+			],
+			[
+				"in_",
+				"in_icmp_hdr"
+			],
+			[
+				"ICM",
+				"ICMP_ECHOREPLY"
+			],
+			[
+				"ic",
+				"icmp_type"
+			],
+			[
+				"icm",
+				"icmp_hdr"
+			],
+			[
+				"ip",
+				"ipv4_hdr_len"
+			],
+			[
+				"pc",
+				"pckt_buff"
+			],
+			[
+				"st",
+				"struct	struct"
+			],
+			[
+				"end",
+				"endl"
+			],
+			[
+				"icmp",
+				"icmp_hdr"
+			],
+			[
+				"check",
+				"checksum"
+			],
+			[
+				"NU",
+				"NUM_RETRIES"
+			],
+			[
+				"snd",
+				"snd_seq"
+			],
+			[
+				"sn",
+				"snd_seq"
+			],
+			[
+				"sn_",
+				"snd_rec"
+			],
+			[
+				"snd_",
+				"snd_record"
+			],
+			[
+				"pck",
+				"pckt_bytes"
+			],
+			[
+				"rcv_",
+				"rcv_bytes"
+			],
+			[
+				"in_ic",
+				"in_icmp_hdr"
+			],
+			[
+				"icmp_",
+				"icmp_hdr"
+			],
+			[
+				"w",
+				"write"
+			],
+			[
+				"ta",
+				"tail"
+			],
+			[
+				"se",
+				"service_b"
+			],
+			[
+				"add_",
+				"add_dot_str"
+			],
+			[
+				"dot_",
+				"dot_str"
+			],
+			[
+				"dot",
+				"dot_str"
+			],
+			[
+				"do",
+				"dot_str"
+			],
+			[
+				"con",
+				"consequence"
+			],
+			[
+				"agg",
+				"aggregated_edge"
+			],
+			[
+				"tai",
+				"tails"
+			],
+			[
+				"ex",
+				"excluded_metrics"
+			],
+			[
+				"pr_",
+				"pr_file_path"
+			],
+			[
+				"ed",
+				"edge"
+			],
+			[
+				"per",
+				"perpetrator"
+			],
+			[
+				"pe",
+				"perpetrator"
+			],
+			[
+				"ag",
+				"aggregate_edges"
+			],
+			[
+				"met",
+				"metric_a_score"
+			],
+			[
+				"row",
+				"row_a"
+			],
+			[
+				"ser",
+				"service_a"
+			],
+			[
+				"defa",
+				"defaultdict"
+			],
+			[
+				"out",
+				"out_edges"
+			],
+			[
+				"ou",
+				"out_edges"
+			],
+			[
+				"sta",
+				"start_pos"
+			],
+			[
+				"stt",
+				"strt_pos"
+			],
+			[
+				"del",
+				"delim_len"
+			],
+			[
+				"str",
+				"strt_pos"
+			],
+			[
+				"de",
+				"delim"
+			],
+			[
+				"we",
+				"weight"
+			],
+			[
+				"ck",
+				"icmp_cksum"
+			],
+			[
+				"snd_re",
+				"snd_rec"
+			],
+			[
+				"snd_sck",
+				"snd_sckt_type"
+			],
+			[
+				"snd_s",
+				"snd_sckt_type"
+			],
+			[
+				"use",
+				"use_icmp_echo"
+			],
+			[
+				"OP",
+				"OPTION_USE_PING"
+			],
+			[
+				"fo",
+				"foundOption"
+			],
+			[
+				"tv",
+				"tv_usec"
+			],
+			[
+				"rcv_a",
+				"rcv_addrlen"
+			],
+			[
+				"co",
+				"cout"
+			],
+			[
+				"rc",
+				"rcv_bytes"
+			],
+			[
+				"sin_",
+				"sin_addr"
+			],
+			[
+				"rcv",
+				"rcv_timestamp"
+			],
+			[
+				"MAX",
+				"MAX_TTL"
+			],
+			[
+				"def",
+				"define"
 			],
 			[
 				"ret",
-				"return"
+				"return_code"
+			],
+			[
+				"T",
+				"TIMEOUT_REPLY"
+			],
+			[
+				"si",
+				"signal_handler"
+			],
+			[
+				"sign",
+				"signal_handler"
+			],
+			[
+				"Si",
+				"SignalHandler"
+			],
+			[
+				"h",
+				"handler"
+			],
+			[
+				"sockad",
+				"sockaddr_in"
+			],
+			[
+				"last",
+				"last_rcv_addr"
+			],
+			[
+				"TT",
+				"TTL_EXCEEDED_REPLY"
+			],
+			[
+				"TIM",
+				"TIMEOUT_REPLY"
+			],
+			[
+				"get",
+				"gettimeofday"
+			],
+			[
+				"ICMP",
+				"ICMP_UNREACH"
+			],
+			[
+				"in_i",
+				"in_ipv4_hdr"
+			],
+			[
+				"udp",
+				"udp_hdr"
+			],
+			[
+				"ipv",
+				"ipv4_hdr_len"
+			],
+			[
+				"in_ip",
+				"in_ipv4_hdr_len"
+			],
+			[
+				"ipv4",
+				"ipv4_hdr_len"
+			],
+			[
+				"cont",
+				"continue"
+			],
+			[
+				"err",
+				"errno"
+			],
+			[
+				"sok",
+				"socklen_t"
+			],
+			[
+				"rcv_b",
+				"rcv_buff"
+			],
+			[
+				"rp",
+				"reply_hostname"
+			],
+			[
+				"repl",
+				"reply_hostname"
+			],
+			[
+				"sock",
+				"sockaddr"
+			],
+			[
+				"tv_",
+				"tv_usec"
 			],
 			[
 				"ui",
+				"uint16_t"
+			],
+			[
+				"uin",
+				"uint8_t"
+			],
+			[
+				"dst",
+				"dst_addrlen"
+			],
+			[
+				"sin",
+				"sin_port"
+			],
+			[
+				"IP",
+				"IPPROTO_IP"
+			],
+			[
+				"set",
+				"setsockopt"
+			],
+			[
+				"AFT",
+				"AF_INET"
+			],
+			[
+				"soc",
+				"socket"
+			],
+			[
+				"uint",
 				"uint16_t"
 			],
 			[
@@ -22,10 +398,6 @@
 			[
 				"arg",
 				"arg_parser"
-			],
-			[
-				"sin",
-				"sin_addr"
 			],
 			[
 				"dst_",
@@ -40,16 +412,8 @@
 				"include"
 			],
 			[
-				"ICM",
-				"ICMP_DATA_LEN"
-			],
-			[
 				"host",
 				"hostname"
-			],
-			[
-				"MAX",
-				"MAX_STRING_SIZE"
 			],
 			[
 				"in",
@@ -60,52 +424,16 @@
 				"recv_addr"
 			],
 			[
-				"ipv",
-				"ipv4_hdr"
-			],
-			[
-				"icm",
-				"icmp"
-			],
-			[
-				"tv_",
-				"tv_sec"
-			],
-			[
-				"rcv",
-				"rcv_timestamp"
-			],
-			[
 				"time",
 				"timeval"
-			],
-			[
-				"str",
-				"struct	struct"
 			],
 			[
 				"recv",
 				"recv_bytes"
 			],
 			[
-				"icmp_",
-				"icmp_hdr_len"
-			],
-			[
-				"icmp",
-				"icmp_hdr"
-			],
-			[
-				"ipv4",
-				"ipv4_hdr"
-			],
-			[
 				"ms",
 				"msg"
-			],
-			[
-				"rcv_b",
-				"recv_buffer"
 			],
 			[
 				"icmp_da",
@@ -128,16 +456,8 @@
 				"prepare_icmp_pckt"
 			],
 			[
-				"OP",
-				"OPTION_SRC_ADDR"
-			],
-			[
 				"src",
 				"src_addr"
-			],
-			[
-				"dst",
-				"dst_addr"
 			],
 			[
 				"OPT",
@@ -152,16 +472,8 @@
 				"dst_addr_len"
 			],
 			[
-				"sock",
-				"socket_fd"
-			],
-			[
 				"data",
 				"data_len"
-			],
-			[
-				"ic",
-				"icmp_data"
 			],
 			[
 				"send",
@@ -188,10 +500,6 @@
 				"IFACE_LOCAL"
 			],
 			[
-				"h",
-				"height"
-			],
-			[
 				"_p",
 				"_ptree_size"
 			],
@@ -200,325 +508,81 @@
 				"_ingress_tree_contribution"
 			],
 			[
-				"ou",
-				"output_dir"
-			],
-			[
 				"_su",
 				"_sum_egress_size_pmf"
 			],
 			[
 				"_s",
 				"_sum_egress_size_pmf"
-			],
-			[
-				"_if",
-				"_iface"
-			],
-			[
-				"iface",
-				"iface_pivots"
-			],
-			[
-				"size",
-				"sizeof"
-			],
-			[
-				"if",
-				"iface_num"
-			],
-			[
-				"_pr",
-				"_prob"
-			],
-			[
-				"laten",
-				"latencies"
-			],
-			[
-				"sub",
-				"subplot_code"
-			],
-			[
-				"ca",
-				"cache_distance"
-			],
-			[
-				"of",
-				"off-path-coop"
-			],
-			[
-				"DA",
-				"DATA_DIR"
-			],
-			[
-				"out",
-				"output_file_name"
-			],
-			[
-				"get_",
-				"get_iface_num"
-			],
-			[
-				"ge",
-				"get_router"
-			],
-			[
-				"_tp",
-				"_tp_distance"
-			],
-			[
-				"go",
-				"_go_up"
-			],
-			[
-				"acc",
-				"access_tree_height"
-			],
-			[
-				"_",
-				"_height"
-			],
-			[
-				"parn",
-				"parent_router"
-			],
-			[
-				"ch",
-				"child_router"
-			],
-			[
-				"RID",
-				"RID_Router"
-			],
-			[
-				"get",
-				"get_width"
-			],
-			[
-				"fr",
-				"from_router"
-			],
-			[
-				"get_h",
-				"get_height"
-			],
-			[
-				"ifa",
-				"iface_num"
-			],
-			[
-				"u",
-				"uint32_t"
-			],
-			[
-				"_l",
-				"_legend_pos"
-			],
-			[
-				"le",
-				"legend"
-			],
-			[
-				"y",
-				"y_max"
-			],
-			[
-				"y_",
-				"y_max"
-			],
-			[
-				"a",
-				"arange"
-			],
-			[
-				"set_",
-				"set_xticks"
-			],
-			[
-				"pr",
-				"prefix_man_plot"
-			],
-			[
-				"col",
-				"colors"
-			],
-			[
-				"exp",
-				"exp_factors"
-			],
-			[
-				"ex",
-				"exp_factors"
-			],
-			[
-				"f_m",
-				"f_min"
-			],
-			[
-				"no",
-				"no-caching"
-			],
-			[
-				"tes",
-				"test-case"
-			],
-			[
-				"test",
-				"test-type"
-			],
-			[
-				"f_",
-				"f_distribution"
-			],
-			[
-				"num",
-				"num_entries"
-			],
-			[
-				"en",
-				"num_entries"
-			],
-			[
-				"fwd",
-				"fwd_table"
-			],
-			[
-				"_f",
-				"_f_entries"
-			],
-			[
-				"_t",
-				"_to_not_expand"
-			],
-			[
-				"_o",
-				"_original_local"
-			],
-			[
-				"_b",
-				"_bloated_non_local"
-			],
-			[
-				"def",
-				"define"
-			],
-			[
-				"de",
-				"define"
-			],
-			[
-				"__",
-				"__float080"
-			],
-			[
-				"f_dis",
-				"f_distribution_non_local"
-			],
-			[
-				"fw",
-				"fwd_table_size"
-			],
-			[
-				"app",
-				"apply_prefix_management"
-			],
-			[
-				"IFA",
-				"IFACE_LOCAL"
-			],
-			[
-				"expa",
-				"expand_factor"
-			],
-			[
-				"OPTION_E",
-				"OPTION_EXPAND_FACTOR"
-			],
-			[
-				"OPTION_F",
-				"OPTION_F_MIN"
-			],
-			[
-				"OPTT",
-				"OPTION_EXPAND_FACTOR"
-			],
-			[
-				"ar",
-				"argv"
-			],
-			[
-				"fil",
-				"file_name"
-			],
-			[
-				"bf",
-				"bf_size"
-			],
-			[
-				"su",
-				"sub_dir"
-			],
-			[
-				"DATA",
-				"DATA_SUB_DIR"
-			],
-			[
-				"file",
-				"filename"
-			],
-			[
-				"SC",
-				"SCN_DIR"
-			],
-			[
-				"rw",
-				"rowspan"
-			],
-			[
-				"ori",
-				"origin"
-			],
-			[
-				"clo",
-				"colors"
-			],
-			[
-				"ba",
-				"bar_shift"
-			],
-			[
-				"oc",
-				"outcome_index"
-			],
-			[
-				"re",
-				"request_size"
-			],
-			[
-				"L",
-				"LEGEND_FONT_SIZE"
-			],
-			[
-				"_m",
-				"_x_max"
-			],
-			[
-				"lege",
-				"legend1"
-			],
-			[
-				"co",
-				"color"
-			],
-			[
-				"req",
-				"request_sizes"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "Makefile",
+			"settings":
+			{
+				"buffer_size": 892,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/traceroute.cpp",
+			"settings":
+			{
+				"buffer_size": 23303,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/icmp-utils.cpp",
+			"settings":
+			{
+				"buffer_size": 6025,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "include/icmp-utils.h",
+			"settings":
+			{
+				"buffer_size": 1416,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/adamiaonr/workbench/pagerank/cpp/pagerank.cpp",
+			"settings":
+			{
+				"buffer_size": 5030,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/adamiaonr/workbench/networking-sandbox/ping/src/pingy.cpp",
+			"settings":
+			{
+				"buffer_size": 14439,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/signal-handler.cpp",
+			"settings":
+			{
+				"buffer_size": 2480,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "include/signal-handler.h",
+			"settings":
+			{
+				"buffer_size": 1446,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -560,7 +624,15 @@
 	},
 	"file_history":
 	[
+		"/home/adamiaonr/workbench/pagerank/cpp/Makefile",
+		"/home/adamiaonr/workbench/pagerank/cpp/table.h",
+		"/home/adamiaonr/workbench/metric-scores/pagerank/Makefile",
+		"/home/adamiaonr/workbench/metric-scores/scripts/dependency-graph.py",
+		"/home/adamiaonr/workbench/pagerank/cpp/table.cpp",
+		"/home/adamiaonr/workbench/pagerank/cpp/bull.txt",
+		"/home/adamiaonr/workbench/metric-scores/tests/results/dependency-graphs/p_for_lag_1.u00l10.dot",
 		"/home/adamiaonr/workbench/dns-performance/src/dns-performance.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/traceroute/src/argvparser.cpp",
 		"/home/adamiaonr/workbench/networking-sandbox/ping/include/argvparser.h",
 		"/home/adamiaonr/workbench/networking-sandbox/ping/src/argvparser.cpp",
 		"/home/adamiaonr/workbench/my-docker-utils/get-docker-metrics.py",
@@ -679,15 +751,7 @@
 		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/prefix-management/pm-5-10-th9.scn",
 		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/prefix-management/pm-5-10-th6.scn",
 		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/prefix-management/pm-5-10-th7.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/prefix-management/pm-5-10-th8.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/prefix-management/pm-5-10-th5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/no-caching/r5/os-5-5-ll-nls.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/no-caching/r10/os-1-10-ll-nls.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/prefix-management/pm-5-10-t2.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/no-caching/r5/os-9-5-ll-nls.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity/r5/os-9-5-ll-nls.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity/r10/os-1-10-ll-nls.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity/r10/os-3-10-ll-nls.scn"
+		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/prefix-management/pm-5-10-th8.scn"
 	],
 	"find":
 	{
@@ -707,6 +771,45 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"addrlen",
+			"traceroute::",
+			"proccess_icmp_ipv4_reply",
+			"get_icmphdr_from_icmp",
+			"prepare_icmp_pckt",
+			"in_cksum",
+			"in_cksu",
+			"prepare_icmp_pckt",
+			"in_cksum",
+			"snd_buff_len",
+			"in_cksum(",
+			"REPLY_TIMEOUT",
+			"snd_seq",
+			"pingy::",
+			"<< \"byte)",
+			"proccess_icmp_ipv4_reply",
+			"path",
+			"InLink",
+			"InLink *",
+			"InLink",
+			"rcv_addrlen",
+			"prepare_icmp_pckt",
+			"rcv_addrlen",
+			"SERVICE_HTTP",
+			"snd_addr",
+			"sizeof(struct",
+			"sizeof(s",
+			"answer",
+			"return_",
+			"got_signal()",
+			"icmp_len",
+			"in_addr",
+			"last_rcv_addr",
+			"sendto",
+			"errno",
+			"responses",
+			"response",
+			"	",
+			"pingy",
 			"send_icmp_echo",
 			"proccess_icmp_ipv4_reply",
 			"recv_addr",
@@ -795,46 +898,7 @@
 			"160",
 			"320",
 			"sys.argv",
-			"output_file",
-			"OptionRequiresValue",
-			"option",
-			"request_si",
-			"calc_lpm_pmf",
-			"_cumulative_event_prob",
-			"forward(",
-			"iface_entry_proportion",
-			"fwd_table_row",
-			"f_distribution",
-			" = 1.0",
-			"init_",
-			"init_egress_size_pmf",
-			"this->egress_size_pmf",
-			"== NULL",
-			"bf_",
-			"RID_Router(",
-			"RID_R",
-			"get_log_fp_rates",
-			"DEFAULT_M",
-			"BF_SIZE",
-			"DEFAULT_M",
-			"get_log_fp_rates",
-			"fp_rate(",
-			"fp_rate",
-			"BF_SIZE",
-			"forward(",
-			"printf(\"RID",
-			"np.arange",
-			"mode",
-			"build_network_rec",
-			"this->f_distribution",
-			"RID_Analytics",
-			"- 1",
-			"calc_joint_lpm_pmf",
-			"calc_joint_log_prob",
-			"calc_joint_lpm_pmf(",
-			"forward(",
-			"build_n",
-			"get_outcome"
+			"output_file"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -842,6 +906,15 @@
 		"regex": false,
 		"replace_history":
 		[
+			"icmp-utils::",
+			"traceroute::",
+			"<< \" byte)",
+			"measurement_file_path",
+			"addrlen",
+			"is_signal()",
+			"replies",
+			"    ",
+			"traceroute",
 			"icmp_len",
 			"pingy",
 			"0,2",
@@ -960,16 +1033,7 @@
 			"    ",
 			"o_optimistic",
 			"o-optimistic",
-			"o_optimistic",
-			"o-optimistic",
-			"Carnegie Mellon University",
-			"    ",
-			"CMU",
-			"dat_filename",
-			"*",
-			"CONTENT_SOURCE_DIST",
-			"DataParser",
-			"data-parser"
+			"o_optimistic"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -980,8 +1044,248 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "Makefile",
+					"settings":
+					{
+						"buffer_size": 892,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								382,
+								382
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/traceroute.cpp",
+					"settings":
+					{
+						"buffer_size": 23303,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1347,
+								1347
+							]
+						],
+						"settings":
+						{
+							"rulers":
+							[
+								80
+							],
+							"spell_check": true,
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 612.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/icmp-utils.cpp",
+					"settings":
+					{
+						"buffer_size": 6025,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3866,
+								3866
+							]
+						],
+						"settings":
+						{
+							"rulers":
+							[
+								80
+							],
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2433.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "include/icmp-utils.h",
+					"settings":
+					{
+						"buffer_size": 1416,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								248,
+								248
+							]
+						],
+						"settings":
+						{
+							"rulers":
+							[
+								80
+							],
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/adamiaonr/workbench/pagerank/cpp/pagerank.cpp",
+					"settings":
+					{
+						"buffer_size": 5030,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 102.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/adamiaonr/workbench/networking-sandbox/ping/src/pingy.cpp",
+					"settings":
+					{
+						"buffer_size": 14439,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5877,
+								5877
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2907.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/signal-handler.cpp",
+					"settings":
+					{
+						"buffer_size": 2480,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"rulers":
+							[
+								80
+							],
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "include/signal-handler.h",
+					"settings":
+					{
+						"buffer_size": 1446,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1446,
+								1446
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
