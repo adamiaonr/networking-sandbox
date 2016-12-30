@@ -24,9 +24,9 @@ INC := -I../include
 
 all: $(COMMON_OBJECTS)
 	@echo " Compiling EPI problems..."
-	make -C bit-count
-	make -C closest-int
-	make -C look-n-say
+	make -C 5-0-bit-count
+	make -C 5-4-closest-int
+	make -C 7-8-look-n-say
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 	@echo " Compiling common code..."
@@ -34,9 +34,9 @@ $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 
 clean:
 	@echo " Cleaning..."; 
-	make -C bit-count clean
-	make -C closest-int clean
-	make -C look-n-say clean
+	make -C 5-0-bit-count clean
+	make -C 5-4-closest-int clean
+	make -C 7-8-look-n-say clean
 	$(RM) -r *~
 
 .PHONY: clean
