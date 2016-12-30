@@ -9,12 +9,12 @@
 #include <bitset>
 #include <string>
 
+#include "common.h"
 #include "argvparser.h"
 
-#define MAX_STRING_SIZE         256
+using namespace CommandLineProcessing;
 
 #define OPTION_INPUT    (char *) "input-number"
-using namespace CommandLineProcessing;
 
 ArgvParser * create_argv_parser() {
 
@@ -29,26 +29,6 @@ ArgvParser * create_argv_parser() {
             ArgvParser::OptionRequiresValue | ArgvParser::OptionRequired);
 
     return parser;
-}
-
-int get_str_arg(ArgvParser * parser, char * str, const char * arg) {
-
-    if (parser->foundOption(arg))
-        strncpy(str, (char *) parser->optionValue(arg).c_str(), MAX_STRING_SIZE);
-    else
-        return 0;
-
-    return 1;
-}
-
-int get_int_arg(ArgvParser * parser, int & value, const char * arg) {
-
-    if (parser->foundOption(arg))
-        value = std::stoi(parser->optionValue(arg));
-    else
-        return 0;
-
-    return 1;
 }
 
 int clear_lowest_set_bit(int & number) {
@@ -96,7 +76,7 @@ int main (int argc, char **argv) {
 
     } else {
 
-        get_int_arg(arg_parser, input_number, OPTION_INPUT);
+        Common::get_int_arg(arg_parser, input_number, OPTION_INPUT);
     }
 
     delete arg_parser;
