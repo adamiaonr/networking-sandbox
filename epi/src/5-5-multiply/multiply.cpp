@@ -36,21 +36,6 @@ ArgvParser * create_argv_parser() {
     return parser;
 }
 
-uint32_t left_shift(
-    uint32_t number, 
-    uint32_t rbs) {
-
-    uint32_t result = number;
-
-    // keep shifting number left, rbs right
-    while(rbs != 1) {
-        result <<= 1;
-        rbs >>= 1;
-    }
-
-    return result;
-}
-
 // taken from http://stackoverflow.com/a/236803/6660861
 void split_str(
     const std::string & s, 
@@ -108,55 +93,56 @@ int main (int argc, char **argv) {
     delete arg_parser;
 
     // this will keep the rightmost bit set (rbs) of op2
-    uint32_t op2_aux = op2, op2_rbs = 0, op1_shift = 0, carry = 0, prev_carry = 0;
+    uint32_t op1_aux = op1, op2_aux = op2, carry = 0, prev_carry = 0;
     // keep doing this while op2 has set bits
     while (op2) {
 
-        // extract the rbs of op2
-        op2_rbs = op2 & (~(op2 - 1));
-        // left shift op1 according to rbs 
-        op1_shift = left_shift(op1, op2_rbs);
+        // if the k-th bit (out of n) of op2 is set, we add 2^k * op1 to the 
+        // result
+        if (op2 & 1) {
 
-        // check if there will be any carry bits
-        carry = result & op1_shift;
+            // check if there will be any carry bits
+            carry = result & op1;
 
-        // std::cout << "multiply::main() : [INFO] multiply elements:" 
-        //     << "\n\t[OP1] " << op1 << "\t\t(" << std::bitset<UINT_SIZE>(op1) << ")"
-        //     << "\n\t[OP2] " << "\t\t(" << std::bitset<UINT_SIZE>(op2) << ")"
-        //     << "\n\t[OP1_SHIFTED] " << "\t(" << std::bitset<UINT_SIZE>(op1_shift) << ")"
-        //     << "\n\t[PREV_RESULT] " << "\t(" << std::bitset<UINT_SIZE>(result) << ")" 
-        //     << "\n\t[CARRY]  " << "\t(" << std::bitset<UINT_SIZE>(carry) << ")" 
-        //     << std::endl;
-
-        // 'add' the shifted op1 to the result by XORing (not accounting w/ 
-        // carry bits yet)
-        result ^= op1_shift;
-
-        // std::cout << "\t[NEW_RESULT] " << "\t(" << std::bitset<UINT_SIZE>(result) << ")" << std::endl;
-
-        // keep adding the carry to result (XORing) until there are no more 
-        // carry bits
-        while (carry) {
-
-            prev_carry = carry;
-            // check if adding (XORing) the carry to result will result in any 
-            // more carry bits
-            carry = result & (prev_carry << 1);
-            // add (XOR) the prev_carry bits, shifted left by 1, to the result
-            result ^= (prev_carry << 1);
-
-            // std::cout << "\t[<<CARRY] " << "\t(" << std::bitset<UINT_SIZE>((prev_carry << 1)) << ")" 
-            //     << "\n\t[NEW_RESULT] " << "\t(" << std::bitset<UINT_SIZE>(result) << ")" 
-            //     << "\n\t[NEW_CARRY]  " << "\t(" << std::bitset<UINT_SIZE>(carry) << ")" 
+            // std::cout << "multiply::main() : [INFO] multiply elements:" 
+            //     << "\n\t[OP1] " << op1 << "\t\t(" << std::bitset<UINT_SIZE>(op1) << ")"
+            //     << "\n\t[OP2] " << "\t\t(" << std::bitset<UINT_SIZE>(op2) << ")"
+            //     << "\n\t[PREV_RESULT] " << "\t(" << std::bitset<UINT_SIZE>(result) << ")" 
+            //     << "\n\t[CARRY]  " << "\t(" << std::bitset<UINT_SIZE>(carry) << ")" 
             //     << std::endl;
+
+            // 'add' the shifted op1 to the result by XORing (not accounting w/ 
+            // carry bits yet)
+            result ^= op1;
+
+            // std::cout << "\t[NEW_RESULT] " << "\t(" << std::bitset<UINT_SIZE>(result) << ")" << std::endl;
+
+            // keep adding the carry to result (XORing) until there are no more 
+            // carry bits
+            while (carry) {
+
+                prev_carry = carry;
+                // check if adding (XORing) the carry to result will result in any 
+                // more carry bits
+                carry = result & (prev_carry << 1);
+                // add (XOR) the prev_carry bits, shifted left by 1, to the result
+                result ^= (prev_carry << 1);
+
+                // std::cout << "\t[<<CARRY] " << "\t(" << std::bitset<UINT_SIZE>((prev_carry << 1)) << ")" 
+                //     << "\n\t[NEW_RESULT] " << "\t(" << std::bitset<UINT_SIZE>(result) << ")" 
+                //     << "\n\t[NEW_CARRY]  " << "\t(" << std::bitset<UINT_SIZE>(carry) << ")" 
+                //     << std::endl;
+            }
         }
 
-        // clear rbs of op2
-        op2 = op2 & (op2 - 1);
+        // right shift op2 to get the k-th bit of op2 
+        op2 >>= 1;
+        // left shift op1 to get 2^k * op1
+        op1 <<= 1;
     }
 
-    std::cout << "multiply::main() : [INFO] " << op1 << " x " << op2_aux 
-        << " = " << result << " (" << (op1 * op2_aux) << ")" << std::endl;
+    std::cout << "multiply::main() : [INFO] " << op1_aux << " x " << op2_aux 
+        << " = " << result << " (" << (op1_aux * op2_aux) << ")" << std::endl;
 
     exit(0);
 }
