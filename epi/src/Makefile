@@ -26,6 +26,7 @@ all: $(COMMON_OBJECTS)
 	@echo " Compiling EPI problems..."
 	make -C 5-0-bit-count
 	make -C 5-4-closest-int
+	make -C 5-5-multiply
 	make -C 7-8-look-n-say
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
@@ -36,6 +37,7 @@ clean:
 	@echo " Cleaning..."; 
 	make -C 5-0-bit-count clean
 	make -C 5-4-closest-int clean
+	make -C 5-5-multiply clean
 	make -C 7-8-look-n-say clean
 	$(RM) -r *~
 
