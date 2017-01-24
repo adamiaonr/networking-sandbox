@@ -4,6 +4,70 @@
 		"selected_items":
 		[
 			[
+				"op",
+				"op2"
+			],
+			[
+				"op2_",
+				"op2_aux"
+			],
+			[
+				"op2",
+				"op2"
+			],
+			[
+				"to",
+				"tokens"
+			],
+			[
+				"rs",
+				"result"
+			],
+			[
+				"op1",
+				"op1_shift"
+			],
+			[
+				"lef",
+				"left_shift"
+			],
+			[
+				"ops",
+				"ops_str"
+			],
+			[
+				"spl",
+				"split_str"
+			],
+			[
+				"str",
+				"string"
+			],
+			[
+				"CO",
+				"COMMON_OBJECTS"
+			],
+			[
+				"co",
+				"common"
+			],
+			[
+				"num",
+				"number"
+			],
+			[
+				"rightmost_b",
+				"rightmost_bit_unset"
+			],
+			[
+				"usi",
+				"unsigned"
+			],
+			[
+				"last",
+				"last_bit_set"
+			],
+			[
 				"in",
 				"input"
 			],
@@ -188,10 +252,6 @@
 				"delim_len"
 			],
 			[
-				"str",
-				"strt_pos"
-			],
-			[
 				"de",
 				"delim"
 			],
@@ -234,10 +294,6 @@
 			[
 				"rcv_a",
 				"rcv_addrlen"
-			],
-			[
-				"co",
-				"cout"
 			],
 			[
 				"rc",
@@ -286,10 +342,6 @@
 			[
 				"sockad",
 				"sockaddr_in"
-			],
-			[
-				"last",
-				"last_rcv_addr"
 			],
 			[
 				"TT",
@@ -462,140 +514,40 @@
 			[
 				"OPT",
 				"OPTION_SRC_ADDR"
-			],
-			[
-				"OPTION",
-				"OPTION_DST_ADDR"
-			],
-			[
-				"d",
-				"dst_addr_len"
-			],
-			[
-				"data",
-				"data_len"
-			],
-			[
-				"send",
-				"send_buffer"
-			],
-			[
-				"msg",
-				"msg_control"
-			],
-			[
-				"_r",
-				"_r5"
-			],
-			[
-				"pt",
-				"ptree_size"
-			],
-			[
-				"ptr",
-				"ptree_iface"
-			],
-			[
-				"IF",
-				"IFACE_LOCAL"
-			],
-			[
-				"_p",
-				"_ptree_size"
-			],
-			[
-				"_i",
-				"_ingress_tree_contribution"
-			],
-			[
-				"_su",
-				"_sum_egress_size_pmf"
-			],
-			[
-				"_s",
-				"_sum_egress_size_pmf"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "/home/adamiaonr/workbench/networking-sandbox/traceroute/Makefile",
+			"file": "src/5-5-multiply/Makefile",
 			"settings":
 			{
-				"buffer_size": 892,
+				"buffer_size": 913,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/adamiaonr/workbench/networking-sandbox/traceroute/src/traceroute.cpp",
+			"file": "src/5-5-multiply/multiply.cpp",
 			"settings":
 			{
-				"buffer_size": 23303,
+				"buffer_size": 4948,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/closest-int/closest-int.cpp",
+			"file": "src/Makefile",
 			"settings":
 			{
-				"buffer_size": 2415,
+				"buffer_size": 1044,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "epi.sublime-project",
+			"file": "src/5-4-closest-int/closest-int.cpp",
 			"settings":
 			{
-				"buffer_size": 4,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/adamiaonr/workbench/networking-sandbox/traceroute/src/icmp-utils.cpp",
-			"settings":
-			{
-				"buffer_size": 6025,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/adamiaonr/workbench/networking-sandbox/traceroute/include/icmp-utils.h",
-			"settings":
-			{
-				"buffer_size": 1416,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/adamiaonr/workbench/pagerank/cpp/pagerank.cpp",
-			"settings":
-			{
-				"buffer_size": 5030,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/adamiaonr/workbench/networking-sandbox/ping/src/pingy.cpp",
-			"settings":
-			{
-				"buffer_size": 14439,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/adamiaonr/workbench/networking-sandbox/traceroute/src/signal-handler.cpp",
-			"settings":
-			{
-				"buffer_size": 2480,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/adamiaonr/workbench/networking-sandbox/traceroute/include/signal-handler.h",
-			"settings":
-			{
-				"buffer_size": 1446,
+				"buffer_size": 3710,
 				"line_ending": "Unix"
 			}
 		}
@@ -640,6 +592,24 @@
 	},
 	"file_history":
 	[
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/common/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/closest-int/closest-int.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/look-n-say/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/look-n-say/look-n-say.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/closest-int/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/traceroute/include/signal-handler.h",
+		"/home/adamiaonr/workbench/networking-sandbox/traceroute/src/signal-handler.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/ping/src/pingy.cpp",
+		"/home/adamiaonr/workbench/pagerank/cpp/pagerank.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/traceroute/include/icmp-utils.h",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/bit-count/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/closest-int.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/traceroute/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/traceroute/src/traceroute.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/traceroute/src/icmp-utils.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/epi.sublime-project",
 		"/home/adamiaonr/workbench/pagerank/cpp/Makefile",
 		"/home/adamiaonr/workbench/pagerank/cpp/table.h",
 		"/home/adamiaonr/workbench/metric-scores/pagerank/Makefile",
@@ -749,25 +719,7 @@
 		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/off-path/r10/oc-5-10.scn",
 		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/edge/coop/r10/oc-9-10.scn",
 		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/off-path/r10/oc-7-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/r10/oc-3-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/r10/oc-5-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/r10/oc-7-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/r10/oc-1-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/r10/oc-9-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/run-analysis.sh",
-		"/Users/adamiaonr/workbench/rid-analytics/src/path-state.cpp",
-		"/Users/adamiaonr/workbench/rid-analytics/Makefile",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/prefix-management/pm-5-10-th2.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/prefix-management/pm-5-10-th3.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/prefix-management/pm-5-10-th4.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/prefix-management/pm-5-10-th1.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/include/argvparser.h",
-		"/Users/adamiaonr/workbench/rid-analytics/src/argvparser.cpp",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/prefix-management/pm-5-10-th10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/prefix-management/pm-5-10-th9.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/prefix-management/pm-5-10-th6.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/prefix-management/pm-5-10-th7.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/prefix-management/pm-5-10-th8.scn"
+		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/r10/oc-3-10.scn"
 	],
 	"find":
 	{
@@ -787,6 +739,10 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"unsigned int",
+			"closest-int::main()",
+			"MAX_DIGITS",
+			"SOURCES",
 			"addrlen",
 			"traceroute::",
 			"proccess_icmp_ipv4_reply",
@@ -910,11 +866,7 @@
 			"_dis",
 			"0,5,0",
 			"0,2,0",
-			"bf_size",
-			"160",
-			"320",
-			"sys.argv",
-			"output_file"
+			"bf_size"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -922,6 +874,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"uint32_t",
+			"multiply::main()",
 			"icmp-utils::",
 			"traceroute::",
 			"<< \" byte)",
@@ -1047,8 +1001,6 @@
 			"       ",
 			"   -#",
 			"    ",
-			"o_optimistic",
-			"o-optimistic",
 			"o_optimistic"
 		],
 		"reverse": false,
@@ -1060,23 +1012,23 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/home/adamiaonr/workbench/networking-sandbox/traceroute/Makefile",
+					"file": "src/5-5-multiply/Makefile",
 					"settings":
 					{
-						"buffer_size": 892,
+						"buffer_size": 913,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								382,
-								382
+								144,
+								144
 							]
 						],
 						"settings":
@@ -1091,18 +1043,18 @@
 				},
 				{
 					"buffer": 1,
-					"file": "/home/adamiaonr/workbench/networking-sandbox/traceroute/src/traceroute.cpp",
+					"file": "src/5-5-multiply/multiply.cpp",
 					"settings":
 					{
-						"buffer_size": 23303,
+						"buffer_size": 4948,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1749,
-								1749
+								3329,
+								3329
 							]
 						],
 						"settings":
@@ -1111,177 +1063,56 @@
 							[
 								80
 							],
-							"spell_check": true,
 							"syntax": "Packages/C++/C++.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 612.0,
+						"translation.y": 900.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "src/closest-int/closest-int.cpp",
+					"file": "src/Makefile",
 					"settings":
 					{
-						"buffer_size": 2415,
+						"buffer_size": 1044,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1055,
-								1055
+								985,
+								985
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 675.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "epi.sublime-project",
+					"file": "src/5-4-closest-int/closest-int.cpp",
 					"settings":
 					{
-						"buffer_size": 4,
+						"buffer_size": 3710,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4,
-								4
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/home/adamiaonr/workbench/networking-sandbox/traceroute/src/icmp-utils.cpp",
-					"settings":
-					{
-						"buffer_size": 6025,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3866,
-								3866
-							]
-						],
-						"settings":
-						{
-							"rulers":
-							[
-								80
-							],
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2433.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/home/adamiaonr/workbench/networking-sandbox/traceroute/include/icmp-utils.h",
-					"settings":
-					{
-						"buffer_size": 1416,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								248,
-								248
-							]
-						],
-						"settings":
-						{
-							"rulers":
-							[
-								80
-							],
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/home/adamiaonr/workbench/pagerank/cpp/pagerank.cpp",
-					"settings":
-					{
-						"buffer_size": 5030,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 102.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "/home/adamiaonr/workbench/networking-sandbox/ping/src/pingy.cpp",
-					"settings":
-					{
-						"buffer_size": 14439,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5877,
-								5877
+								3415,
+								3415
 							]
 						],
 						"settings":
@@ -1291,67 +1122,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2907.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "/home/adamiaonr/workbench/networking-sandbox/traceroute/src/signal-handler.cpp",
-					"settings":
-					{
-						"buffer_size": 2480,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"rulers":
-							[
-								80
-							],
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "/home/adamiaonr/workbench/networking-sandbox/traceroute/include/signal-handler.h",
-					"settings":
-					{
-						"buffer_size": 1446,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1446,
-								1446
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1125.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

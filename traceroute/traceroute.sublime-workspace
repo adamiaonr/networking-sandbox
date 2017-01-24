@@ -536,6 +536,14 @@
 			}
 		},
 		{
+			"file": "/home/adamiaonr/workbench/xia-core/applications/Makefile",
+			"settings":
+			{
+				"buffer_size": 351,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "src/icmp-utils.cpp",
 			"settings":
 			{
@@ -1044,7 +1052,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -1085,8 +1093,8 @@
 						"selection":
 						[
 							[
-								1347,
-								1347
+								1586,
+								1586
 							]
 						],
 						"settings":
@@ -1108,6 +1116,32 @@
 				},
 				{
 					"buffer": 2,
+					"file": "/home/adamiaonr/workbench/xia-core/applications/Makefile",
+					"settings":
+					{
+						"buffer_size": 351,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								197,
+								197
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
 					"file": "src/icmp-utils.cpp",
 					"settings":
 					{
@@ -1139,7 +1173,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 4,
 					"file": "include/icmp-utils.h",
 					"settings":
 					{
@@ -1171,7 +1205,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "/home/adamiaonr/workbench/pagerank/cpp/pagerank.cpp",
 					"settings":
 					{
@@ -1199,7 +1233,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "/home/adamiaonr/workbench/networking-sandbox/ping/src/pingy.cpp",
 					"settings":
 					{
@@ -1227,7 +1261,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "src/signal-handler.cpp",
 					"settings":
 					{
@@ -1259,7 +1293,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "include/signal-handler.h",
 					"settings":
 					{
