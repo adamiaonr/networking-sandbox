@@ -523,7 +523,7 @@
 			"file": "src/5-5-multiply/Makefile",
 			"settings":
 			{
-				"buffer_size": 913,
+				"buffer_size": 890,
 				"line_ending": "Unix"
 			}
 		},
@@ -536,18 +536,50 @@
 			}
 		},
 		{
-			"file": "src/Makefile",
-			"settings":
-			{
-				"buffer_size": 1044,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "src/5-4-closest-int/closest-int.cpp",
 			"settings":
 			{
 				"buffer_size": 3710,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Makefile",
+			"settings":
+			{
+				"buffer_size": 1479,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/common/Makefile",
+			"settings":
+			{
+				"buffer_size": 729,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/5-0-bit-count/Makefile",
+			"settings":
+			{
+				"buffer_size": 891,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/5-4-closest-int/Makefile",
+			"settings":
+			{
+				"buffer_size": 893,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/7-8-look-n-say/Makefile",
+			"settings":
+			{
+				"buffer_size": 892,
 				"line_ending": "Unix"
 			}
 		}
@@ -592,9 +624,9 @@
 	},
 	"file_history":
 	[
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/Makefile",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/common/Makefile",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/closest-int/closest-int.cpp",
-		"/home/adamiaonr/workbench/networking-sandbox/epi/src/Makefile",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/look-n-say/Makefile",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/look-n-say/look-n-say.cpp",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/closest-int/Makefile",
@@ -1012,7 +1044,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -1020,15 +1052,15 @@
 					"file": "src/5-5-multiply/Makefile",
 					"settings":
 					{
-						"buffer_size": 913,
+						"buffer_size": 890,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								144,
-								144
+								738,
+								738
 							]
 						],
 						"settings":
@@ -1068,39 +1100,13 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 900.0,
+						"translation.y": 90.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "src/Makefile",
-					"settings":
-					{
-						"buffer_size": 1044,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								985,
-								985
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Makefile/Makefile.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "src/5-4-closest-int/closest-int.cpp",
 					"settings":
 					{
@@ -1123,6 +1129,136 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 1125.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Makefile",
+					"settings":
+					{
+						"buffer_size": 1479,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								758,
+								758
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/common/Makefile",
+					"settings":
+					{
+						"buffer_size": 729,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								729,
+								729
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/5-0-bit-count/Makefile",
+					"settings":
+					{
+						"buffer_size": 891,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								739,
+								739
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/5-4-closest-int/Makefile",
+					"settings":
+					{
+						"buffer_size": 893,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								741,
+								741
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/7-8-look-n-say/Makefile",
+					"settings":
+					{
+						"buffer_size": 892,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								740,
+								740
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

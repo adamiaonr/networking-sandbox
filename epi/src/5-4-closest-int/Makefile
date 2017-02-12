@@ -22,7 +22,6 @@ LIB := -pthread
 INC := -I../../include 
 
 all: $(TARGET)
-	@echo " Doing nothing..."
 
 $(TARGET): $(OBJECTS)
 	@echo " Linking..."

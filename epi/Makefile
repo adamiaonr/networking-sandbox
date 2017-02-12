@@ -26,7 +26,6 @@ INC := -Iinclude
 TARGETS := 5-0-bit-count 5-4-closest-int 5-5-multiply 7-8-look-n-say
 
 all: $(TARGETS)
-	@echo " Doin' nothing..."
 
 5-0-bit-count: $(COMMON_OBJECTS)
 	make -C $(SRCDIR)/5-0-bit-count
