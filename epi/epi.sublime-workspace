@@ -523,7 +523,7 @@
 			"file": "src/5-5-multiply/Makefile",
 			"settings":
 			{
-				"buffer_size": 890,
+				"buffer_size": 863,
 				"line_ending": "Unix"
 			}
 		},
@@ -547,7 +547,7 @@
 			"file": "Makefile",
 			"settings":
 			{
-				"buffer_size": 1479,
+				"buffer_size": 1452,
 				"line_ending": "Unix"
 			}
 		},
@@ -563,7 +563,7 @@
 			"file": "src/5-0-bit-count/Makefile",
 			"settings":
 			{
-				"buffer_size": 891,
+				"buffer_size": 864,
 				"line_ending": "Unix"
 			}
 		},
@@ -571,7 +571,7 @@
 			"file": "src/5-4-closest-int/Makefile",
 			"settings":
 			{
-				"buffer_size": 893,
+				"buffer_size": 866,
 				"line_ending": "Unix"
 			}
 		},
@@ -579,7 +579,7 @@
 			"file": "src/7-8-look-n-say/Makefile",
 			"settings":
 			{
-				"buffer_size": 892,
+				"buffer_size": 865,
 				"line_ending": "Unix"
 			}
 		}
@@ -1044,7 +1044,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -1052,15 +1052,15 @@
 					"file": "src/5-5-multiply/Makefile",
 					"settings":
 					{
-						"buffer_size": 890,
+						"buffer_size": 863,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								738,
-								738
+								558,
+								558
 							]
 						],
 						"settings":
@@ -1138,15 +1138,15 @@
 					"file": "Makefile",
 					"settings":
 					{
-						"buffer_size": 1479,
+						"buffer_size": 1452,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								758,
-								758
+								731,
+								731
 							]
 						],
 						"settings":
@@ -1171,8 +1171,8 @@
 						"selection":
 						[
 							[
-								729,
-								729
+								677,
+								677
 							]
 						],
 						"settings":
@@ -1190,15 +1190,15 @@
 					"file": "src/5-0-bit-count/Makefile",
 					"settings":
 					{
-						"buffer_size": 891,
+						"buffer_size": 864,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								739,
-								739
+								559,
+								559
 							]
 						],
 						"settings":
@@ -1216,15 +1216,15 @@
 					"file": "src/5-4-closest-int/Makefile",
 					"settings":
 					{
-						"buffer_size": 893,
+						"buffer_size": 866,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								741,
-								741
+								561,
+								561
 							]
 						],
 						"settings":
@@ -1242,15 +1242,15 @@
 					"file": "src/7-8-look-n-say/Makefile",
 					"settings":
 					{
-						"buffer_size": 892,
+						"buffer_size": 865,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								740,
-								740
+								560,
+								560
 							]
 						],
 						"settings":
