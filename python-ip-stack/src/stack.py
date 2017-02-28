@@ -37,17 +37,6 @@ if __name__ == "__main__":
     stack = Stack('10.0.0.4')
     stack.tap.print_info()
 
-    # # # create an Ethernet frame using scapy
-    # # ether_packet = Ether(dst = '\x00\x11\x22\x33\x44\x55')    
-    # # ether_packet.show()
-    # eth_frame = eth.Ethernet(
-    #     '\x00\x11\x22\x33\x44\x55','\x00\x11\x22\x33\x44\x55',
-    #     payload = ('a' * 46), payload_size = 46)
-    # eth_frame_wired = eth_frame.to_wire_fmt()
-
-    # byte_stream = [("%02x" % (ord(b))) for b in eth_frame_wired]
-    # print(byte_stream)
-
     steps = 100
     while (steps > 0):
         frame = stack.tap.dev.read(stack.tap.dev.mtu)

@@ -104,21 +104,3 @@ class Ethernet(MetaFrame):
         crc = int(b[::-1], 2)
 
         return crc
-
-    # def to_wire_fmt(self, exceptions = []):
-
-    #     values = []
-    #     format_str = '! '
-
-    #     # pack each field into a big endian byte array, using the respective 
-    #     # type
-    #     for field in self.frame:
-
-    #         if field in exceptions:
-    #             continue
-
-    #         values.append(self.frame[field]['value'])
-    #         format_str += ('%d%s ' % (self.frame[field]['size'], self.frame[field]['type']))
-
-    #     return struct.pack(format_str.rstrip(' '), *values)
-
