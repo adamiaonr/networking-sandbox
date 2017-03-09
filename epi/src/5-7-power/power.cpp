@@ -90,7 +90,7 @@ double power(double base, int exponent) {
 int main (int argc, char **argv) {
 
     ArgvParser * arg_parser = create_argv_parser();
-    double base = 0;
+    double base = 0.0, result = 0.0;
     int exponent = 0;
     // parse() takes the arguments to main() and parses them according to 
     // ArgvParser rules
@@ -124,14 +124,20 @@ int main (int argc, char **argv) {
             exit(-1);
         }
 
-        base = (double) std::stoi(tokens[0]);
+        base = (double) std::stod(tokens[0]);
         exponent = (int) std::stoi(tokens[1]);
     }
 
     delete arg_parser;
 
+    if (exponent < 0) {
+        result = power((1.0 / base), -exponent);
+    } else {
+        result = power(base, exponent);
+    }
+
     std::cout << "power::main() : [INFO] "
-        << base << "^" << exponent << " = " << power(base, exponent) 
+        << base << "^" << exponent << " = " << result 
         << " (" << pow(base, double(exponent)) << ")" << std::endl;
 
     exit(0);
