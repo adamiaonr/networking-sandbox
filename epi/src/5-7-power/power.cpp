@@ -20,6 +20,10 @@ using namespace CommandLineProcessing;
 #define OPTION_OPERANDS     (char *) "operands"
 #define OPERAND_DELIMITER   (char) '^'
 
+#define RECURSIVE       0x00
+#define TAIL_RECURSIVE  0x01
+#define NON_RECURSIVE   0x02
+
 ArgvParser * create_argv_parser() {
 
     ArgvParser * parser = new ArgvParser();
@@ -51,18 +55,19 @@ void split_str(
     }
 }
 
+// my own solution, using normal recursion
 double power_rec(double base, int exponent, int & n_iter) {
 
     double result = 0.0;
     n_iter++;
 
-    if ((exponent / 2) > 1) {
-        std::cout << "power::power_rec() : [INFO] at " << exponent << " going for " << (exponent / 2) << std::endl;
-        result = power_rec(base, (exponent / 2), n_iter);
+    if ((exponent >> 1) > 1) {
+        // std::cout << "power::power_rec() : [INFO] at " << exponent << " going for " << (exponent >> 1) << std::endl;
+        result = power_rec(base, (exponent >> 1), n_iter);
 
     } else {
         // base case
-        std::cout << "power::power_rec() : [INFO] base case " << exponent << std::endl;
+        // std::cout << "power::power_rec() : [INFO] base case " << exponent << std::endl;
         result = base;
     }
 
@@ -74,15 +79,80 @@ double power_rec(double base, int exponent, int & n_iter) {
     }
 }
 
+// understanding tail and normal recursion
+double power_tail_rec(double base, int exponent, double result, int & n_iter) {
+
+    if (exponent) {
+
+        // extra +1 base multiplication if exponent is odd
+        if (exponent & 1) {
+            result *= base;
+        }
+
+        // we square the result at each pass
+        base *= base;
+
+        return power_tail_rec(base, (exponent >> 1), result, n_iter);
+
+    } else {
+
+        return result;
+    }
+}
+
+// as shown in the book
+double power_no_rec(double base, int exponent, int & n_iter) {
+
+    double result = 1.0;
+
+    while (exponent) {
+
+        n_iter++;
+        if (exponent & 1) {
+            result *= base;
+        }
+
+        base = base * base;
+
+        std::cout << "power::power_no_rec() : [INFO] exponent = " << exponent 
+            << ", result = " << result
+            << ", base = " << base << std::endl;
+
+        exponent = exponent >> 1;
+    }
+
+    return result;
+}
+
 double power(double base, int exponent) {
 
     int n_iter = 0;
-    double result = power_rec(base, exponent, n_iter);
+    double result = 1.0;
 
-    std::cout << "power::power() : [INFO] n_iter = " << n_iter << std::endl;
-    std::cout << "power::power() : [INFO] "
+    result = power_rec(base, exponent, n_iter);
+    std::cout << "power::power() : [INFO] (normal recursion) "
         << base << "^" << exponent << " = " << result 
         << " (" << pow(base, double(exponent)) << ")" << std::endl;
+    std::cout << "power::power() : [INFO] (normal recursion) n_iter = " 
+        << n_iter << std::endl;
+
+    n_iter = 0;
+    // important initialization for base recursion
+    result = 1.0;
+    result = power_tail_rec(base, exponent, result, n_iter);
+    std::cout << "power::power() : [INFO] (tail recursion) "
+        << base << "^" << exponent << " = " << result 
+        << " (" << pow(base, double(exponent)) << ")" << std::endl;
+    std::cout << "power::power() : [INFO] (tail recursion) n_iter = " 
+        << n_iter << std::endl;
+
+    n_iter = 0;
+    result = power_no_rec(base, exponent, n_iter);
+    std::cout << "power::power() : [INFO] (no recursion) "
+        << base << "^" << exponent << " = " << result 
+        << " (" << pow(base, double(exponent)) << ")" << std::endl;
+    std::cout << "power::power() : [INFO] (no recursion) n_iter = " 
+        << n_iter << std::endl;
 
     return result;
 }
