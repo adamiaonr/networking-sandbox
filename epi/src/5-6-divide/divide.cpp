@@ -25,8 +25,8 @@ ArgvParser * create_argv_parser() {
     ArgvParser * parser = new ArgvParser();
 
     parser->setIntroductoryDescription("\n\ngiven 2 positive integers - x and \
-        y - compute their quotient, using only '+', '-' and shifts (EPI problem \
-        5.6, page 52)\n\n\nby adamiaonr@gmail.com");
+y - compute their quotient, using only '+', '-' and shifts (EPI problem \
+5.6, page 52)\n\n\nby adamiaonr@gmail.com");
     parser->setHelpOption("h", "help", "help page");
 
     parser->defineOption(

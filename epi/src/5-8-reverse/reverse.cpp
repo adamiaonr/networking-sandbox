@@ -23,8 +23,8 @@ ArgvParser * create_argv_parser() {
 
     ArgvParser * parser = new ArgvParser();
 
-    parser->setIntroductoryDescription("\n\nreverses digits of 1 integer\
-        (EPI problem 5.8, page 54)\n\n\nby adamiaonr@gmail.com");
+    parser->setIntroductoryDescription("\n\nreverses digits of 1 integer \
+(EPI problem 5.8, page 54)\n\n\nby adamiaonr@gmail.com");
     parser->setHelpOption("h", "help", "help page");
 
     parser->defineOption(

@@ -27,7 +27,7 @@ ArgvParser * create_argv_parser() {
     ArgvParser * parser = new ArgvParser();
 
     parser->setIntroductoryDescription("\n\ndutch national flag problem \
-        (EPI problem 6.1, page xx)\n\n\nby adamiaonr@gmail.com");
+(EPI problem 6.1, page 61)\n\n\nby adamiaonr@gmail.com");
     parser->setHelpOption("h", "help", "help page");
 
     parser->defineOption(

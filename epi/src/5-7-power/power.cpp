@@ -29,8 +29,8 @@ ArgvParser * create_argv_parser() {
     ArgvParser * parser = new ArgvParser();
 
     parser->setIntroductoryDescription("\n\ngiven x (double) and \
-        y (integer), compute x^y (EPI problem \
-        5.7, page 53)\n\n\nby adamiaonr@gmail.com");
+y (integer), compute x^y (EPI problem \
+5.7, page 53)\n\n\nby adamiaonr@gmail.com");
     parser->setHelpOption("h", "help", "help page");
 
     parser->defineOption(
