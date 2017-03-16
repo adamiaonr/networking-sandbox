@@ -35,36 +35,6 @@ ArgvParser * create_argv_parser() {
     return parser;
 }
 
-uint32_t integer_division(uint32_t dividend, uint32_t divisor) {
-
-    // keep x2 divisor until it is > dividend. now, we can't use '>' or '<', 
-    // so we must do this in some other way...
-    uint32_t m = 0, quotient = 0, remainder = dividend, n_iter = 0;
-
-    // we stop when the remainder is less than the divisor
-    while (((remainder - divisor) & 0x80000000) != 0x80000000) {
-
-        // calculate the largest power of 2 which still 'fits' in the remainder
-        m = 0;
-        while (((remainder - (divisor << (m + 1))) & 0x80000000) != 0x80000000) {
-            m++;
-            n_iter++;
-        }
-
-        // the quotient is thus incremeted by powers of 2
-        quotient = quotient + (1 << m);
-        // update the remainder, from which we will subtract other powers of 
-        // 2, until the remainder is less than the divisor
-        remainder = remainder - (divisor << m);
-    }
-
-    // std::cout << "divide::integer_division() : [INFO] q = " << quotient << std::endl;
-    // std::cout << "divide::integer_division() : [INFO] r = " << remainder << std::endl;
-    // std::cout << "divide::integer_division() : [INFO] n_iter = " << n_iter << std::endl;
-
-    return quotient;
-}
-
 int main (int argc, char **argv) {
 
     ArgvParser * arg_parser = create_argv_parser();
