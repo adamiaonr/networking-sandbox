@@ -26,8 +26,8 @@ ArgvParser * create_argv_parser() {
 
     ArgvParser * parser = new ArgvParser();
 
-    parser->setIntroductoryDescription("\n\nbuy and sell a stock once \
-(EPI problem 6.6, page 69)\n\n\nby adamiaonr@gmail.com");
+    parser->setIntroductoryDescription("\n\nbuy and sell a stock once and twice \
+(EPI problems 6.6 and 6.7, pages 69 and 70)\n\n\nby adamiaonr@gmail.com");
     parser->setHelpOption("h", "help", "help page");
 
     parser->defineOption(
@@ -90,7 +90,7 @@ int get_max_profit(std::vector<int> * seq_ptr) {
 // O(n) solution, using the 'current lowest buy price' insight
 int get_max_profit_2(std::vector<int> * seq_ptr) {
 
-    std::vector<int> & seq = *seq_ptr;
+    std::vector<int> seq = *seq_ptr;
     int curr_lowest_buy_pos = 0, min_buy_price = seq[0], max_profit = 0;
 
     for (unsigned i = 1; i < seq.size(); i++) {
@@ -113,10 +113,60 @@ int get_max_profit_2(std::vector<int> * seq_ptr) {
             min_buy_price = seq[i];
             curr_lowest_buy_pos = i;
         }
-
     }
 
     return max_profit;
+}
+
+// O(n) time and O(1) solution for buying and selling twice (EPI 6.7)
+int get_max_profit_twice(std::vector<int> * seq_ptr) {
+
+    std::vector<int> seq = *seq_ptr;
+    int max_profit = 0, max_profit_pos = 0, second_max_profit = 0;
+    int min_buy_price = seq[0], min_buy_price_pos = 0, local_min_buy_price = seq[0];
+
+    for (unsigned i = 1; i < seq.size(); i++) {
+
+        // update the buying price if you find a cheaper price for the stock
+        // along the way
+        if (seq[i] < min_buy_price) {
+
+            min_buy_price = seq[i];
+            min_buy_price_pos = i;
+        }
+
+        if (seq[i] < seq[i - 1])
+            local_min_buy_price = seq[i];
+
+        int profit = seq[i] - min_buy_price;
+        int local_profit = seq[i] - local_min_buy_price;
+
+        if (profit > max_profit) {
+
+            // we have found a new max. profit
+
+            // before updating the max. profit variables, we check if 
+            // second_max_profit happened to be 'on the way' to the
+            // new max. profit (i.e. the buying date is the same). if that's 
+            // the case, we set second_max_profit to the 'still' max. profit.
+            if (max_profit_pos != min_buy_price_pos)
+                second_max_profit = max_profit;
+
+            // update the max. profit variables
+            max_profit = profit;
+            max_profit_pos = min_buy_price_pos;
+
+        } else if (local_profit > second_max_profit) {
+
+            // if the current profit is larger than second_max_profit (and 
+            // if max_profit hasn't been updated in this round), we update 
+            // second_max_profit
+            second_max_profit = local_profit;
+        }
+    }
+
+    // return the sum of max_profit and second_max_profit
+    return (max_profit + second_max_profit);
 }
 
 int main (int argc, char **argv) {
@@ -156,7 +206,8 @@ int main (int argc, char **argv) {
     std::cout << "stock::main() : [INFO] max profit :"
         << "\n\tORIGINAL : " << seq_str 
         << "\n\tPROFIT (1): " << get_max_profit(&seq) 
-        << "\n\tPROFIT (2): " << get_max_profit_2(&seq) << std::endl;    
+        << "\n\tPROFIT (2): " << get_max_profit_2(&seq)   
+        << "\n\tPROFIT (TWICE): " << get_max_profit_twice(&seq) << std::endl;
 
     exit(0);
 }
