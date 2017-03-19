@@ -57,6 +57,9 @@ all: $(TARGETS)
 6-4-advance: $(COMMON_OBJECTS)
 	make -C $(SRCDIR)/6-4-advance
 
+6-5-duplicates: $(COMMON_OBJECTS)
+	make -C $(SRCDIR)/6-5-duplicates
+
 7-8-look-n-say: $(COMMON_OBJECTS)
 	make -C $(SRCDIR)/7-8-look-n-say
 
@@ -80,6 +83,7 @@ clean:
 	make -C $(SRCDIR)/6-2-increment clean
 	make -C $(SRCDIR)/6-3-multiply clean
 	make -C $(SRCDIR)/6-4-advance clean
+	make -C $(SRCDIR)/6-5-duplicates clean
 	make -C $(SRCDIR)/7-8-look-n-say clean
 	make -C $(SRCDIR)/quicksort clean
 	make -C $(SRCDIR)/common clean
