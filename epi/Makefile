@@ -23,7 +23,7 @@ LIB := -pthread
 INC := -Iinclude
 
 # add each individual exercise to TARGETS
-TARGETS := 5-0-bit-count 5-4-closest-int 5-5-multiply 5-6-divide 5-7-power 5-8-reverse 6-1-dutch 6-2-increment 6-3-multiply 7-8-look-n-say quicksort
+TARGETS := 5-0-bit-count 5-4-closest-int 5-5-multiply 5-6-divide 5-7-power 5-8-reverse 6-1-dutch 6-2-increment 6-3-multiply 6-4-advance 7-8-look-n-say quicksort
 
 all: $(TARGETS)
 
@@ -54,6 +54,9 @@ all: $(TARGETS)
 6-3-multiply: $(COMMON_OBJECTS)
 	make -C $(SRCDIR)/6-3-multiply
 
+6-4-advance: $(COMMON_OBJECTS)
+	make -C $(SRCDIR)/6-4-advance
+
 7-8-look-n-say: $(COMMON_OBJECTS)
 	make -C $(SRCDIR)/7-8-look-n-say
 
@@ -76,6 +79,7 @@ clean:
 	make -C $(SRCDIR)/6-1-dutch clean
 	make -C $(SRCDIR)/6-2-increment clean
 	make -C $(SRCDIR)/6-3-multiply clean
+	make -C $(SRCDIR)/6-4-advance clean
 	make -C $(SRCDIR)/7-8-look-n-say clean
 	make -C $(SRCDIR)/quicksort clean
 	make -C $(SRCDIR)/common clean
