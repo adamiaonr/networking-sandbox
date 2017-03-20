@@ -29,7 +29,8 @@ ArgvParser * create_argv_parser() {
     ArgvParser * parser = new ArgvParser();
 
     parser->setIntroductoryDescription("\n\npermute the elements of an array \
-(EPI problems 6.9, page 73)\n\n\nby adamiaonr@gmail.com");
+& get next permutation (EPI problems 6.9 and 6.10, pages 73 and 75)\n\n\nby \
+adamiaonr@gmail.com");
     parser->setHelpOption("h", "help", "help page");
 
     parser->defineOption(
@@ -120,7 +121,7 @@ void apply_permutation(
     // and initially all set to TRUE.
     std::deque<bool> handled(original.size(), true);
 
-    for (int i = 0; i < original.size(); i++) {
+    for (unsigned i = 0; i < original.size(); i++) {
 
         int next_in_cycle = i;
 
@@ -144,6 +145,63 @@ void apply_permutation(
             next_in_cycle = permutation[next_in_cycle];
         }
     }
+}
+
+// a permutation array of size n is an arbitrary sequence of the 
+// different elements {0, 1, ..., n - 1}. for 2 permutation arrays p and q, 
+// we say that p < q if p[k] < q[k], with k being the first index at which 
+// p and q differ. our goal is to generate the next permutation array of a 
+// given array p.
+//
+// take the example in the EPI book, p = (1, 0, 3, 2). the next permutation 
+// array is q = (1, 2, 0, 3):
+//  - we set q[0] = 1 because p wasn't the largest permutation starting 
+//    with 1.
+//  - we set q[1] = 2, because p[1] + 1 = 1 is already used in q[0]. so we 
+//    included the next value, p[1] + 2 = 2. at this index, p and q differ.
+//  - the next positions in the permutation correspond to a ordering of the 
+//    remaining values, 0 and 3.
+//
+// some examples with n = 4:
+//  - (0, 1, 2, 3) -> (0, 2, 1, 3)
+//  - (0, 3, 2, 1) -> (1, 0, 2, 3)
+//  - (1, 0, 3, 2) -> (1, 2, 0, 3)
+//  - (1, 3, 2, 0) -> (2, 0, 1, 3)
+//  - (2, 3, 1, 0) -> (3, 0, 1, 2)
+//  - (3, 0, 1, 2) -> (3, 1, 0, 2)
+//  - (3, 2, 1, 0) -> (0)
+std::vector<int> * get_next_permutation(std::vector<int> * permutation_ptr) {
+
+    std::vector<int> & permutation = *permutation_ptr;
+
+    // find the highest index i at which p[i] < p[i + 1], i.e. the consecutive 
+    // value in the permutation is larger. this will 
+    // determine the index at which p and q differ.
+    int i = permutation.size() - 2;
+    while(permutation[i] > permutation[i + 1]) if (--i == 0) break;
+
+    // at this point, if i is 0, then we found the largest permutation. 
+    // we should return an empty array
+    if (i == 0) return NULL;
+
+    // fix i and find the highest index j at which p[j] > p[i]. this is guaranteed 
+    // to exist, at least in p[i + 1]. why does this work? we know that 
+    // above i + 1, all elements are in decreasing order. as such, the 
+    // highest index at which p[j] > p[i] is the closest value to p[i] which 
+    // is also larger. this is the appropriate value to replace p[i] with. 
+    int j = permutation.size() - 1;
+    while(permutation[j] < permutation[i]) j--;
+    // replace p[j] with p[i]
+    std::swap(permutation[i], permutation[j]);
+
+    // invert the order of elements i + 1 till (n - 1). why does this work? 
+    // after the last swap (p[i] with p[j]), all the values above p[i] 
+    // remain in decreasing order. in order to be the 'next' permutation value, 
+    // these should be in increasing order. as such, we only need to reverse 
+    // the array in-between i + 1 and n - 1.
+    std::reverse(permutation.begin() + i + 1, permutation.end());
+
+    return permutation_ptr;
 }
 
 int main (int argc, char **argv) {
@@ -189,7 +247,8 @@ int main (int argc, char **argv) {
     std::cout << "permutation::main() : [INFO] permutation :"
         << "\n\tORIGINAL: " << original_str 
         << "\n\tPERMUTATION TO APPLY: " << permutation_str 
-        << "\n\tAFTER PERMUTATION: " << to_intgr_str(&original) << std::endl;
+        << "\n\tAFTER PERMUTATION: " << to_intgr_str(&original)
+        << "\n\tNEXT PERMUTATION: " << (get_next_permutation(&permutation) == NULL ? "NULL" : to_intgr_str(&permutation)) << std::endl;
 
     exit(0);
 }
