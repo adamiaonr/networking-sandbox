@@ -63,6 +63,9 @@ all: $(TARGETS)
 6-6-stock: $(COMMON_OBJECTS)
 	make -C $(SRCDIR)/6-6-stock
 
+6-9-permutations: $(COMMON_OBJECTS)
+	make -C $(SRCDIR)/6-9-permutations
+
 7-8-look-n-say: $(COMMON_OBJECTS)
 	make -C $(SRCDIR)/7-8-look-n-say
 
@@ -88,6 +91,7 @@ clean:
 	make -C $(SRCDIR)/6-4-advance clean
 	make -C $(SRCDIR)/6-5-duplicates clean
 	make -C $(SRCDIR)/6-6-stock clean
+	make -C $(SRCDIR)/6-9-permutations clean
 	make -C $(SRCDIR)/7-8-look-n-say clean
 	make -C $(SRCDIR)/quicksort clean
 	make -C $(SRCDIR)/common clean
