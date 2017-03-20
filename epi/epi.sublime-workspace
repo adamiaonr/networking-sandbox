@@ -4,8 +4,364 @@
 		"selected_items":
 		[
 			[
+				"per",
+				"permutation_ptr"
+			],
+			[
+				"t_",
+				"to_intgr_str"
+			],
+			[
+				"get",
+				"get_next_permutation"
+			],
+			[
+				"la",
+				"last_value"
+			],
+			[
+				"lar",
+				"largest_value"
+			],
+			[
+				"perm",
+				"permutation"
+			],
+			[
+				"nex",
+				"next_in_cycle"
+			],
+			[
+				"ne",
+				"next_in_cycle"
+			],
+			[
+				"or",
+				"original"
+			],
+			[
+				"appl",
+				"apply_permutation"
+			],
+			[
+				"to_",
+				"to_intgr_str"
+			],
+			[
+				"o",
+				"original"
+			],
+			[
+				"OP",
+				"OPTION_PERMTATION"
+			],
+			[
+				"min",
+				"min_buy_price_pos"
+			],
+			[
+				"mi",
+				"min_buy_price"
+			],
+			[
+				"loca",
+				"local_min_buy_price"
+			],
+			[
+				"pr",
+				"profit"
+			],
+			[
+				"loc",
+				"local_min_buy_price"
+			],
+			[
+				"lo",
+				"local_min_buy_price"
+			],
+			[
+				"cu",
+				"curr_profit"
+			],
+			[
+				"st",
+				"std"
+			],
+			[
+				"max",
+				"max_profit_pos"
+			],
+			[
+				"sec",
+				"second_max_profit_pos"
+			],
+			[
+				"pre",
+				"prev_max_profit"
+			],
+			[
+				"cur",
+				"curr_min_buy_price_pos"
+			],
+			[
+				"prev",
+				"prev_max_profit"
+			],
+			[
+				"max_",
+				"max_profit_pos"
+			],
+			[
+				"ma",
+				"max_profit"
+			],
+			[
+				"seq",
+				"seq"
+			],
+			[
+				"in",
+				"int"
+			],
+			[
+				"to",
+				"to_intgr_str"
+			],
+			[
+				"dele",
+				"delete_duplicates"
+			],
+			[
+				"se",
+				"seq"
+			],
+			[
+				"ext",
+				"extract_sequence"
+			],
+			[
+				"las",
+				"last_unique_pos"
+			],
+			[
+				"last_",
+				"last_unique_pos"
+			],
+			[
+				"u",
+				"unsigned"
+			],
+			[
+				"un",
+				"unsolvable"
+			],
+			[
+				"sol",
+				"solvable"
+			],
+			[
+				"is_",
+				"is_solvable"
+			],
+			[
+				"fur",
+				"furthest_reachable_pos"
+			],
+			[
+				"boa",
+				"board_str"
+			],
+			[
+				"so",
+				"solution"
+			],
+			[
+				"solu",
+				"solution_ptr"
+			],
+			[
+				"bo",
+				"board"
+			],
+			[
+				"is",
+				"is_solvable"
+			],
+			[
+				"ex",
+				"extract_board"
+			],
+			[
+				"b",
+				"back"
+			],
+			[
+				"si",
+				"sign_bit"
+			],
+			[
+				"sig",
+				"sign"
+			],
+			[
 				"op",
-				"op2"
+				"oprnd_1"
+			],
+			[
+				"res",
+				"res"
+			],
+			[
+				"intgr_",
+				"to_intgr_str"
+			],
+			[
+				"opr",
+				"oprnd_1"
+			],
+			[
+				"s",
+				"size"
+			],
+			[
+				"oprn",
+				"oprnd_1_ptr"
+			],
+			[
+				"int",
+				"intgr"
+			],
+			[
+				"left",
+				"left_ptr"
+			],
+			[
+				"eq",
+				"equal_right_ptr"
+			],
+			[
+				"poit",
+				"pointers"
+			],
+			[
+				"lef",
+				"left_ptr"
+			],
+			[
+				"EQ",
+				"equal_left_ptr"
+			],
+			[
+				"swa",
+				"swapped"
+			],
+			[
+				"ri",
+				"right_ptr"
+			],
+			[
+				"le",
+				"left_ptr"
+			],
+			[
+				"pi",
+				"pivot_color"
+			],
+			[
+				"piv",
+				"pivot"
+			],
+			[
+				"thr",
+				"three_way_partition"
+			],
+			[
+				"fl",
+				"flag"
+			],
+			[
+				"gen",
+				"gen_random_flag"
+			],
+			[
+				"de",
+				"default"
+			],
+			[
+				"rig",
+				"right_brdr"
+			],
+			[
+				"prin",
+				"print_array"
+			],
+			[
+				"sd",
+				"std"
+			],
+			[
+				"co",
+				"cout"
+			],
+			[
+				"arr",
+				"array"
+			],
+			[
+				"a",
+				"array"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"part",
+				"part_elmnt_value"
+			],
+			[
+				"i",
+				"input"
+			],
+			[
+				"pow",
+				"power_tail_rec"
+			],
+			[
+				"po",
+				"power"
+			],
+			[
+				"fin",
+				"find_k"
+			],
+			[
+				"exp",
+				"exponent"
+			],
+			[
+				"do",
+				"double"
+			],
+			[
+				"di",
+				"divisor"
+			],
+			[
+				"r",
+				"remainder"
+			],
+			[
+				"ite",
+				"n_iter"
+			],
+			[
+				"div",
+				"dividend"
+			],
+			[
+				"divide",
+				"dividend"
 			],
 			[
 				"op2_",
@@ -16,20 +372,12 @@
 				"op2"
 			],
 			[
-				"to",
-				"tokens"
-			],
-			[
 				"rs",
 				"result"
 			],
 			[
 				"op1",
 				"op1_shift"
-			],
-			[
-				"lef",
-				"left_shift"
 			],
 			[
 				"ops",
@@ -48,10 +396,6 @@
 				"COMMON_OBJECTS"
 			],
 			[
-				"co",
-				"common"
-			],
-			[
 				"num",
 				"number"
 			],
@@ -66,10 +410,6 @@
 			[
 				"last",
 				"last_bit_set"
-			],
-			[
-				"in",
-				"input"
 			],
 			[
 				"rcv_ad",
@@ -98,10 +438,6 @@
 			[
 				"pc",
 				"pckt_buff"
-			],
-			[
-				"st",
-				"struct	struct"
 			],
 			[
 				"end",
@@ -160,10 +496,6 @@
 				"tail"
 			],
 			[
-				"se",
-				"service_b"
-			],
-			[
 				"add_",
 				"add_dot_str"
 			],
@@ -176,410 +508,54 @@
 				"dot_str"
 			],
 			[
-				"do",
-				"dot_str"
-			],
-			[
 				"con",
 				"consequence"
 			],
 			[
 				"agg",
 				"aggregated_edge"
-			],
-			[
-				"tai",
-				"tails"
-			],
-			[
-				"ex",
-				"excluded_metrics"
-			],
-			[
-				"pr_",
-				"pr_file_path"
-			],
-			[
-				"ed",
-				"edge"
-			],
-			[
-				"per",
-				"perpetrator"
-			],
-			[
-				"pe",
-				"perpetrator"
-			],
-			[
-				"ag",
-				"aggregate_edges"
-			],
-			[
-				"met",
-				"metric_a_score"
-			],
-			[
-				"row",
-				"row_a"
-			],
-			[
-				"ser",
-				"service_a"
-			],
-			[
-				"defa",
-				"defaultdict"
-			],
-			[
-				"out",
-				"out_edges"
-			],
-			[
-				"ou",
-				"out_edges"
-			],
-			[
-				"sta",
-				"start_pos"
-			],
-			[
-				"stt",
-				"strt_pos"
-			],
-			[
-				"del",
-				"delim_len"
-			],
-			[
-				"de",
-				"delim"
-			],
-			[
-				"we",
-				"weight"
-			],
-			[
-				"ck",
-				"icmp_cksum"
-			],
-			[
-				"snd_re",
-				"snd_rec"
-			],
-			[
-				"snd_sck",
-				"snd_sckt_type"
-			],
-			[
-				"snd_s",
-				"snd_sckt_type"
-			],
-			[
-				"use",
-				"use_icmp_echo"
-			],
-			[
-				"OP",
-				"OPTION_USE_PING"
-			],
-			[
-				"fo",
-				"foundOption"
-			],
-			[
-				"tv",
-				"tv_usec"
-			],
-			[
-				"rcv_a",
-				"rcv_addrlen"
-			],
-			[
-				"rc",
-				"rcv_bytes"
-			],
-			[
-				"sin_",
-				"sin_addr"
-			],
-			[
-				"rcv",
-				"rcv_timestamp"
-			],
-			[
-				"MAX",
-				"MAX_TTL"
-			],
-			[
-				"def",
-				"define"
-			],
-			[
-				"ret",
-				"return_code"
-			],
-			[
-				"T",
-				"TIMEOUT_REPLY"
-			],
-			[
-				"si",
-				"signal_handler"
-			],
-			[
-				"sign",
-				"signal_handler"
-			],
-			[
-				"Si",
-				"SignalHandler"
-			],
-			[
-				"h",
-				"handler"
-			],
-			[
-				"sockad",
-				"sockaddr_in"
-			],
-			[
-				"TT",
-				"TTL_EXCEEDED_REPLY"
-			],
-			[
-				"TIM",
-				"TIMEOUT_REPLY"
-			],
-			[
-				"get",
-				"gettimeofday"
-			],
-			[
-				"ICMP",
-				"ICMP_UNREACH"
-			],
-			[
-				"in_i",
-				"in_ipv4_hdr"
-			],
-			[
-				"udp",
-				"udp_hdr"
-			],
-			[
-				"ipv",
-				"ipv4_hdr_len"
-			],
-			[
-				"in_ip",
-				"in_ipv4_hdr_len"
-			],
-			[
-				"ipv4",
-				"ipv4_hdr_len"
-			],
-			[
-				"cont",
-				"continue"
-			],
-			[
-				"err",
-				"errno"
-			],
-			[
-				"sok",
-				"socklen_t"
-			],
-			[
-				"rcv_b",
-				"rcv_buff"
-			],
-			[
-				"rp",
-				"reply_hostname"
-			],
-			[
-				"repl",
-				"reply_hostname"
-			],
-			[
-				"sock",
-				"sockaddr"
-			],
-			[
-				"tv_",
-				"tv_usec"
-			],
-			[
-				"ui",
-				"uint16_t"
-			],
-			[
-				"uin",
-				"uint8_t"
-			],
-			[
-				"dst",
-				"dst_addrlen"
-			],
-			[
-				"sin",
-				"sin_port"
-			],
-			[
-				"IP",
-				"IPPROTO_IP"
-			],
-			[
-				"set",
-				"setsockopt"
-			],
-			[
-				"AFT",
-				"AF_INET"
-			],
-			[
-				"soc",
-				"socket"
-			],
-			[
-				"uint",
-				"uint16_t"
-			],
-			[
-				"proc",
-				"proccess_icmp_ipv4_reply"
-			],
-			[
-				"arg",
-				"arg_parser"
-			],
-			[
-				"dst_",
-				"dst_addrlen"
-			],
-			[
-				"icmp_data",
-				"icmp_data_len"
-			],
-			[
-				"inc",
-				"include"
-			],
-			[
-				"host",
-				"hostname"
-			],
-			[
-				"rec",
-				"recv_addr"
-			],
-			[
-				"time",
-				"timeval"
-			],
-			[
-				"recv",
-				"recv_bytes"
-			],
-			[
-				"ms",
-				"msg"
-			],
-			[
-				"icmp_da",
-				"icmp_data_len"
-			],
-			[
-				"IC",
-				"ICMP_DATA_LEN"
-			],
-			[
-				"int",
-				"interval"
-			],
-			[
-				"sen",
-				"send_icmp_echo"
-			],
-			[
-				"pre",
-				"prepare_icmp_pckt"
-			],
-			[
-				"src",
-				"src_addr"
-			],
-			[
-				"OPT",
-				"OPTION_SRC_ADDR"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "src/5-5-multiply/Makefile",
-			"settings":
-			{
-				"buffer_size": 863,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/5-5-multiply/multiply.cpp",
-			"settings":
-			{
-				"buffer_size": 4948,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/5-4-closest-int/closest-int.cpp",
-			"settings":
-			{
-				"buffer_size": 3710,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "Makefile",
 			"settings":
 			{
-				"buffer_size": 1452,
+				"buffer_size": 2650,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/common/Makefile",
+			"file": "src/6-6-stock/stock.cpp",
 			"settings":
 			{
-				"buffer_size": 729,
+				"buffer_size": 6557,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/5-0-bit-count/Makefile",
+			"file": "src/6-6-stock/Makefile",
 			"settings":
 			{
-				"buffer_size": 864,
+				"buffer_size": 860,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/5-4-closest-int/Makefile",
+			"file": "src/6-9-permutations/Makefile",
 			"settings":
 			{
-				"buffer_size": 866,
+				"buffer_size": 867,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/7-8-look-n-say/Makefile",
+			"file": "src/6-9-permutations/permutations.cpp",
 			"settings":
 			{
-				"buffer_size": 865,
+				"buffer_size": 9463,
 				"line_ending": "Unix"
 			}
 		}
@@ -624,13 +600,44 @@
 	},
 	"file_history":
 	[
-		"/home/adamiaonr/workbench/networking-sandbox/epi/src/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-5-duplicates/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-1-dutch/dutch.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-5-duplicates/duplicates.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-4-advance/advance.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/5-6-divide/divide.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-3-multiply/multiply.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/5-7-power/power.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-4-advance/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-2-increment/increment.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-3-multiply/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-2-increment/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-1-dutch/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/5-5-multiply/multiply.cpp",
+		"/home/adamiaonr/workbench/rid-testapp/src/rid_fwd.c",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/quicksort/quicksort.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/5-8-reverse/reverse.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/quicksort/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/5-8-reverse/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/5-8-reverse-digits/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/5-8-reverse-digits/reverse.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/5-7-power/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/5-7-exp/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/5-7-exp/power.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/5-6-divide/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/5-6-compute-x-y/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/5-4-closest-int/closest-int.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/5-5-multiply/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/5-6-compute-x-y/multiply.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/7-8-look-n-say/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/5-4-closest-int/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/5-0-bit-count/Makefile",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/common/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/Makefile",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/closest-int/closest-int.cpp",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/look-n-say/Makefile",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/look-n-say/look-n-say.cpp",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/closest-int/Makefile",
-		"/home/adamiaonr/workbench/networking-sandbox/epi/Makefile",
 		"/home/adamiaonr/workbench/networking-sandbox/traceroute/include/signal-handler.h",
 		"/home/adamiaonr/workbench/networking-sandbox/traceroute/src/signal-handler.cpp",
 		"/home/adamiaonr/workbench/networking-sandbox/ping/src/pingy.cpp",
@@ -720,38 +727,7 @@
 		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/nearest-replica/r5/nearest-replica-1-5.scn",
 		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/nearest-replica/r5/nearest-replica-3-5.scn",
 		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/nearest-replica/r5/nearest-replica-5-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/nearest-replica/r5/nearest-replica-7-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/nearest-replica/r10/nearest-replica-6-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/nearest-replica/r10/nearest-replica-4-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/nearest-replica/r10/nearest-replica-2-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/nearest-replica/r10/nearest-replica-1-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/nearest-replica/r10/nearest-replica-2-10",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/edge/coop/r10/edge-coop-10-3.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/nearest-replica/r10/nearest-replica-9-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/edge/coop/r10/edge-coop-10-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/edge/coop/r10/edge-coop-10-7.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/edge/coop/r5/edge-coop-5-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/edge/coop/r5/edge-coop-5-7.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/edge/off-path-coop/r10/off-path-coop-10-3.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/edge/off-path-coop/r10/off-path-coop-10-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/edge/off-path-coop/r10/off-path-coop-10-7.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/edge/off-path-coop/r5/off-path-coop-5-3.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/edge/off-path-coop/r5/off-path-coop-5-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/edge/off-path-coop/r5/off-path-coop-5-7.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/edge/coop/r5/oc-1-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/on-path/r10/oc-1-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/on-path/r5/oc-3-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/on-path/r5/oc-1-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/on-path/r5/oc-5-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/on-path/r5/oc-7-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/on-path/r5/oc-9-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/off-path/r10/oc-9-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/off-path/r10/oc-1-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/off-path/r10/oc-3-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/off-path/r10/oc-5-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/edge/coop/r10/oc-9-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/off-path/r10/oc-7-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/r10/oc-3-10.scn"
+		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/nearest-replica/r5/nearest-replica-7-5.scn"
 	],
 	"find":
 	{
@@ -771,6 +747,13 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"prev_max_profit",
+			"increment",
+			"seq",
+			"flag",
+			"random",
+			"swap",
+			"divident",
 			"unsigned int",
 			"closest-int::main()",
 			"MAX_DIGITS",
@@ -891,14 +874,7 @@
 			"_original_local",
 			"DEFAULT_CSV_DIR",
 			"DEFAULT_SCN_FILE",
-			"build_network",
-			"build_ne",
-			"fwd_table_size",
-			"f_distribution",
-			"_dis",
-			"0,5,0",
-			"0,2,0",
-			"bf_size"
+			"build_network"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -906,6 +882,11 @@
 		"regex": false,
 		"replace_history":
 		[
+			"second_max_profit",
+			"multiply",
+			"intgr",
+			"int",
+			"seq",
 			"uint32_t",
 			"multiply::main()",
 			"icmp-utils::",
@@ -1028,12 +1009,7 @@
 			"",
 			"fps-rates-fib",
 			"fig:fps-rates-entry",
-			"",
-			"*",
-			"       ",
-			"   -#",
-			"    ",
-			"o_optimistic"
+			""
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1049,18 +1025,77 @@
 			[
 				{
 					"buffer": 0,
-					"file": "src/5-5-multiply/Makefile",
+					"file": "Makefile",
 					"settings":
 					{
-						"buffer_size": 863,
+						"buffer_size": 2650,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								558,
-								558
+								2496,
+								2496
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 664.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/6-6-stock/stock.cpp",
+					"settings":
+					{
+						"buffer_size": 6557,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								138,
+								138
+							]
+						],
+						"settings":
+						{
+							"rulers":
+							[
+								80
+							],
+							"spell_check": true,
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 900.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/6-6-stock/Makefile",
+					"settings":
+					{
+						"buffer_size": 860,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								141,
+								141
 							]
 						],
 						"settings":
@@ -1074,79 +1109,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "src/5-5-multiply/multiply.cpp",
-					"settings":
-					{
-						"buffer_size": 4948,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3329,
-								3329
-							]
-						],
-						"settings":
-						{
-							"rulers":
-							[
-								80
-							],
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 90.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/5-4-closest-int/closest-int.cpp",
-					"settings":
-					{
-						"buffer_size": 3710,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3415,
-								3415
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1125.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
 					"buffer": 3,
-					"file": "Makefile",
+					"file": "src/6-9-permutations/Makefile",
 					"settings":
 					{
-						"buffer_size": 1452,
+						"buffer_size": 867,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								731,
-								731
+								148,
+								148
 							]
 						],
 						"settings":
@@ -1161,104 +1136,32 @@
 				},
 				{
 					"buffer": 4,
-					"file": "src/common/Makefile",
+					"file": "src/6-9-permutations/permutations.cpp",
 					"settings":
 					{
-						"buffer_size": 729,
+						"buffer_size": 9463,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								677,
-								677
+								2302,
+								2302
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Makefile/Makefile.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "src/5-0-bit-count/Makefile",
-					"settings":
-					{
-						"buffer_size": 864,
-						"regions":
-						{
-						},
-						"selection":
-						[
+							"rulers":
 							[
-								559,
-								559
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+								80
+							],
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "src/5-4-closest-int/Makefile",
-					"settings":
-					{
-						"buffer_size": 866,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								561,
-								561
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Makefile/Makefile.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "src/7-8-look-n-say/Makefile",
-					"settings":
-					{
-						"buffer_size": 865,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								560,
-								560
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Makefile/Makefile.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 585.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

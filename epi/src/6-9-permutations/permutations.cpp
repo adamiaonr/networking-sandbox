@@ -78,7 +78,9 @@ void extract_sequence(
 }
 
 // the key observation to solve this problem is understanding that any 
-// permutation can be represented as a set of 'cyclic permutations'. 
+// permutation can be represented as a set of 'cyclic permutations'. the 
+// following link is useful to understand them : 
+// https://cs.fit.edu/~wds/classes/adm/Lectures/RepresentingPermutations.pdf
 //
 // a cyclic permutation is a chain of pairwise permutations which 
 // result in a cycle. e.g. consider the following permutation, in 
@@ -170,9 +172,7 @@ void apply_permutation(
 //  - (2, 3, 1, 0) -> (3, 0, 1, 2)
 //  - (3, 0, 1, 2) -> (3, 1, 0, 2)
 //  - (3, 2, 1, 0) -> (0)
-std::vector<int> * get_next_permutation(std::vector<int> * permutation_ptr) {
-
-    std::vector<int> & permutation = *permutation_ptr;
+std::vector<int> get_next_permutation(std::vector<int> permutation) {
 
     // find the highest index i at which p[i] < p[i + 1], i.e. the consecutive 
     // value in the permutation is larger. this will 
@@ -182,7 +182,7 @@ std::vector<int> * get_next_permutation(std::vector<int> * permutation_ptr) {
 
     // at this point, if i is 0, then we found the largest permutation. 
     // we should return an empty array
-    if (i == 0) return NULL;
+    if (i == 0) return {};
 
     // fix i and find the highest index j at which p[j] > p[i]. this is guaranteed 
     // to exist, at least in p[i + 1]. why does this work? we know that 
@@ -201,7 +201,47 @@ std::vector<int> * get_next_permutation(std::vector<int> * permutation_ptr) {
     // the array in-between i + 1 and n - 1.
     std::reverse(permutation.begin() + i + 1, permutation.end());
 
-    return permutation_ptr;
+    return permutation;
+}
+
+// some examples with n = 4:
+//  -          (0) <- (0, 1, 2, 3) 
+//  - (0, 1, 2, 3) <- (0, 1, 3, 2)
+//  - (0, 3, 2, 1) <- (1, 0, 2, 3)
+//  - (1, 0, 3, 2) <- (1, 2, 0, 3)
+//  - (1, 3, 2, 0) <- (2, 0, 1, 3)
+//  - (2, 3, 1, 0) <- (3, 0, 1, 2)
+//  - (3, 0, 1, 2) <- (3, 1, 0, 2)
+std::vector<int> get_prev_permutation(std::vector<int> permutation) {
+
+    // find the highest index i at which p[i] > p[i + 1], i.e. the consecutive 
+    // value in the permutation is smaller. this will 
+    // determine the index at which p and q differ.
+    int i = permutation.size() - 2;
+    while(permutation[i] < permutation[i + 1]) if (--i == 0) break;
+
+    // at this point, if i is 0, then we found the smallest permutation. 
+    // we should return an empty array
+    if (i == 0) return {};
+
+    // fix i and find the highest index j at which p[i] > p[j]. this is guaranteed 
+    // to exist, at least in p[i + 1]. why does this work? we know that 
+    // above i + 1, all elements are in increasing order. as such, the 
+    // highest index at which p[i] > p[j] is the closest value to p[i] which 
+    // is also smaller. this is the appropriate value to replace p[i] with. 
+    int j = permutation.size() - 1;
+    while(permutation[i] < permutation[j]) j--;
+    // replace p[i] with p[j]
+    std::swap(permutation[i], permutation[j]);
+
+    // invert the order of elements i + 1 till (n - 1). why does this work? 
+    // after the last swap (p[i] with p[j]), all the values above p[i] 
+    // remain in increasing order. in order to be the 'previous' permutation value, 
+    // these should be in decreasing order. as such, we only need to reverse 
+    // the array in-between i + 1 and n - 1.
+    std::reverse(permutation.begin() + i + 1, permutation.end());
+
+    return permutation;
 }
 
 int main (int argc, char **argv) {
@@ -243,12 +283,15 @@ int main (int argc, char **argv) {
 
     // apply the permutation on original
     apply_permutation(&original, &permutation);
+    std::vector<int> next_permutation = get_next_permutation(permutation);
+    std::vector<int> prev_permutation = get_prev_permutation(permutation);
 
     std::cout << "permutation::main() : [INFO] permutation :"
         << "\n\tORIGINAL: " << original_str 
         << "\n\tPERMUTATION TO APPLY: " << permutation_str 
         << "\n\tAFTER PERMUTATION: " << to_intgr_str(&original)
-        << "\n\tNEXT PERMUTATION: " << (get_next_permutation(&permutation) == NULL ? "NULL" : to_intgr_str(&permutation)) << std::endl;
+        << "\n\tNEXT PERMUTATION: " << (next_permutation.empty() ? "EMPTY" : to_intgr_str(&next_permutation))
+        << "\n\tPREV PERMUTATION: " << (prev_permutation.empty() ? "EMPTY" : to_intgr_str(&prev_permutation)) << std::endl;
 
     exit(0);
 }
