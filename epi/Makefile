@@ -66,6 +66,12 @@ all: $(TARGETS)
 6-9-permutations: $(COMMON_OBJECTS)
 	make -C $(SRCDIR)/6-9-permutations
 
+6-11-offline: $(COMMON_OBJECTS)
+	make -C $(SRCDIR)/6-11-offline
+
+6-13-random-permutation: $(COMMON_OBJECTS)
+	make -C $(SRCDIR)/6-13-random-permutation
+
 7-8-look-n-say: $(COMMON_OBJECTS)
 	make -C $(SRCDIR)/7-8-look-n-say
 
@@ -92,6 +98,8 @@ clean:
 	make -C $(SRCDIR)/6-5-duplicates clean
 	make -C $(SRCDIR)/6-6-stock clean
 	make -C $(SRCDIR)/6-9-permutations clean
+	make -C $(SRCDIR)/6-11-offline clean
+	make -C $(SRCDIR)/6-13-random-permutation clean
 	make -C $(SRCDIR)/7-8-look-n-say clean
 	make -C $(SRCDIR)/quicksort clean
 	make -C $(SRCDIR)/common clean
