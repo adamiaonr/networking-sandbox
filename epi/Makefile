@@ -75,6 +75,9 @@ all: $(TARGETS)
 6-17-spiral: $(COMMON_OBJECTS)
 	make -C $(SRCDIR)/6-17-spiral
 
+7-1-stringint: $(COMMON_OBJECTS)
+	make -C $(SRCDIR)/7-1-stringint
+
 7-8-look-n-say: $(COMMON_OBJECTS)
 	make -C $(SRCDIR)/7-8-look-n-say
 
@@ -104,6 +107,7 @@ clean:
 	make -C $(SRCDIR)/6-11-offline clean
 	make -C $(SRCDIR)/6-13-random-permutation clean
 	make -C $(SRCDIR)/6-17-spiral clean
+	make -C $(SRCDIR)/7-1-stringint clean
 	make -C $(SRCDIR)/7-8-look-n-say clean
 	make -C $(SRCDIR)/quicksort clean
 	make -C $(SRCDIR)/common clean
