@@ -4,16 +4,320 @@
 		"selected_items":
 		[
 			[
+				"pre",
+				"prev_number"
+			],
+			[
+				"ne",
+				"next_number"
+			],
+			[
+				"st",
+				"string"
+			],
+			[
+				"get_",
+				"get_look_n_say_str"
+			],
+			[
+				"mn",
+				"mnemonics_no_rec"
+			],
+			[
+				"inc",
+				"inconsistent"
+			],
+			[
+				"mne",
+				"mnemonics"
+			],
+			[
+				"un",
+				"unsigned"
+			],
+			[
+				"s",
+				"std"
+			],
+			[
+				"fil",
+				"fill_mnemonics_no_rec"
+			],
+			[
+				"em",
+				"emplace_back"
+			],
+			[
+				"dep",
+				"depth_index"
+			],
+			[
+				"de",
+				"depth_index"
+			],
+			[
+				"cu",
+				"curr_depth"
+			],
+			[
+				"new",
+				"new_mnemonic_prefix"
+			],
+			[
+				"fi",
+				"fill_mnemonics_rec"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"ph",
+				"phone_number"
+			],
+			[
+				"se",
+				"sequence"
+			],
+			[
+				"ri",
+				"right_ptr"
+			],
+			[
+				"le",
+				"left_ptr"
+			],
+			[
+				"is",
+				"is_palindrome"
+			],
+			[
+				"rev",
+				"reverse_words"
+			],
+			[
+				"rig",
+				"right_wrd_ptr"
+			],
+			[
+				"rep",
+				"replace_remove_2"
+			],
+			[
+				"end",
+				"endl"
+			],
+			[
+				"we",
+				"write_index"
+			],
+			[
+				"po",
+				"pop_back"
+			],
+			[
+				"pu",
+				"push"
+			],
+			[
+				"whi",
+				"while"
+			],
+			[
+				"ex",
+				"extra_chars"
+			],
+			[
+				"pus",
+				"push_back"
+			],
+			[
+				"to",
+				"to_add"
+			],
+			[
+				"ca",
+				"carry_stack"
+			],
+			[
+				"OP",
+				"OPTION_SIZE"
+			],
+			[
+				"te",
+				"temp"
+			],
+			[
+				"seq",
+				"sequence"
+			],
+			[
+				"car",
+				"carry_stack"
+			],
+			[
+				"str",
+				"string"
+			],
+			[
+				"val",
+				"value_base_to_str"
+			],
+			[
+				"va",
+				"value_str"
+			],
+			[
+				"bas",
+				"base_to"
+			],
+			[
+				"base",
+				"base_to"
+			],
+			[
+				"to_",
+				"to_base_10"
+			],
+			[
+				"valu",
+				"value_int"
+			],
+			[
+				"con",
+				"converted"
+			],
+			[
+				"conv",
+				"convert"
+			],
+			[
+				"sa",
+				"start_i"
+			],
+			[
+				"si",
+				"size"
+			],
+			[
+				"v",
+				"value_str"
+			],
+			[
+				"conver",
+				"conversion"
+			],
+			[
+				"int",
+				"int_to_str"
+			],
+			[
+				"op",
+				"op_str"
+			],
+			[
+				"in",
+				"int"
+			],
+			[
+				"vl",
+				"value_str"
+			],
+			[
+				"ab",
+				"to_abs"
+			],
+			[
+				"max",
+				"matrix_size"
+			],
+			[
+				"ma",
+				"matrix"
+			],
+			[
+				"spi",
+				"spiral"
+			],
+			[
+				"get",
+				"get_spiral_ordering"
+			],
+			[
+				"sp",
+				"spiral_order"
+			],
+			[
+				"lef",
+				"left_limit"
+			],
+			[
+				"righ",
+				"right_limit"
+			],
+			[
+				"gen",
+				"gen_square_matrix"
+			],
+			[
+				"sub",
+				"subset_size"
+			],
+			[
+				"set",
+				"set_size"
+			],
+			[
+				"gen_",
+				"gen_random_subset"
+			],
+			[
+				"ptr",
+				"ptr2"
+			],
+			[
+				"ran",
+				"rand_val"
+			],
+			[
+				"en",
+				"end"
+			],
+			[
+				"pt",
+				"ptr2"
+			],
+			[
+				"ra",
+				"rand_index"
+			],
+			[
+				"las",
+				"last_pos"
+			],
+			[
+				"ge",
+				"get"
+			],
+			[
+				"SUB",
+				"subset_size"
+			],
+			[
+				"prev",
+				"prev_permutation"
+			],
+			[
+				"nex",
+				"next_permutation"
+			],
+			[
 				"per",
-				"permutation_ptr"
+				"permutation"
 			],
 			[
 				"t_",
 				"to_intgr_str"
-			],
-			[
-				"get",
-				"get_next_permutation"
 			],
 			[
 				"la",
@@ -28,14 +332,6 @@
 				"permutation"
 			],
 			[
-				"nex",
-				"next_in_cycle"
-			],
-			[
-				"ne",
-				"next_in_cycle"
-			],
-			[
 				"or",
 				"original"
 			],
@@ -44,16 +340,8 @@
 				"apply_permutation"
 			],
 			[
-				"to_",
-				"to_intgr_str"
-			],
-			[
 				"o",
 				"original"
-			],
-			[
-				"OP",
-				"OPTION_PERMTATION"
 			],
 			[
 				"min",
@@ -80,68 +368,24 @@
 				"local_min_buy_price"
 			],
 			[
-				"cu",
-				"curr_profit"
-			],
-			[
-				"st",
-				"std"
-			],
-			[
-				"max",
-				"max_profit_pos"
-			],
-			[
 				"sec",
 				"second_max_profit_pos"
-			],
-			[
-				"pre",
-				"prev_max_profit"
 			],
 			[
 				"cur",
 				"curr_min_buy_price_pos"
 			],
 			[
-				"prev",
-				"prev_max_profit"
-			],
-			[
 				"max_",
 				"max_profit_pos"
-			],
-			[
-				"ma",
-				"max_profit"
-			],
-			[
-				"seq",
-				"seq"
-			],
-			[
-				"in",
-				"int"
-			],
-			[
-				"to",
-				"to_intgr_str"
 			],
 			[
 				"dele",
 				"delete_duplicates"
 			],
 			[
-				"se",
-				"seq"
-			],
-			[
 				"ext",
 				"extract_sequence"
-			],
-			[
-				"las",
-				"last_unique_pos"
 			],
 			[
 				"last_",
@@ -150,10 +394,6 @@
 			[
 				"u",
 				"unsigned"
-			],
-			[
-				"un",
-				"unsolvable"
 			],
 			[
 				"sol",
@@ -184,28 +424,12 @@
 				"board"
 			],
 			[
-				"is",
-				"is_solvable"
-			],
-			[
-				"ex",
-				"extract_board"
-			],
-			[
 				"b",
 				"back"
 			],
 			[
-				"si",
-				"sign_bit"
-			],
-			[
 				"sig",
 				"sign"
-			],
-			[
-				"op",
-				"oprnd_1"
 			],
 			[
 				"res",
@@ -220,16 +444,8 @@
 				"oprnd_1"
 			],
 			[
-				"s",
-				"size"
-			],
-			[
 				"oprn",
 				"oprnd_1_ptr"
-			],
-			[
-				"int",
-				"intgr"
 			],
 			[
 				"left",
@@ -244,24 +460,12 @@
 				"pointers"
 			],
 			[
-				"lef",
-				"left_ptr"
-			],
-			[
 				"EQ",
 				"equal_left_ptr"
 			],
 			[
 				"swa",
 				"swapped"
-			],
-			[
-				"ri",
-				"right_ptr"
-			],
-			[
-				"le",
-				"left_ptr"
 			],
 			[
 				"pi",
@@ -278,18 +482,6 @@
 			[
 				"fl",
 				"flag"
-			],
-			[
-				"gen",
-				"gen_random_flag"
-			],
-			[
-				"de",
-				"default"
-			],
-			[
-				"rig",
-				"right_brdr"
 			],
 			[
 				"prin",
@@ -312,10 +504,6 @@
 				"array"
 			],
 			[
-				"re",
-				"return"
-			],
-			[
 				"part",
 				"part_elmnt_value"
 			],
@@ -326,236 +514,51 @@
 			[
 				"pow",
 				"power_tail_rec"
-			],
-			[
-				"po",
-				"power"
-			],
-			[
-				"fin",
-				"find_k"
-			],
-			[
-				"exp",
-				"exponent"
-			],
-			[
-				"do",
-				"double"
-			],
-			[
-				"di",
-				"divisor"
-			],
-			[
-				"r",
-				"remainder"
-			],
-			[
-				"ite",
-				"n_iter"
-			],
-			[
-				"div",
-				"dividend"
-			],
-			[
-				"divide",
-				"dividend"
-			],
-			[
-				"op2_",
-				"op2_aux"
-			],
-			[
-				"op2",
-				"op2"
-			],
-			[
-				"rs",
-				"result"
-			],
-			[
-				"op1",
-				"op1_shift"
-			],
-			[
-				"ops",
-				"ops_str"
-			],
-			[
-				"spl",
-				"split_str"
-			],
-			[
-				"str",
-				"string"
-			],
-			[
-				"CO",
-				"COMMON_OBJECTS"
-			],
-			[
-				"num",
-				"number"
-			],
-			[
-				"rightmost_b",
-				"rightmost_bit_unset"
-			],
-			[
-				"usi",
-				"unsigned"
-			],
-			[
-				"last",
-				"last_bit_set"
-			],
-			[
-				"rcv_ad",
-				"rcv_addrlen"
-			],
-			[
-				"in_",
-				"in_icmp_hdr"
-			],
-			[
-				"ICM",
-				"ICMP_ECHOREPLY"
-			],
-			[
-				"ic",
-				"icmp_type"
-			],
-			[
-				"icm",
-				"icmp_hdr"
-			],
-			[
-				"ip",
-				"ipv4_hdr_len"
-			],
-			[
-				"pc",
-				"pckt_buff"
-			],
-			[
-				"end",
-				"endl"
-			],
-			[
-				"icmp",
-				"icmp_hdr"
-			],
-			[
-				"check",
-				"checksum"
-			],
-			[
-				"NU",
-				"NUM_RETRIES"
-			],
-			[
-				"snd",
-				"snd_seq"
-			],
-			[
-				"sn",
-				"snd_seq"
-			],
-			[
-				"sn_",
-				"snd_rec"
-			],
-			[
-				"snd_",
-				"snd_record"
-			],
-			[
-				"pck",
-				"pckt_bytes"
-			],
-			[
-				"rcv_",
-				"rcv_bytes"
-			],
-			[
-				"in_ic",
-				"in_icmp_hdr"
-			],
-			[
-				"icmp_",
-				"icmp_hdr"
-			],
-			[
-				"w",
-				"write"
-			],
-			[
-				"ta",
-				"tail"
-			],
-			[
-				"add_",
-				"add_dot_str"
-			],
-			[
-				"dot_",
-				"dot_str"
-			],
-			[
-				"dot",
-				"dot_str"
-			],
-			[
-				"con",
-				"consequence"
-			],
-			[
-				"agg",
-				"aggregated_edge"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
+			"file": "src/7-7-phone-numbers/phone-numbers.cpp",
+			"settings":
+			{
+				"buffer_size": 7890,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/7-7-phone-numbers/Makefile",
+			"settings":
+			{
+				"buffer_size": 868,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "Makefile",
 			"settings":
 			{
-				"buffer_size": 2650,
+				"buffer_size": 3567,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/6-6-stock/stock.cpp",
+			"file": "src/6-13-random-permutation/random-permutation.cpp",
 			"settings":
 			{
-				"buffer_size": 6557,
+				"buffer_size": 8493,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/6-6-stock/Makefile",
+			"contents": "#include <math.h>\n#include <stdlib.h>\n#include <stdio.h>\n#include <string.h>\n\n#include <iostream>\n#include <ctime>\n#include <thread>\n#include <bitset>\n#include <string>\n#include <vector>\n\n#include \"common.h\"\n#include \"argvparser.h\"\n\nusing namespace CommandLineProcessing;\n\n#define OPTION_N        (char *) \"n\"\n#define MAX_DIGITS      2048\n\nArgvParser * create_argv_parser() {\n\n    ArgvParser * parser = new ArgvParser();\n\n    parser->setIntroductoryDescription(\"\\n\\nthe look-and-say problem \\\n(EPI problem 7.8, page 102)\\n\\n\\nby adamiaonr@gmail.com\");\n    parser->setHelpOption(\"h\", \"help\", \"help page\");\n\n    parser->defineOption(\n            OPTION_N,\n            \"index of 'look-n-say' integer to determine\",\n            ArgvParser::OptionRequiresValue | ArgvParser::OptionRequired);\n\n    return parser;\n}\n\nstd::string get_look_n_say(int n) {\n\n    std::string prev_number = \"1\", next_number;\n\n    // generate all look-n-say numbers till the n-th\n    for (int i = 1; i < n; i++) {\n\n        next_number = \"\";\n\n        for (int j = 0; j < prev_number.size(); j++) {\n\n            int digit_cnt = 1;\n            while ((j < prev_number.size() - 1) && prev_number[j] == prev_number[j + 1]) { ++j; ++digit_cnt; }\n            next_number.push_back((char) (digit_cnt + (int) '0'));\n            next_number.push_back(prev_number[j]);\n        }\n\n        std::cout << \"look-n-say::get_look_n_say() : [INFO] next_number[\" << i << \"] = \" << next_number << std::endl;\n        prev_number = next_number;\n    }\n\n    return next_number;\n}\n\nint main (int argc, char **argv) {\n\n    ArgvParser * arg_parser = create_argv_parser();\n\n    int n = 0;\n    // parse() takes the arguments to main() and parses them according to \n    // ArgvParser rules\n    int parse_result = arg_parser->parse(argc, argv);\n\n    if (parse_result == ArgvParser::ParserHelpRequested) {\n\n        std::cerr << arg_parser->parseErrorDescription(parse_result).c_str() << std::endl;\n        delete arg_parser;\n        exit(-1);\n\n    } else if (parse_result != ArgvParser::NoParserError) {\n\n        std::cerr << arg_parser->parseErrorDescription(parse_result).c_str() << std::endl;\n        std::cerr << \"look-n-say::main() : [ERROR] use option -h for help.\" << std::endl;\n\n        delete arg_parser;\n        exit(-1);\n\n    } else {\n\n        n = std::stoi(arg_parser->optionValue(OPTION_N));\n    }\n\n    delete arg_parser;\n\n    std::cout << \"look-n-say::main() : [INFO] \" << n << \"-th look-n-say nr.: \" \n        << get_look_n_say(n) << std::endl;\n\n    exit(0);\n}",
+			"file": "src/7-8-look-n-say/look-n-say.cpp",
+			"file_size": 2514,
+			"file_write_time": 1490475686000000,
 			"settings":
 			{
-				"buffer_size": 860,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/6-9-permutations/Makefile",
-			"settings":
-			{
-				"buffer_size": 867,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/6-9-permutations/permutations.cpp",
-			"settings":
-			{
-				"buffer_size": 9463,
+				"buffer_size": 2510,
 				"line_ending": "Unix"
 			}
 		}
@@ -600,16 +603,35 @@
 	},
 	"file_history":
 	[
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-9-permutations/permutations.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/7-5-palindrome/palindrome.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/7-5-palindromicity/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/7-5-palindromicity/palindrome.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/5-6-divide/divide.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/7-4-replace-remove/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/7-4-replace-remove/replace-remove.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/7-2-base-conversion/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/7-2-base-conversion/base-conversion.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/7-1-stringint/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-3-multiply/multiply.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/7-1-stringint/stringint.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-17-spiral/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-17-spiral/spiral.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-13-random-permutation/random-permutation.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-11-offline/offline.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-6-stock/stock.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-4-advance/advance.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-13-random-permutation/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-6-stock/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-9-permutations/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-11-offline/Makefile",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-5-duplicates/Makefile",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-1-dutch/dutch.cpp",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-5-duplicates/duplicates.cpp",
-		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-4-advance/advance.cpp",
-		"/home/adamiaonr/workbench/networking-sandbox/epi/src/5-6-divide/divide.cpp",
-		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-3-multiply/multiply.cpp",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/5-7-power/power.cpp",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-4-advance/Makefile",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-2-increment/increment.cpp",
-		"/home/adamiaonr/workbench/networking-sandbox/epi/Makefile",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-3-multiply/Makefile",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-2-increment/Makefile",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-1-dutch/Makefile",
@@ -708,26 +730,7 @@
 		"/Users/adamiaonr/workbench/rid-analytics/test/data/sanity-check/caching/pervasive/nearest-replica/r10/nearest-replica-5-10-320.csv",
 		"/Users/adamiaonr/workbench/rid-analytics/test/data/sanity-check/caching/pervasive/on-path/r10/on-path-5-10-320.csv",
 		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/nearest-replica/r10/nearest-replica-3-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/data/sanity-check/caching/pervasive/nearest-replica/r10/nearest-replica-3-10-320.csv",
-		"/Users/adamiaonr/workbench/rid-analytics/test/data/sanity-check/caching/edge/coop/r10/edge-coop-10-3-160.csv",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/edge/coop/r10/edge-coop-3-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/nearest-replica/r5/nearest-replica-6-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/nearest-replica/r5/nearest-replica-4-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/nearest-replica/r5/nearest-replica-2-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/data/sanity-check/caching/pervasive/on-path/r10/on-path-9-10-160.csv",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/on-path/r5/on-path-1-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/on-path/r5/on-path-2-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/on-path/r5/on-path-3-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/on-path/r5/on-path-4-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/on-path/r5/on-path-5-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/on-path/r5/on-path-6-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/on-path/r5/on-path-7-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/on-path/r5/on-path-8-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/on-path/r5/on-path-9-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/nearest-replica/r5/nearest-replica-1-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/nearest-replica/r5/nearest-replica-3-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/nearest-replica/r5/nearest-replica-5-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/nearest-replica/r5/nearest-replica-7-5.scn"
+		"/Users/adamiaonr/workbench/rid-analytics/test/data/sanity-check/caching/pervasive/nearest-replica/r10/nearest-replica-3-10-320.csv"
 	],
 	"find":
 	{
@@ -747,6 +750,12 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"mnme",
+			"<vector",
+			"intgr_str",
+			"rand_val",
+			"subset_size",
+			",",
 			"prev_max_profit",
 			"increment",
 			"seq",
@@ -868,13 +877,7 @@
 			"get_log_fp_rates",
 			"fwd_table_si",
 			"num_entries",
-			"fwd_table_size",
-			"expanded_size",
-			"add_fwd_table_entry",
-			"_original_local",
-			"DEFAULT_CSV_DIR",
-			"DEFAULT_SCN_FILE",
-			"build_network"
+			"fwd_table_size"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -882,6 +885,12 @@
 		"regex": false,
 		"replace_history":
 		[
+			"<std::vector",
+			"matrix_str",
+			"random_index",
+			"remaining_in_set",
+			" remaining_in_set",
+			" ",
 			"second_max_profit",
 			"multiply",
 			"intgr",
@@ -1003,13 +1012,7 @@
 			"depth",
 			"graphviz_",
 			"next_depth",
-			"prev_depth",
-			"Drawbacks:",
-			"Advantages:",
-			"",
-			"fps-rates-fib",
-			"fig:fps-rates-entry",
-			""
+			"prev_depth"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1025,77 +1028,72 @@
 			[
 				{
 					"buffer": 0,
-					"file": "Makefile",
+					"file": "src/7-7-phone-numbers/phone-numbers.cpp",
 					"settings":
 					{
-						"buffer_size": 2650,
+						"buffer_size": 7890,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2496,
-								2496
+								6754,
+								6754
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 664.0,
+						"translation.y": 2340.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "src/6-6-stock/stock.cpp",
+					"file": "src/7-7-phone-numbers/Makefile",
 					"settings":
 					{
-						"buffer_size": 6557,
+						"buffer_size": 868,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								138,
-								138
+								149,
+								149
 							]
 						],
 						"settings":
 						{
-							"rulers":
-							[
-								80
-							],
-							"spell_check": true,
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 900.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "src/6-6-stock/Makefile",
+					"file": "Makefile",
 					"settings":
 					{
-						"buffer_size": 860,
+						"buffer_size": 3567,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								141,
-								141
+								3413,
+								3413
 							]
 						],
 						"settings":
@@ -1103,65 +1101,63 @@
 							"syntax": "Packages/Makefile/Makefile.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1350.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "src/6-9-permutations/Makefile",
+					"file": "src/6-13-random-permutation/random-permutation.cpp",
 					"settings":
 					{
-						"buffer_size": 867,
+						"buffer_size": 8493,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								148,
-								148
+								5229,
+								5229
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1485.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "src/6-9-permutations/permutations.cpp",
+					"file": "src/7-8-look-n-say/look-n-say.cpp",
 					"settings":
 					{
-						"buffer_size": 9463,
+						"buffer_size": 2510,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2302,
-								2302
+								1323,
+								1323
 							]
 						],
 						"settings":
 						{
-							"rulers":
-							[
-								80
-							],
 							"syntax": "Packages/C++/C++.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 585.0,
+						"translation.y": 450.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

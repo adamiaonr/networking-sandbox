@@ -15,62 +15,54 @@
 
 using namespace CommandLineProcessing;
 
-#define OPTION_INPUT    (char *) "input"
+#define OPTION_N        (char *) "n"
 #define MAX_DIGITS      2048
 
 ArgvParser * create_argv_parser() {
 
     ArgvParser * parser = new ArgvParser();
 
-    parser->setIntroductoryDescription("\n\ncalcs n-th 'look-n-say' integer \
-(EPI problem page 27)\n\n\nby adamiaonr@gmail.com");
+    parser->setIntroductoryDescription("\n\nthe look-and-say problem \
+(EPI problem 7.8, page 102)\n\n\nby adamiaonr@gmail.com");
     parser->setHelpOption("h", "help", "help page");
 
     parser->defineOption(
-            OPTION_INPUT,
+            OPTION_N,
             "index of 'look-n-say' integer to determine",
             ArgvParser::OptionRequiresValue | ArgvParser::OptionRequired);
 
     return parser;
 }
 
-int get_look_n_say_str(
-    char * input_number_str, 
-    char * output_number_str) {
+std::string get_look_n_say(int n) {
 
-    int digit_qty = 0, insert_point = 0;
+    std::string prev_number = "1", next_number;
 
-    memset(output_number_str, 0, strlen(output_number_str));
+    // generate all look-n-say numbers till the n-th
+    for (int i = 1; i < n; i++) {
 
-    snprintf(&output_number_str[0], 2, "%d", ++digit_qty);
-    snprintf(&output_number_str[1], 2, "%c", input_number_str[0]);
+        next_number = "";
 
-    // std::cout << "look-n-say::get_look_n_say_str() : [INFO] look-n-say nr.: " << input_number_str 
-    //     << " -> " << output_number_str << std::endl;
+        for (unsigned j = 0; j < prev_number.size(); j++) {
 
-    for (unsigned int i = 1; i < strlen(input_number_str); i++) {
-
-        if (input_number_str[i] != input_number_str[i - 1]) {
-
-            insert_point += 2;
-            digit_qty = 0;
+            int digit_cnt = 1;
+            while ((j < prev_number.size() - 1) && prev_number[j] == prev_number[j + 1]) { ++j; ++digit_cnt; }
+            next_number.push_back((char) (digit_cnt + (int) '0'));
+            next_number.push_back(prev_number[j]);
         }
 
-        snprintf(&output_number_str[insert_point], 2, "%d", ++digit_qty);
-        snprintf(&output_number_str[insert_point + 1], 2, "%c", input_number_str[i]);
-
-        // std::cout << "look-n-say::get_look_n_say_str() : [INFO] updating look-n-say nr.: " << input_number_str 
-        //     << " -> " << output_number_str << std::endl;
+        std::cout << "look-n-say::get_look_n_say() : [INFO] next_number[" << i << "] = " << next_number << std::endl;
+        prev_number = next_number;
     }
 
-    return 0;
+    return next_number;
 }
 
 int main (int argc, char **argv) {
 
     ArgvParser * arg_parser = create_argv_parser();
 
-    int index = 1;
+    int n = 0;
     // parse() takes the arguments to main() and parses them according to 
     // ArgvParser rules
     int parse_result = arg_parser->parse(argc, argv);
@@ -84,32 +76,20 @@ int main (int argc, char **argv) {
     } else if (parse_result != ArgvParser::NoParserError) {
 
         std::cerr << arg_parser->parseErrorDescription(parse_result).c_str() << std::endl;
-        std::cerr << "bit-count::main() : [ERROR] use option -h for help." << std::endl;
+        std::cerr << "look-n-say::main() : [ERROR] use option -h for help." << std::endl;
 
         delete arg_parser;
         exit(-1);
 
     } else {
 
-        Common::get_int_arg(arg_parser, index, OPTION_INPUT);
+        n = std::stoi(arg_parser->optionValue(OPTION_N));
     }
 
     delete arg_parser;
 
-    char input_number_str[MAX_DIGITS] = "1", output_number_str[MAX_DIGITS] = "\0";
-
-    for (int i = 0; i < index; i++) {
-
-        get_look_n_say_str(input_number_str, output_number_str);
-        std::cout << "look-n-say::main() : [INFO] " << i << "-th look-n-say nr.: " << input_number_str 
-            << " -> " << output_number_str << std::endl;
-
-        memset(input_number_str, 0, strlen(input_number_str));
-        strncpy(input_number_str, output_number_str, MAX_DIGITS);
-    }
-
-    std::cout << "look-n-say::main() : [INFO] " << index << "-th look-n-say nr.: " 
-        << output_number_str << std::endl;
+    std::cout << "look-n-say::main() : [INFO] " << n << "-th look-n-say nr.: " 
+        << get_look_n_say(n) << std::endl;
 
     exit(0);
 }
