@@ -50,62 +50,6 @@ ArgvParser * create_argv_parser() {
     return parser;
 }
 
-int to_abs(int value) {
-
-    // here's the trick to abs() an integer. if the int is negative, you 
-    // 'toggle' its bits and add 1 (2's complement arithmetic).
-
-    // drag the sign bit to the right. if it is set, then this will set 
-    // all bits to 1, if not set, this will keep it as 0.
-    uint32_t drag_sign_bit = value >> ((sizeof(value) * 8) - 1);
-    // then XOR value with sign_bit
-    value ^= drag_sign_bit;
-    value += (drag_sign_bit & 1);
-
-    return value;  
-}
-
-std::string int_to_str(int value_int) {
-
-    std::string value_str = "";
-    bool is_negative = ((value_int < 0) ? true : false);
-    value_int = to_abs(value_int);
-
-    while (value_int > 0) {
-
-        // extract the least sign. digit from value_int
-        int digit = (value_int % 10);
-        // add the ascii value of the digit (i.e. + the int value of the char '0')
-        value_str.push_back((char) (digit + ((int) '0')));
-        // remove the digit just added to value_str
-        value_int = value_int / 10;
-    }
-
-    if (is_negative) value_str.push_back('-');
-
-    // for (unsigned i = 0; i < (value_str.size() / 2); i++)
-    //     std::swap(value_str[0], value_str[value_str.size() - 1 - i]);
-
-    return {value_str.rbegin(), value_str.rend()};
-}
-
-int str_to_int(std::string value_str) {
-
-    int value_int = 0, start_i = 0;
-
-    if (value_str[0] == '-') start_i = 1;
-
-    // for each digit added to value_int, shift one digit of 
-    // value_int to the left (i.e. value_int x 10).
-    // note how strings are organized : e.g. for string 'darth',
-    // 0 1 2 3 4 5
-    // d a r t h \0
-    for (unsigned i = start_i; i < value_str.size(); i++)
-        value_int = (value_int * 10) + (int) (value_str[i]) - ((int) '0');
-
-    return (start_i ? -value_int : value_int);
-}
-
 int get_digit(char c) {
 
     int c_int = (int) c;

@@ -78,6 +78,15 @@ all: $(TARGETS)
 7-1-stringint: $(COMMON_OBJECTS)
 	make -C $(SRCDIR)/7-1-stringint
 
+7-2-base-conversion: $(COMMON_OBJECTS)
+	make -C $(SRCDIR)/7-2-base-conversion
+
+7-4-replace-remove: $(COMMON_OBJECTS)
+	make -C $(SRCDIR)/7-4-replace-remove
+
+7-5-palindrome: $(COMMON_OBJECTS)
+	make -C $(SRCDIR)/7-5-palindrome
+
 7-8-look-n-say: $(COMMON_OBJECTS)
 	make -C $(SRCDIR)/7-8-look-n-say
 
@@ -108,6 +117,9 @@ clean:
 	make -C $(SRCDIR)/6-13-random-permutation clean
 	make -C $(SRCDIR)/6-17-spiral clean
 	make -C $(SRCDIR)/7-1-stringint clean
+	make -C $(SRCDIR)/7-2-base-conversion clean
+	make -C $(SRCDIR)/7-4-replace-remove clean
+	make -C $(SRCDIR)/7-5-palindrome clean
 	make -C $(SRCDIR)/7-8-look-n-say clean
 	make -C $(SRCDIR)/quicksort clean
 	make -C $(SRCDIR)/common clean
