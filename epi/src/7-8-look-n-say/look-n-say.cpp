@@ -22,7 +22,8 @@ ArgvParser * create_argv_parser() {
 
     ArgvParser * parser = new ArgvParser();
 
-    parser->setIntroductoryDescription("\n\ncalcs n-th 'look-n-say' integer (EPI problem page 27)\n\n\nby adamiaonr@gmail.com");
+    parser->setIntroductoryDescription("\n\ncalcs n-th 'look-n-say' integer \
+(EPI problem page 27)\n\n\nby adamiaonr@gmail.com");
     parser->setHelpOption("h", "help", "help page");
 
     parser->defineOption(

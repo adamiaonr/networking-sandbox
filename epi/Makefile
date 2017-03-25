@@ -87,6 +87,9 @@ all: $(TARGETS)
 7-5-palindrome: $(COMMON_OBJECTS)
 	make -C $(SRCDIR)/7-5-palindrome
 
+7-7-phone-numbers: $(COMMON_OBJECTS)
+	make -C $(SRCDIR)/7-7-phone-numbers
+
 7-8-look-n-say: $(COMMON_OBJECTS)
 	make -C $(SRCDIR)/7-8-look-n-say
 
@@ -120,6 +123,7 @@ clean:
 	make -C $(SRCDIR)/7-2-base-conversion clean
 	make -C $(SRCDIR)/7-4-replace-remove clean
 	make -C $(SRCDIR)/7-5-palindrome clean
+	make -C $(SRCDIR)/7-7-phone-numbers clean
 	make -C $(SRCDIR)/7-8-look-n-say clean
 	make -C $(SRCDIR)/quicksort clean
 	make -C $(SRCDIR)/common clean
