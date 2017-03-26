@@ -99,6 +99,9 @@ all: $(TARGETS)
 7-11-snakestring: $(COMMON_OBJECTS)
 	make -C $(SRCDIR)/7-11-snakestring
 
+7-13-substr: $(COMMON_OBJECTS)
+	make -C $(SRCDIR)/7-13-substr
+
 quicksort: $(COMMON_OBJECTS)
 	make -C $(SRCDIR)/quicksort
 
@@ -133,6 +136,7 @@ clean:
 	make -C $(SRCDIR)/7-8-look-n-say clean
 	make -C $(SRCDIR)/7-9-roman-numbers clean
 	make -C $(SRCDIR)/7-11-snakestring clean
+	make -C $(SRCDIR)/7-13-substr	 clean
 	make -C $(SRCDIR)/quicksort clean
 	make -C $(SRCDIR)/common clean
 	$(RM) -r $(BUILDDIR) *~
