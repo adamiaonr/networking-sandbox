@@ -45,26 +45,6 @@ ArgvParser * create_argv_parser() {
     return parser;
 }
 
-int get_digit(char c) {
-
-    int c_int = (int) c;
-
-    // check if a letter (A to F) or a numerical digit
-    if (c_int > (int) '9') {
-
-        // if a letter, check if lowercase or uppercase (just in 'case'... pun 
-        // intended)
-        if (c_int > (int) 'Z')
-            return c_int - (int) 'a';
-        else
-            return c_int - (int) 'A';
-
-    } else {
-
-        return c_int - (int) '0';
-    }
-}
-
 void get_text_str(std::string text_filename, std::string & text_str) {
 
     // open the .txt file, save it to a string. we used 
