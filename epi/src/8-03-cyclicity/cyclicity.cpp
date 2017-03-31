@@ -112,6 +112,8 @@ std::string to_str(
         if (i++ == cycle_start) cycle_start_node = curr_node;
     }
 
+    list_str += std::to_string(curr_node->data) + ", ";    
+
     return list_str;
 }
 
@@ -134,8 +136,8 @@ std::string to_str(
 //    we can return back_node->next as the start of the cycle.
 //  - we should also stop if back_node->next == NULL
 //
-// what is the complexity of this? O(n^2) time, O(1) space. apparently there's 
-// an O(n) solution though...
+// what is the complexity of this? O(n^2) time, O(1) space. this is a brute force 
+// approach, and apparently there's an O(n) solution.
 std::shared_ptr<List_Node<int>> cyclicity_test(
     std::shared_ptr<List_Node<int>> list) {
 
@@ -162,6 +164,85 @@ std::shared_ptr<List_Node<int>> cyclicity_test(
     }
 
     return back_node->next;
+}
+
+// wasn't able to come up with this on my own, but this technique is 
+// interesting do detect and determine the position of a cycle in O(n) time 
+// and O(1) space, so i decided to replicate it.
+std::shared_ptr<List_Node<int>> cyclicity_test_2(
+    std::shared_ptr<List_Node<int>> list) {
+
+    // detect a cycle using slow and fast iterators. slow advances by 1 
+    // position, fast by 2 positions.
+    auto fast = list, slow = list;
+
+    // if there is a cycle, both iterators will eventually get 'stuck' in 
+    // it. the fast iterator goes around the cycle twice as fast as the slow 
+    // iterator. analyzing some simple examples, we can see that regardless 
+    // of the parity of the cycle size, the iterators will meet in the first 
+    // time slow goes around the cycle. as such, the detection method is 
+    // O(n).
+
+    // the following lines represent the positions within the cycle at 
+    // of the fast and slow iterators at each iteration. the '*' represent 
+    // the points at which slow and fast iterators meet.
+
+    // slow: 0 1 2 0 1 2 0 1 2 ...
+    //         *     *     *
+    // fast: 2 1 0 2 1 0 2 1 0 ...
+    //           *     *     *
+    //       1 0 2 1 0 2 1 0 2 ...
+    //       *     *     *
+    //       0 2 1 0 2 1 0 2 1 ...
+
+    // slow: 0 1 2 3 0 1 2 3 ...
+    //         *       *
+    // fast: 3 1 3 1 3 1 3 1 ...
+    //           *       *
+    //       2 0 2 0 2 0 2 0 ...
+    //             *       *
+    //       1 3 1 3 1 3 1 3 ...
+    //       *       *      
+    //       0 2 0 2 0 2 0 2 ...
+    while(fast && fast->next) {
+        slow = slow->next;
+        fast = fast->next->next;
+
+        if (fast == slow) break;
+    }
+
+    // if no cycle exists, return NULL (this sounds ugly, right?)
+    if (fast == NULL || fast->next == NULL) return NULL;
+
+    // ok, we've detected the existence of a cycle. that's just half the job, 
+    // since we also need to determine its starting position. the way to 
+    // do this is also interesting. say we have the following list w/ 6 nodes 
+    // and a cycle:
+    //
+    // 0    1       2       3      4      5       6
+    // L -> (23) -> (53) -> (1) -> (3) -> (16) -> (112)
+    //                       ^                      :
+    //                       :----------------------:
+    //
+    // the key observation is to realize that, in a cycle the last 
+    // element points to the first (ok, obvious...) AND the last element in the 
+    // cycle is cycle_size nodes ahead of the first. as such, if we determine 
+    // the cycle size, set 2 pointers cycle_size nodes appart, and increment 
+    // their position in tandem, we can check when last->next == firt. when 
+    // that happens, firt is the starting position!
+
+    // note that if we make the iterators to meet again, we can determine the 
+    // size of the cycle. 
+    int cycle_size = 0;
+    do { cycle_size++; slow = slow->next; } while (fast != slow);
+    // first and last pointers
+    auto first = list->next, last = list->next;
+    // set last cycle_size positions ahead of first
+    while (--cycle_size) last = last->next;
+    // advance the last and first in tandem, until last points to first
+    while (last->next != first) { last = last->next; first = first->next; }
+
+    return first;
 }
 
 int main (int argc, char **argv) {
@@ -199,17 +280,17 @@ int main (int argc, char **argv) {
     delete arg_parser;
 
     auto list = create_list(list_str, cycle_start);
-    std::cout << "cyclicity::main() : [INFO] reverse sublist : "
+    std::cout << "cyclicity::main() : [INFO] list info : "
         << "\n\t[LIST] : " << to_str(list, cycle_start)
         << "\n\t[CYCLE START] : " << cycle_start;
 
     // reverse the sublist, in place
-    auto cycle_start_node = cyclicity_test(list);
+    auto cycle_start_node = cyclicity_test_2(list);
     std::cout << "\n\t[DETECTED CYCLE] : ";
 
     if (cycle_start_node == NULL) {
 
-        std::cout << "NONE";
+        std::cout << "NONE" << std::endl;
 
     } else {
 
