@@ -211,7 +211,7 @@ std::shared_ptr<List_Node<int>> cyclicity_test_2(
         if (fast == slow) break;
     }
 
-    // if no cycle exists, return NULL (this sounds ugly, right?)
+    // if no cycle exists, return NULL (this looks ugly, right?)
     if (fast == NULL || fast->next == NULL) return NULL;
 
     // ok, we've detected the existence of a cycle. that's just half the job, 

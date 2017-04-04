@@ -4,16 +4,96 @@
 		"selected_items":
 		[
 			[
+				"st",
+				"std"
+			],
+			[
+				"cycl",
+				"cycle"
+			],
+			[
+				"cyc",
+				"cycle_size"
+			],
+			[
 				"li",
-				"list_2"
+				"list"
+			],
+			[
+				"cycle",
+				"cycle_start"
+			],
+			[
+				"S",
+				"START"
+			],
+			[
+				"cy",
+				"cycle_start"
+			],
+			[
+				"lis",
+				"list"
+			],
+			[
+				"dy",
+				"dummy_head"
+			],
+			[
+				"OP",
+				"OPTION_CYCLE_START"
+			],
+			[
+				"b",
+				"back_node"
+			],
+			[
+				"bac",
+				"back_node"
+			],
+			[
+				"back",
+				"back_node"
+			],
+			[
+				"ex",
+				"extract_sequence"
+			],
+			[
+				"en",
+				"endl"
+			],
+			[
+				"su",
+				"sublist_start"
+			],
+			[
+				"rev",
+				"reverse_sublist"
+			],
+			[
+				"pr",
+				"prev"
+			],
+			[
+				"be",
+				"before_head"
+			],
+			[
+				"aft",
+				"after_tail"
+			],
+			[
+				"sub",
+				"sublist_end"
+			],
+			[
+				"in",
+				"int"
 			],
 			[
 				"ta",
 				"tail"
-			],
-			[
-				"lis",
-				"list_2"
 			],
 			[
 				"l",
@@ -64,20 +144,12 @@
 				"sequence"
 			],
 			[
-				"OP",
-				"OPTION_SEQUENCE_1"
-			],
-			[
 				"inc",
 				"include"
 			],
 			[
 				"te",
 				"text_str"
-			],
-			[
-				"sub",
-				"substr_hash"
 			],
 			[
 				"coll",
@@ -90,10 +162,6 @@
 			[
 				"tex",
 				"text_str"
-			],
-			[
-				"su",
-				"substr_pos"
 			],
 			[
 				"get_",
@@ -134,10 +202,6 @@
 			[
 				"ro",
 				"row_step"
-			],
-			[
-				"in",
-				"input_str"
 			],
 			[
 				"top",
@@ -196,10 +260,6 @@
 				"prev_number"
 			],
 			[
-				"st",
-				"string"
-			],
-			[
 				"mn",
 				"mnemonics_no_rec"
 			],
@@ -256,10 +316,6 @@
 				"is_palindrome"
 			],
 			[
-				"rev",
-				"reverse_words"
-			],
-			[
 				"rig",
 				"right_wrd_ptr"
 			],
@@ -286,10 +342,6 @@
 			[
 				"whi",
 				"while"
-			],
-			[
-				"ex",
-				"extra_chars"
 			],
 			[
 				"pus",
@@ -420,10 +472,6 @@
 				"rand_val"
 			],
 			[
-				"en",
-				"end"
-			],
-			[
 				"pt",
 				"ptr2"
 			],
@@ -466,59 +514,59 @@
 			[
 				"lar",
 				"largest_value"
-			],
-			[
-				"perm",
-				"permutation"
-			],
-			[
-				"or",
-				"original"
-			],
-			[
-				"appl",
-				"apply_permutation"
-			],
-			[
-				"o",
-				"original"
-			],
-			[
-				"min",
-				"min_buy_price_pos"
-			],
-			[
-				"mi",
-				"min_buy_price"
-			],
-			[
-				"loca",
-				"local_min_buy_price"
-			],
-			[
-				"pr",
-				"profit"
-			],
-			[
-				"loc",
-				"local_min_buy_price"
-			],
-			[
-				"lo",
-				"local_min_buy_price"
-			],
-			[
-				"sec",
-				"second_max_profit_pos"
-			],
-			[
-				"cur",
-				"curr_min_buy_price_pos"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "src/8-02-reverse-sublist/reverse-sublist.cpp",
+			"settings":
+			{
+				"buffer_size": 5783,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/8-02-reverse-sublist/Makefile",
+			"settings":
+			{
+				"buffer_size": 870,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Makefile",
+			"settings":
+			{
+				"buffer_size": 4612,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/6-06-stock/stock.cpp",
+			"settings":
+			{
+				"buffer_size": 6557,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/8-03-cyclicity/cyclicity.cpp",
+			"settings":
+			{
+				"buffer_size": 9996,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/8-03-cyclicity/Makefile",
+			"settings":
+			{
+				"buffer_size": 864,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -560,6 +608,12 @@
 	},
 	"file_history":
 	[
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/5-07-power/power.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/5-08-reverse/reverse.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-01-dutch/dutch.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-02-increment/increment.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-03-multiply/multiply.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-04-advance/advance.cpp",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/Makefile",
 		"/home/adamiaonr/workbench/xia-core/xia.sublime-workspace",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/8-01-merge-lists/merge-lists.cpp",
@@ -681,13 +735,7 @@
 		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/no-caching/r5/no-caching-7-5.scn",
 		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/no-caching/r5/no-caching-5-5.scn",
 		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/no-caching/r5/no-caching-3-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/no-caching/r5/no-caching-1-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/no-caching/r10/no-caching-1-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/fdist/5.fdist",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/fdist/10.fdist",
-		"/Users/adamiaonr/workbench/rid-analytics/test/data/sanity-check/no-caching/r10/no-caching-9-10-320.csv",
-		"/Users/adamiaonr/workbench/rid-analytics/test/data/sanity-check/no-caching/r15/no-caching-5-15-320.csv",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/on-path/r10/on-path-1-10.scn"
+		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/no-caching/r5/no-caching-1-5.scn"
 	],
 	"find":
 	{
@@ -707,6 +755,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"\";\n",
+			";\n",
 			" clean",
 			"	make -C $(SRCDIR)/",
 			"7-",
@@ -832,9 +882,7 @@
 			"exp_factors",
 			"find_tp",
 			"printf",
-			"erase_access_tree_rec",
-			"build_network_rec",
-			"from_router"
+			"erase_access_tree_rec"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -980,8 +1028,175 @@
 	"groups":
 	[
 		{
+			"selected": 4,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "src/8-02-reverse-sublist/reverse-sublist.cpp",
+					"settings":
+					{
+						"buffer_size": 5783,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2782,
+								2782
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1596.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/8-02-reverse-sublist/Makefile",
+					"settings":
+					{
+						"buffer_size": 870,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								151,
+								151
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Makefile",
+					"settings":
+					{
+						"buffer_size": 4612,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1096,
+								1096
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 210.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/6-06-stock/stock.cpp",
+					"settings":
+					{
+						"buffer_size": 6557,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1769,
+								1769
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 420.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/8-03-cyclicity/cyclicity.cpp",
+					"settings":
+					{
+						"buffer_size": 9996,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6806,
+								6806
+							]
+						],
+						"settings":
+						{
+							"rulers":
+							[
+								80
+							],
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 210.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/8-03-cyclicity/Makefile",
+					"settings":
+					{
+						"buffer_size": 864,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								145,
+								145
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
