@@ -48,7 +48,7 @@ ArgvParser * create_argv_parser() {
     parser->defineOption(
             OPTION_OVERLAP_LIST,
             "overlapping sublist of integers, which will be appended to the end \
-of both sublists.",
+of both sublists. leave empty if a non-overlapping case is required.",
             ArgvParser::OptionRequiresValue | ArgvParser::OptionRequired);
 
     return parser;
