@@ -4,6 +4,58 @@
 		"selected_items":
 		[
 			[
+				"over",
+				"overlapping"
+			],
+			[
+				"su",
+				"sublist_2"
+			],
+			[
+				"be",
+				"before"
+			],
+			[
+				"ov",
+				"overlapping_list"
+			],
+			[
+				"sub",
+				"sublist_1"
+			],
+			[
+				"o",
+				"overlapping_list"
+			],
+			[
+				"li",
+				"list_iter"
+			],
+			[
+				"subl",
+				"sublist-1"
+			],
+			[
+				"OP",
+				"OPTION_OVERLAP_LIST"
+			],
+			[
+				"in",
+				"integers"
+			],
+			[
+				"lis",
+				"list_1"
+			],
+			[
+				"list_1",
+				"list_1"
+			],
+			[
+				"list_",
+				"list_iter"
+			],
+			[
 				"st",
 				"std"
 			],
@@ -14,10 +66,6 @@
 			[
 				"cyc",
 				"cycle_size"
-			],
-			[
-				"li",
-				"list"
 			],
 			[
 				"cycle",
@@ -32,16 +80,8 @@
 				"cycle_start"
 			],
 			[
-				"lis",
-				"list"
-			],
-			[
 				"dy",
 				"dummy_head"
-			],
-			[
-				"OP",
-				"OPTION_CYCLE_START"
 			],
 			[
 				"b",
@@ -64,10 +104,6 @@
 				"endl"
 			],
 			[
-				"su",
-				"sublist_start"
-			],
-			[
 				"rev",
 				"reverse_sublist"
 			],
@@ -76,20 +112,8 @@
 				"prev"
 			],
 			[
-				"be",
-				"before_head"
-			],
-			[
 				"aft",
 				"after_tail"
-			],
-			[
-				"sub",
-				"sublist_end"
-			],
-			[
-				"in",
-				"int"
 			],
 			[
 				"ta",
@@ -490,35 +514,27 @@
 			[
 				"SUB",
 				"subset_size"
-			],
-			[
-				"prev",
-				"prev_permutation"
-			],
-			[
-				"nex",
-				"next_permutation"
-			],
-			[
-				"per",
-				"permutation"
-			],
-			[
-				"t_",
-				"to_intgr_str"
-			],
-			[
-				"la",
-				"last_value"
-			],
-			[
-				"lar",
-				"largest_value"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "Makefile",
+			"settings":
+			{
+				"buffer_size": 4728,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/8-04-overlap/overlap.cpp",
+			"settings":
+			{
+				"buffer_size": 6877,
+				"line_ending": "Unix"
+			}
+		},
 		{
 			"file": "src/8-02-reverse-sublist/reverse-sublist.cpp",
 			"settings":
@@ -528,42 +544,10 @@
 			}
 		},
 		{
-			"file": "src/8-02-reverse-sublist/Makefile",
+			"file": "src/8-04-overlap/Makefile",
 			"settings":
 			{
-				"buffer_size": 870,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Makefile",
-			"settings":
-			{
-				"buffer_size": 4612,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/6-06-stock/stock.cpp",
-			"settings":
-			{
-				"buffer_size": 6557,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/8-03-cyclicity/cyclicity.cpp",
-			"settings":
-			{
-				"buffer_size": 9996,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/8-03-cyclicity/Makefile",
-			"settings":
-			{
-				"buffer_size": 864,
+				"buffer_size": 862,
 				"line_ending": "Unix"
 			}
 		}
@@ -608,6 +592,11 @@
 	},
 	"file_history":
 	[
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-06-stock/stock.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/8-03-cyclicity/cyclicity.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/8-03-cyclicity/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/8-02-reverse-sublist/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/8-02-reverse-sublist/reverse-sublist.cpp",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/5-07-power/power.cpp",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/5-08-reverse/reverse.cpp",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-01-dutch/dutch.cpp",
@@ -730,12 +719,7 @@
 		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/no-caching/r10/no-caching-7-10.scn",
 		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/no-caching/r10/no-caching-9-10.scn",
 		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/on-path/r10/on-path-3-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/fdist/15.fdist",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/no-caching/r5/no-caching-9-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/no-caching/r5/no-caching-7-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/no-caching/r5/no-caching-5-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/no-caching/r5/no-caching-3-5.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/no-caching/r5/no-caching-1-5.scn"
+		"/Users/adamiaonr/workbench/rid-analytics/test/configs/fdist/15.fdist"
 	],
 	"find":
 	{
@@ -1028,51 +1012,23 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/8-02-reverse-sublist/reverse-sublist.cpp",
+					"file": "Makefile",
 					"settings":
 					{
-						"buffer_size": 5783,
+						"buffer_size": 4728,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2782,
-								2782
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1596.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/8-02-reverse-sublist/Makefile",
-					"settings":
-					{
-						"buffer_size": 870,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								151,
-								151
+								1109,
+								1109
 							]
 						],
 						"settings":
@@ -1086,73 +1042,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "Makefile",
+					"buffer": 1,
+					"file": "src/8-04-overlap/overlap.cpp",
 					"settings":
 					{
-						"buffer_size": 4612,
+						"buffer_size": 6877,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1096,
-								1096
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Makefile/Makefile.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 210.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/6-06-stock/stock.cpp",
-					"settings":
-					{
-						"buffer_size": 6557,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1769,
-								1769
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 420.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "src/8-03-cyclicity/cyclicity.cpp",
-					"settings":
-					{
-						"buffer_size": 9996,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6806,
-								6806
+								1488,
+								1488
 							]
 						],
 						"settings":
@@ -1166,25 +1068,53 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 210.0,
+						"translation.y": 2361.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "src/8-03-cyclicity/Makefile",
+					"buffer": 2,
+					"file": "src/8-02-reverse-sublist/reverse-sublist.cpp",
 					"settings":
 					{
-						"buffer_size": 864,
+						"buffer_size": 5783,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								145,
-								145
+								2934,
+								2934
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 630.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/8-04-overlap/Makefile",
+					"settings":
+					{
+						"buffer_size": 862,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								143,
+								143
 							]
 						],
 						"settings":
