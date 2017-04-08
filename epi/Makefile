@@ -26,7 +26,7 @@ INC := -Iinclude
 TARGETS := 5-00-bit-count 5-04-closest-int 5-05-multiply 5-06-divide 5-07-power 5-08-reverse\
 6-01-dutch 6-02-increment 6-03-multiply 6-04-advance 6-05-duplicates 6-06-stock 6-09-permutations 6-11-offline 6-13-random-permutation 6-17-spiral\
 7-01-stringint 7-02-base-conversion 7-04-replace-remove 7-05-palindrome 7-07-phone-numbers 7-08-look-n-say 7-09-roman-numbers 7-11-snakestring 7-13-substr\
-8-01-merge-lists 8-02-reverse-sublist 8-03-cyclicity 8-04-overlap 8-05-overlap-cycle 8-06-delete-node\
+8-01-merge-lists 8-02-reverse-sublist 8-03-cyclicity 8-04-overlap 8-05-overlap-cycle 8-06-delete-node 8-08-remove-duplicates\
 quicksort
 
 all: $(TARGETS)
@@ -124,6 +124,9 @@ all: $(TARGETS)
 8-06-delete-node: $(COMMON_OBJECTS)
 	make -C $(SRCDIR)/8-06-delete-node
 
+8-08-remove-duplicates: $(COMMON_OBJECTS)
+	make -C $(SRCDIR)/8-08-remove-duplicates
+
 quicksort: $(COMMON_OBJECTS)
 	make -C $(SRCDIR)/quicksort
 
@@ -165,6 +168,7 @@ clean:
 	make -C $(SRCDIR)/8-04-overlap clean
 	make -C $(SRCDIR)/8-05-overlap-cycle clean
 	make -C $(SRCDIR)/8-06-delete-node clean
+	make -C $(SRCDIR)/8-08-remove-duplicates clean
 	make -C $(SRCDIR)/quicksort clean
 	make -C $(SRCDIR)/common clean
 	$(RM) -r $(BUILDDIR) *~
