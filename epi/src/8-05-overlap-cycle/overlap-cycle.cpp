@@ -304,13 +304,22 @@ std::string to_str(std::shared_ptr<List_Node<int>> list) {
 
     while(curr_node) {
 
-        list_str += std::to_string(curr_node->data) + ", ";
+        if (curr_node == cycle_node)
+            list_str += "(" + std::to_string(curr_node->data) + "), ";
+        else
+            list_str += std::to_string(curr_node->data) + ", ";
+
         curr_node = curr_node->next;
 
         if (curr_node == cycle_node) {
+
             if (in_cycle) {
+
+                list_str += "->()";
                 break;
+
             } else {
+
                 in_cycle = true;
             }
         }
