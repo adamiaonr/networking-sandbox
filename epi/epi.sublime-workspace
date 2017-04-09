@@ -4,12 +4,152 @@
 		"selected_items":
 		[
 			[
+				"pre",
+				"prev_node"
+			],
+			[
+				"cu",
+				"curr_node"
+			],
+			[
+				"rem",
+				"remove"
+			],
+			[
+				"OP",
+				"OPTION_K_LAST"
+			],
+			[
+				"en",
+				"endl"
+			],
+			[
+				"index",
+				"index_to_delete"
+			],
+			[
+				"k",
+				"k_last_ptr"
+			],
+			[
+				"ne",
+				"new_next"
+			],
+			[
+				"no",
+				"node_to_delete"
+			],
+			[
+				"cy",
+				"cycle_node"
+			],
+			[
+				"li",
+				"list"
+			],
+			[
+				"cyc",
+				"cycle"
+			],
+			[
+				"op",
+				"optionValue"
+			],
+			[
+				"sto",
+				"stoi"
+			],
+			[
+				"spe",
+				"specified"
+			],
+			[
+				"l1_",
+				"l1_cycle_node"
+			],
+			[
+				"l2",
+				"l2_iter"
+			],
+			[
+				"l1",
+				"l1_iter"
+			],
+			[
+				"lis",
+				"list_2"
+			],
+			[
+				"i",
+				"iter"
+			],
+			[
+				"it",
+				"iter"
+			],
+			[
 				"over",
-				"overlapping"
+				"overlapping_list"
+			],
+			[
+				"cycl",
+				"cycle_node"
+			],
+			[
+				"bo",
+				"bool"
+			],
+			[
+				"find",
+				"find_cycle_node"
+			],
+			[
+				"af",
+				"after_start"
+			],
+			[
+				"aft",
+				"after_start"
+			],
+			[
+				"is",
+				"is_cycle"
+			],
+			[
+				"sub",
+				"sublist"
+			],
+			[
+				"cre",
+				"create_list"
 			],
 			[
 				"su",
-				"sublist_2"
+				"sublist_1"
+			],
+			[
+				"ove",
+				"overlapping_list"
+			],
+			[
+				"wr",
+				"wrap_list"
+			],
+			[
+				"mer",
+				"merge_index"
+			],
+			[
+				"fi",
+				"find_cycle_node"
+			],
+			[
+				"get",
+				"get_overlapping_node"
+			],
+			[
+				"has",
+				"has_cycle"
 			],
 			[
 				"be",
@@ -20,32 +160,16 @@
 				"overlapping_list"
 			],
 			[
-				"sub",
-				"sublist_1"
-			],
-			[
 				"o",
 				"overlapping_list"
-			],
-			[
-				"li",
-				"list_iter"
 			],
 			[
 				"subl",
 				"sublist-1"
 			],
 			[
-				"OP",
-				"OPTION_OVERLAP_LIST"
-			],
-			[
 				"in",
 				"integers"
-			],
-			[
-				"lis",
-				"list_1"
 			],
 			[
 				"list_1",
@@ -60,24 +184,12 @@
 				"std"
 			],
 			[
-				"cycl",
-				"cycle"
-			],
-			[
-				"cyc",
-				"cycle_size"
-			],
-			[
 				"cycle",
 				"cycle_start"
 			],
 			[
 				"S",
 				"START"
-			],
-			[
-				"cy",
-				"cycle_start"
 			],
 			[
 				"dy",
@@ -100,20 +212,12 @@
 				"extract_sequence"
 			],
 			[
-				"en",
-				"endl"
-			],
-			[
 				"rev",
 				"reverse_sublist"
 			],
 			[
 				"pr",
 				"prev"
-			],
-			[
-				"aft",
-				"after_tail"
 			],
 			[
 				"ta",
@@ -128,10 +232,6 @@
 				"merge-lists"
 			],
 			[
-				"mer",
-				"merged_list"
-			],
-			[
 				"dumm",
 				"dummy_head"
 			],
@@ -144,16 +244,8 @@
 				"dummy_head"
 			],
 			[
-				"ne",
-				"new_list_dummy_head"
-			],
-			[
 				"se",
 				"seq_1"
-			],
-			[
-				"cre",
-				"create_linked_list"
 			],
 			[
 				"new",
@@ -206,10 +298,6 @@
 			[
 				"co",
 				"code"
-			],
-			[
-				"i",
-				"int"
 			],
 			[
 				"s",
@@ -280,10 +368,6 @@
 				"roman_number"
 			],
 			[
-				"pre",
-				"prev_number"
-			],
-			[
 				"mn",
 				"mnemonics_no_rec"
 			],
@@ -312,14 +396,6 @@
 				"depth_index"
 			],
 			[
-				"cu",
-				"curr_depth"
-			],
-			[
-				"fi",
-				"fill_mnemonics_rec"
-			],
-			[
 				"re",
 				"return"
 			],
@@ -334,10 +410,6 @@
 			[
 				"le",
 				"left_ptr"
-			],
-			[
-				"is",
-				"is_palindrome"
 			],
 			[
 				"rig",
@@ -436,84 +508,12 @@
 				"int_to_str"
 			],
 			[
-				"op",
-				"op_str"
-			],
-			[
 				"vl",
 				"value_str"
 			],
 			[
 				"ab",
 				"to_abs"
-			],
-			[
-				"max",
-				"matrix_size"
-			],
-			[
-				"ma",
-				"matrix"
-			],
-			[
-				"spi",
-				"spiral"
-			],
-			[
-				"get",
-				"get_spiral_ordering"
-			],
-			[
-				"sp",
-				"spiral_order"
-			],
-			[
-				"lef",
-				"left_limit"
-			],
-			[
-				"righ",
-				"right_limit"
-			],
-			[
-				"gen",
-				"gen_square_matrix"
-			],
-			[
-				"set",
-				"set_size"
-			],
-			[
-				"gen_",
-				"gen_random_subset"
-			],
-			[
-				"ptr",
-				"ptr2"
-			],
-			[
-				"ran",
-				"rand_val"
-			],
-			[
-				"pt",
-				"ptr2"
-			],
-			[
-				"ra",
-				"rand_index"
-			],
-			[
-				"las",
-				"last_pos"
-			],
-			[
-				"ge",
-				"get"
-			],
-			[
-				"SUB",
-				"subset_size"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "Makefile",
 			"settings":
 			{
-				"buffer_size": 4728,
+				"buffer_size": 5156,
 				"line_ending": "Unix"
 			}
 		},
@@ -548,6 +548,30 @@
 			"settings":
 			{
 				"buffer_size": 862,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/8-05-overlap-cycle/overlap-cycle.cpp",
+			"settings":
+			{
+				"buffer_size": 13716,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/adamiaonr/workbench/rid-analytics/src/sanity-check.cpp",
+			"settings":
+			{
+				"buffer_size": 7792,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/8-03-cyclicity/cyclicity.cpp",
+			"settings":
+			{
+				"buffer_size": 9996,
 				"line_ending": "Unix"
 			}
 		}
@@ -592,6 +616,11 @@
 	},
 	"file_history":
 	[
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/8-05-overlap-cycle/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/8-06-delete-node/delete-node.cpp",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/8-06-delete-node/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/8-08-remove-duplicates/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/epi/src/8-08-remove-duplicates/remove-duplicates.cpp",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/6-06-stock/stock.cpp",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/8-03-cyclicity/cyclicity.cpp",
 		"/home/adamiaonr/workbench/networking-sandbox/epi/src/8-03-cyclicity/Makefile",
@@ -714,12 +743,7 @@
 		"/Users/adamiaonr/workbench/rid-analytics/run-sanity.sh",
 		"/Users/adamiaonr/workbench/rid-analytics/src/run-sanity.sh",
 		"/Users/adamiaonr/workbench/rid-analytics/sanity-check",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/no-caching/r10/no-caching-3-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/no-caching/r10/no-caching-5-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/no-caching/r10/no-caching-7-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/no-caching/r10/no-caching-9-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/caching/pervasive/on-path/r10/on-path-3-10.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/fdist/15.fdist"
+		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/no-caching/r10/no-caching-3-10.scn"
 	],
 	"find":
 	{
@@ -739,6 +763,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"while(",
+			"to_str",
 			"\";\n",
 			";\n",
 			" clean",
@@ -864,9 +890,7 @@
 			"5,0",
 			"0,5,0",
 			"exp_factors",
-			"find_tp",
-			"printf",
-			"erase_access_tree_rec"
+			"find_tp"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1012,7 +1036,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 6,
 			"sheets":
 			[
 				{
@@ -1020,15 +1044,15 @@
 					"file": "Makefile",
 					"settings":
 					{
-						"buffer_size": 4728,
+						"buffer_size": 5156,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1109,
-								1109
+								1168,
+								1168
 							]
 						],
 						"settings":
@@ -1036,7 +1060,7 @@
 							"syntax": "Packages/Makefile/Makefile.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1554.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1053,8 +1077,8 @@
 						"selection":
 						[
 							[
-								1488,
-								1488
+								378,
+								378
 							]
 						],
 						"settings":
@@ -1068,7 +1092,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2361.0,
+						"translation.y": 1344.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1123,6 +1147,95 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/8-05-overlap-cycle/overlap-cycle.cpp",
+					"settings":
+					{
+						"buffer_size": 13716,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12729,
+								12729
+							]
+						],
+						"settings":
+						{
+							"rulers":
+							[
+								80
+							],
+							"spell_check": true,
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4662.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/adamiaonr/workbench/rid-analytics/src/sanity-check.cpp",
+					"settings":
+					{
+						"buffer_size": 7792,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7792,
+								7792
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2958.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/8-03-cyclicity/cyclicity.cpp",
+					"settings":
+					{
+						"buffer_size": 9996,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2657,
+								2657
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 588.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
