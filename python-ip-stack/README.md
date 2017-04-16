@@ -1,6 +1,6 @@
 # python-ip-stack
 
-An user-level TCP/IP stacl built with Python. This is an experimental and 
+An user-level TCP/IP stack built with Python. This is an experimental and 
 educational project, with 2 main objectives:
 
 * Brush up knowledge about the different protocols in the TCP/IP stack
