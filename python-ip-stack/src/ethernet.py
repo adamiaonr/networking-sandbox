@@ -104,3 +104,4 @@ class Ethernet(MetaFrame):
         crc = int(b[::-1], 2)
 
         return crc
+        

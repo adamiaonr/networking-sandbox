@@ -13,7 +13,7 @@ class MetaFrame:
         self.frame['data']      = collections.OrderedDict()
         self.frame['footer']    = collections.OrderedDict()
 
-        # important for unpacking (must be set on the subclasses)
+        # important for unpacking
         self.hdr_size = 0
         self.ftr_size = 0
 
@@ -29,6 +29,39 @@ class MetaFrame:
 
         if size:
             self.frame[part][attr]['size'] = size
+
+    def get_format_str(self, raw_frame, part = 'header', field_exceptions = []):
+
+        # build the format string based on the metadate info in fields
+        format_str = '! '
+
+        if part == 'data':
+
+            # subtract header size from the extracted bytes
+            start = self.hdr_size
+            end = len(raw_frame)
+            # make sure the header doesn't subtract everything
+            if start >= end:
+                print("MetaFrame::unpack_data() : [ERROR] malformed packet (start > end)")
+                return -1
+            else:
+                print("MetaFrame::unpack_data() : [INFO] payload size : %d" % (end - start))
+
+            for field in self.frame['data']:
+                if field in field_exceptions:
+                    continue
+                format_str += ('%d%s ' % ((end - start), self.frame['data'][field]['type']))
+
+        else:
+
+            for field in self.frame[part]:
+
+                if field in field_exceptions:
+                    continue
+
+                format_str += ('%d%s ' % (self.frame[part][field]['size'], self.frame[part][field]['type']))
+
+        return format_str.rstrip(' ')
 
     def pack(self, parts = ['header', 'data', 'footer'], field_exceptions = []):
 
@@ -50,18 +83,8 @@ class MetaFrame:
 
     def unpack_hdr(self, raw_frame, field_exceptions = []):
 
-        # build the format string
-        format_str = '! '
-
-        for field in self.frame['header']:
-
-            if field in field_exceptions:
-                continue
-
-            format_str += ('%d%s ' % (self.frame['header'][field]['size'], self.frame['header'][field]['type']))
-
         # unpack the data into a tuple made of frame's fields
-        unpacked_hdr = struct.unpack(format_str.rstrip(' '), raw_frame[:self.hdr_size])
+        unpacked_hdr = struct.unpack(self.get_format_str(raw_frame), raw_frame[:self.hdr_size])
         print("MetaFrame::unpack_hdr() : [INFO] unpacked %s" % (str(unpacked_hdr)))
 
         # finally, re-set the frame's fields, extracted from the unpacked tuple 
@@ -74,26 +97,8 @@ class MetaFrame:
 
     def unpack_data(self, raw_frame, field_exceptions = []):
 
-        start = self.hdr_size
-        end = len(raw_frame)
-        if start >= end:
-            print("MetaFrame::unpack_data() : [ERROR] malformed packet (start > end)")
-            return -1
-        else:
-            print("MetaFrame::unpack_data() : [INFO] payload size : %d" % (end - start))
-
-        # build the format string
-        format_str = '! '
-
-        for field in self.frame['data']:
-
-            if field in field_exceptions:
-                continue
-
-            format_str += ('%d%s ' % ((end - start), self.frame['data'][field]['type']))
-
         # unpack the data into a tuple made of frame's fields
-        unpacked_data = struct.unpack(format_str.rstrip(' '), raw_frame[start:end])
+        unpacked_data = struct.unpack(self.get_format_str(raw_frame, 'data'), raw_frame[self.hdr_size:len(raw_frame)])
         print("MetaFrame::unpack_data() : [INFO] unpacked %s" % (str(unpacked_data)))
 
         # finally, re-set the frame's fields, extracted from the unpacked tuple 

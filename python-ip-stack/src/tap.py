@@ -10,7 +10,7 @@ class Tap:
         # create a tap device to send/receive L2 frames
         tap_dev = TunTapDevice(flags = (IFF_TAP | IFF_NO_PI))
         tap_dev.persist(True)
-        # set parameters
+        # set TunTapDevice parameters
         tap_dev.addr    = net_addr
         tap_dev.netmask = net_mask
         # tap_dev.hwaddr  = hw_addr
@@ -18,23 +18,9 @@ class Tap:
         # set tap device UP
         tap_dev.up()
 
+        # set tap_dev as the stack's device: all network i/o will 
+        # use this device from now on
         self.dev = tap_dev
-
-    def send_frame(self, frame_type, dst_mac, data):
-
-        if frame_type == Ethernet.PROTO_ARP:
-
-            eth_frame = Ethernet(
-                src_mac      = self.dev.hwaddr,
-                dst_mac      = dst_mac,
-                eth_type     = frame_type,
-                payload      = data,
-                payload_size = len(data))
-
-            self.dev.write(eth_frame.pack())
-
-        else:
-            print("Tap::send() : [ERROR] unknown frame type : %d" % (frame_type))
 
     def shutdown(self):
         self.dev.down()

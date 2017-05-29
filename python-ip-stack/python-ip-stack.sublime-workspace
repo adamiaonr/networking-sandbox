@@ -4,32 +4,224 @@
 		"selected_items":
 		[
 			[
-				"AR",
-				"ARP_IPv4_Data"
+				"ic",
+				"icmp"
+			],
+			[
+				"ipv",
+				"ipv4_hdr"
+			],
+			[
+				"incl",
+				"including"
+			],
+			[
+				"ip",
+				"ipv4_dgram"
+			],
+			[
+				"icm",
+				"icmp_data"
+			],
+			[
+				"ICM",
+				"ICMP_FTR_SIZE"
+			],
+			[
+				"IC",
+				"ICMP_FTR_SIZE"
+			],
+			[
+				"IP",
+				"IPv4_FLAG_MF"
+			],
+			[
+				"get",
+				"get_cksum"
+			],
+			[
+				"fr",
+				"frame"
+			],
+			[
+				"inte",
+				"integrity"
+			],
+			[
+				"data",
+				"datagram"
+			],
+			[
+				"frag",
+				"frag_offset"
+			],
+			[
+				"pro",
+				"proto"
+			],
+			[
+				"fra",
+				"frag_offset"
+			],
+			[
+				"I",
+				"IPv4_Dgram"
+			],
+			[
+				"frm",
+				"frame_type"
+			],
+			[
+				"et",
+				"Ethernet"
 			],
 			[
 				"arp",
 				"arp_data"
 			],
 			[
-				"arp_",
-				"arp_data"
+				"ar",
+				"arp_table_key"
 			],
 			[
-				"pro",
-				"protypes"
+				"arp_",
+				"arp_table_key"
+			],
+			[
+				"ta",
+				"tap"
+			],
+			[
+				"de",
+				"def	Function"
+			],
+			[
+				"pa",
+				"payload_size"
+			],
+			[
+				"AR",
+				"ARP_REPLY"
+			],
+			[
+				"un",
+				"unpack"
+			],
+			[
+				"ra",
+				"raw_data"
+			],
+			[
+				"raw",
+				"raw"
+			],
+			[
+				"fi",
+				"field_exceptions"
+			],
+			[
+				"A",
+				"ARP_Packet"
+			],
+			[
+				"ET",
+				"ETH_HDR_SIZE"
+			],
+			[
+				"st",
+				"start"
+			],
+			[
+				"h",
+				"hdr_size"
+			],
+			[
+				"of",
+				"offset"
+			],
+			[
+				"siz",
+				"size_of"
+			],
+			[
+				"par",
+				"parts"
+			],
+			[
+				"a",
+				"all"
+			],
+			[
+				"fo",
+				"footer"
+			],
+			[
+				"se",
+				"self"
 			],
 			[
 				"hw",
-				"hwtypes"
+				"hwaddr"
+			],
+			[
+				"eth",
+				"ethernet"
+			],
+			[
+				"print",
+				"print_tap_dev_info"
+			],
+			[
+				"u",
+				"unpack"
+			],
+			[
+				"for",
+				"format_str"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"ARP",
+				"ARP_IPv4_Data"
+			],
+			[
+				"e",
+				"eth_frame"
+			],
+			[
+				"eh",
+				"eth"
+			],
+			[
+				"tap",
+				"tap_dev"
+			],
+			[
+				"ne",
+				"net_addr"
+			],
+			[
+				"set",
+				"set_attr"
+			],
+			[
+				"upda",
+				"update_arp_table"
+			],
+			[
+				"AE",
+				"ARP_Daemon"
+			],
+			[
+				"me",
+				"merge_flag"
 			],
 			[
 				"0x0",
 				"0x0800"
-			],
-			[
-				"se",
-				"set"
 			],
 			[
 				"si",
@@ -56,10 +248,6 @@
 				"byte_stream"
 			],
 			[
-				"eth",
-				"eth_frame_wired"
-			],
-			[
 				"wir",
 				"wire_fmt_str"
 			],
@@ -84,20 +272,12 @@
 				"calc_fcs"
 			],
 			[
-				"eh",
-				"eth_frame"
-			],
-			[
 				"fram",
 				"frame_bytes"
 			],
 			[
 				"eth_f",
 				"eth_frame_wired"
-			],
-			[
-				"et",
-				"eth_frame"
 			],
 			[
 				"clus",
@@ -212,10 +392,6 @@
 				"edge_color"
 			],
 			[
-				"get",
-				"get_dot_node"
-			],
-			[
 				"head",
 				"head_label"
 			],
@@ -226,10 +402,6 @@
 			[
 				"tail",
 				"tail_label"
-			],
-			[
-				"ta",
-				"tail_node"
 			],
 			[
 				"he",
@@ -296,10 +468,6 @@
 				"data"
 			],
 			[
-				"me",
-				"metric_diffs_list"
-			],
-			[
 				"met",
 				"metric_diffs_list"
 			],
@@ -340,214 +508,78 @@
 				"metric_type"
 			],
 			[
-				"un",
-				"unchanged"
-			],
-			[
 				"ch",
 				"change"
 			],
 			[
 				"lag",
 				"lag-changed"
-			],
-			[
-				"la",
-				"lag"
-			],
-			[
-				"other_c",
-				"other_c_metric"
-			],
-			[
-				"oth",
-				"other_graph"
-			],
-			[
-				"max",
-				"max_score"
-			],
-			[
-				"con",
-				"continue"
-			],
-			[
-				"p_m",
-				"p_metric"
-			],
-			[
-				"ote",
-				"other_c_cluster"
-			],
-			[
-				"adj",
-				"adj_service"
-			],
-			[
-				"in",
-				"ingress"
-			],
-			[
-				"simi",
-				"similar_edges"
-			],
-			[
-				"app",
-				"append"
-			],
-			[
-				"nf",
-				"nfaulty_c_cluster"
-			],
-			[
-				"rep_",
-				"rep_metric"
-			],
-			[
-				"rep",
-				"rep_metric"
-			],
-			[
-				"perp",
-				"perpetrator"
-			],
-			[
-				"cluster_di",
-				"cluster_diffs"
-			],
-			[
-				"sil",
-				"similarity"
-			],
-			[
-				"re",
-				"rep_metrics"
-			],
-			[
-				"col",
-				"columns"
-			],
-			[
-				"dif",
-				"diff"
-			],
-			[
-				"diff",
-				"differences"
-			],
-			[
-				"is",
-				"is_first"
-			],
-			[
-				"cluster_",
-				"cluster_other"
-			],
-			[
-				"jac",
-				"jaccard_score"
-			],
-			[
-				"other",
-				"other_graph"
-			],
-			[
-				"service",
-				"service_name"
-			],
-			[
-				"bul",
-				"build_dependency_graph"
-			],
-			[
-				"ru",
-				"run_rca"
-			],
-			[
-				"new",
-				"new_cluster"
-			],
-			[
-				"othe",
-				"other_metrics"
-			],
-			[
-				"adja",
-				"adjacent_service_node"
-			],
-			[
-				"gr",
-				"graph"
-			],
-			[
-				"grp",
-				"graph"
-			],
-			[
-				"cau",
-				"causality_graphs"
-			],
-			[
-				"exclu",
-				"excluded_metrics"
-			],
-			[
-				"sp",
-				"split"
-			],
-			[
-				"ca",
-				"causality_dirs"
-			],
-			[
-				"adj_",
-				"adj_service_name"
-			],
-			[
-				"bu",
-				"build_dependency_graph"
-			],
-			[
-				"gc_",
-				"gc_dir"
-			],
-			[
-				"dep",
-				"dep_graph"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "client.py",
+			"file": "src/ethernet.py",
 			"settings":
 			{
-				"buffer_size": 1520,
+				"buffer_size": 4594,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "ethernet.py",
+			"file": "src/stack.py",
 			"settings":
 			{
-				"buffer_size": 4868,
+				"buffer_size": 1214,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "arp.py",
+			"file": "src/ipv4.py",
 			"settings":
 			{
-				"buffer_size": 2622,
+				"buffer_size": 4160,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "metaframe.py",
+			"file": "src/icmp.py",
 			"settings":
 			{
-				"buffer_size": 1209,
+				"buffer_size": 3626,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/adamiaonr/workbench/accelerator/doc/final/Makefile",
+			"settings":
+			{
+				"buffer_size": 572,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/arp.py",
+			"settings":
+			{
+				"buffer_size": 5641,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/metaframe.py",
+			"settings":
+			{
+				"buffer_size": 3512,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/tap.py",
+			"settings":
+			{
+				"buffer_size": 1584,
 				"line_ending": "Unix"
 			}
 		}
@@ -592,7 +624,12 @@
 	},
 	"file_history":
 	[
+		"/home/adamiaonr/workbench/networking-sandbox/traceroute/traceroute.sublime-project",
+		"/home/adamiaonr/workbench/networking-sandbox/python-ip-stack/metaframe.py",
 		"/home/adamiaonr/workbench/networking-sandbox/python-ip-stack/ethernet.py",
+		"/home/adamiaonr/workbench/networking-sandbox/python-ip-stack/tap.py",
+		"/home/adamiaonr/workbench/networking-sandbox/python-ip-stack/arp.py",
+		"/home/adamiaonr/workbench/networking-sandbox/python-ip-stack/stack.py",
 		"/home/adamiaonr/workbench/paper/systor2017/design.tex",
 		"/home/adamiaonr/workbench/paper/systor2017/main.bib",
 		"/home/adamiaonr/workbench/papers/rids/preamble.tex",
@@ -714,12 +751,7 @@
 		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/r15-events/data/request-sizes/r15.scn",
 		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/r15-events/data/request-sizes/r10.scn",
 		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/r15-events/data/request-sizes/r05.scn",
-		"/home/adamiaonr/workbench/rid-analytics/scripts/plot-events.py",
-		"/home/adamiaonr/workbench/rid-analytics/scripts/plot-no-caching.py",
-		"/home/adamiaonr/workbench/rid-analytics/test/configs/fdist/10.fdist",
-		"/home/adamiaonr/workbench/rid-analytics/test/configs/fdist/5.fdist",
-		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/r15-events/data/request-sizes/f01.scn",
-		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/r15-events/f15.scn"
+		"/home/adamiaonr/workbench/rid-analytics/scripts/plot-events.py"
 	],
 	"find":
 	{
@@ -736,9 +768,18 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"ARP_Datagram",
+			"packet",
+			"arp_packet",
+			"ARP_Packet",
+			"ftr_s",
+			"get_attr",
+			"tap_dev",
+			"arp_data",
+			"frame",
 			".packet[",
 			"subsec:roo",
 			"subsec",
@@ -857,16 +898,7 @@
 			"0.97",
 			"3.1",
 			"size=\"2\">1",
-			"2.0",
-			"entry_lengths",
-			"mode",
-			"0.0",
-			"extract_data",
-			"plot_global_hierarchical_entry_sizes",
-			"resolution_state",
-			"resolution_mode",
-			"resolv_mode",
-			"OPTION_RESOLV_MODE"
+			"2.0"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -874,6 +906,10 @@
 		"regex": false,
 		"replace_history":
 		[
+			"ARP_Dgram",
+			"dgram",
+			"arp_dgram",
+			"ARP_Datagram",
 			".frame[",
 			"    ",
 			")",
@@ -997,11 +1033,7 @@
 			"0,8,0",
 			"0,7,0",
 			"0,6,0",
-			"0,5,0",
-			"0,4,0",
-			"MODE_LI",
-			"MODE_EI",
-			"MODE_MIS"
+			"0,5,0"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1012,23 +1044,23 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 4,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "client.py",
+					"file": "src/ethernet.py",
 					"settings":
 					{
-						"buffer_size": 1520,
+						"buffer_size": 4594,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								337,
-								337
+								4594,
+								4594
 							]
 						],
 						"settings":
@@ -1038,33 +1070,29 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 900.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "ethernet.py",
+					"file": "src/stack.py",
 					"settings":
 					{
-						"buffer_size": 4868,
+						"buffer_size": 1214,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								562,
-								562
+								546,
+								546
 							]
 						],
 						"settings":
 						{
-							"rulers":
-							[
-								80
-							],
 							"syntax": "Packages/Python/Python.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -1077,18 +1105,18 @@
 				},
 				{
 					"buffer": 2,
-					"file": "arp.py",
+					"file": "src/ipv4.py",
 					"settings":
 					{
-						"buffer_size": 2622,
+						"buffer_size": 4160,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2071,
-								2071
+								4155,
+								4155
 							]
 						],
 						"settings":
@@ -1097,9 +1125,68 @@
 							[
 								80
 							],
+							"spell_check": true,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 828.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/icmp.py",
+					"settings":
+					{
+						"buffer_size": 3626,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3159,
+								3159
+							]
+						],
+						"settings":
+						{
+							"rulers":
+							[
+								80
+							],
+							"spell_check": true,
 							"syntax": "Packages/Python/Python.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 585.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/adamiaonr/workbench/accelerator/doc/final/Makefile",
+					"settings":
+					{
+						"buffer_size": 572,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1108,19 +1195,75 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "metaframe.py",
+					"buffer": 5,
+					"file": "src/arp.py",
 					"settings":
 					{
-						"buffer_size": 1209,
+						"buffer_size": 5641,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1209,
-								1209
+								5641,
+								5641
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1149.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/metaframe.py",
+					"settings":
+					{
+						"buffer_size": 3512,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2964,
+								2964
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/tap.py",
+					"settings":
+					{
+						"buffer_size": 1584,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								659,
+								659
 							]
 						],
 						"settings":

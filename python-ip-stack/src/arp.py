@@ -1,7 +1,6 @@
 import struct
 import binascii
 import collections
-import ipaddress
 
 from ethernet import Ethernet
 from metaframe import MetaFrame
@@ -44,13 +43,17 @@ class ARP_IPv4_Data():
         self.dmac = unpacked_data[2]
         self.dip = unpacked_data[3]
 
-class ARP_Packet(MetaFrame):
+class ARP_Dgram(MetaFrame):
 
+    # size of ARP header and footer (fixed)
     ARP_HDR_SIZE = 0x08
     ARP_FTR_SIZE = 0x00
-
+    # ARP opcodes
     ARP_REQUEST = 0x0001
     ARP_REPLY = 0x0002  
+    # ARP protocol types
+    ARP_PROTYPE_IPv4 = 0x0800
+    ARP_PROTYPE_ARP  = 0x0806    
 
     def __init__(self, 
         hwtype = 0x0001, protype = 0x0800,
@@ -60,8 +63,8 @@ class ARP_Packet(MetaFrame):
 
         MetaFrame.__init__(self)
 
-        self.hdr_size = ARP_Packet.ARP_HDR_SIZE
-        self.ftr_size = ARP_Packet.ARP_FTR_SIZE
+        self.hdr_size = ARP_Dgram.ARP_HDR_SIZE
+        self.ftr_size = ARP_Dgram.ARP_FTR_SIZE
 
         self.frame['header']['hwtype']  = {'size': 1, 'type': 'H', 'value': hwtype}
         self.frame['header']['protype'] = {'size': 1, 'type': 'H', 'value': protype}
@@ -77,30 +80,26 @@ class ARP_Packet(MetaFrame):
         else:
             self.frame['data']['data'] = {'size': 0, 'type': 's', 'value': ''};
 
-class ARP_Daemon:
+class ARP_Module:
 
-    def __init__(self, tap):
+    def __init__(self, stack):
 
-        self.tap = tap
-        self.mac = tap.dev.hwaddr
-        print(tap.dev.addr)
-        self.ip = int(ipaddress.IPv4Address(unicode(tap.dev.addr)))
-
+        # stack the ARP module belongs too
+        self.stack = stack
         # since clients will query using L3 addresses, keys are the sip
         self.arp_table = defaultdict(ARP_IPv4_Entry)
-
         # set of L2 and L3 types supported by the daemon. by default, let's 
         # add Ethernet for L2 (0x0001) and IPv4 for L3 (0x0800) 
         self.hwtypes    = set([0x0001])
         self.protypes   = set([0x0800])
 
-    def update_arp_table(self, arp_packet, arp_data):
+    def update_arp_table(self, arp_dgram, arp_data):
 
         # set merge_flag to False
         merge_flag = False
         # the keys of the arp_table dict are a 2-tuple of the form 
         # <protype, source protocol address>
-        arp_table_key = (arp_packet.get_attr('header', 'protype'), arp_data.sip)
+        arp_table_key = (arp_dgram.get_attr('header', 'protype'), arp_data.sip)
 
         if arp_table_key in self.arp_table:
 
@@ -108,60 +107,67 @@ class ARP_Daemon:
             merge_flag = True
 
         else:
-            print("ARP_Daemon::update_arp_table() : [WARNING] %s not in ARP table" % (str(arp_table_key)))
+            print("ARP_Module::update_arp_table() : [WARNING] %s not in ARP table" % (str(arp_table_key)))
 
         return merge_flag
 
-    def process_arp_packet(self, raw_packet):
+    def get_record(self, protype, sip):
 
-        # read raw ARP packet into ARP_Packet object
-        arp_packet = ARP_Packet()
-        arp_packet.unpack(raw_packet)
+        if (protype, sip) not in self.arp_table:
+            return None
+        else:
+            return self.arp_table[(protype, sip)]
 
-        # we handle an ARP packet according to the algorithm shown in 
+    def process_dgram(self, raw_dgram):
+
+        # read raw ARP dgram into ARP_Dgram object
+        arp_dgram = ARP_Dgram()
+        arp_dgram.unpack(raw_dgram)
+
+        # we handle an ARP dgram according to the algorithm shown in 
         # http://www.saminiir.com/lets-code-tcp-ip-stack-1-ethernet-arp/
 
         # is hwtype supported by this arp daemon? if not, abort
-        if arp_packet.get_attr('header', 'hwtype') not in self.hwtypes:
+        if arp_dgram.get_attr('header', 'hwtype') not in self.hwtypes:
             return
 
         # is protype supported by this arp daemon? if not, abort
-        if arp_packet.get_attr('header', 'protype') not in self.protypes:
+        if arp_dgram.get_attr('header', 'protype') not in self.protypes:
             return
 
         # check if an entry in arp_table needs to be updated, using the 
         # update_arp_table() method
         arp_data = ARP_IPv4_Data()
-        arp_data.unpack(arp_packet.get_attr('data', 'data'))
-        merge_flag = self.update_arp_table(arp_packet, arp_data)
+        arp_data.unpack(arp_dgram.get_attr('data', 'data'))
+        merge_flag = self.update_arp_table(arp_dgram, arp_data)
 
         # is this arp frame destined to this node? if not, abort
-        if arp_data.dip == self.ip:
+        if arp_data.dip == self.stack.ip:
 
             # if merge_flag is false, add a new entry to arp_table
             if not merge_flag:
 
                 # generate the new key
-                arp_table_key = (arp_packet.get_attr('header', 'protype'), arp_data.sip)
+                arp_table_key = (arp_dgram.get_attr('header', 'protype'), arp_data.sip)
                 # add the table entry
                 self.arp_table[arp_table_key] = ARP_IPv4_Entry(
-                    hwtype = arp_packet.get_attr('header', 'hwtype'),
+                    hwtype = arp_dgram.get_attr('header', 'hwtype'),
                     sip = arp_data.sip,
                     smac = arp_data.smac)
 
-            # if arp packet is an arp request
-            if arp_packet.get_attr('header', 'opcode') == ARP_Packet.ARP_REQUEST:
+            # if arp dgram is an arp request
+            if arp_dgram.get_attr('header', 'opcode') == ARP_Dgram.ARP_REQUEST:
 
-                # swap the packet's hw and protocol fields, putting the local 
+                # swap the dgram's hw and protocol fields, putting the local 
                 # hw and protocol fields as smac and sip
                 arp_data.dip = arp_data.sip
                 arp_data.dmac = arp_data.smac
-                arp_data.sip = self.ip
-                arp_data.smac = self.mac
+                arp_data.sip = self.stack.ip
+                arp_data.smac = self.stack.mac
 
                 raw_data = arp_data.pack()
-                arp_packet.set_attr('data', 'data', raw_data, size = len(raw_data))
-                arp_packet.set_attr('header', 'opcode', ARP_Packet.ARP_REPLY)
+                arp_dgram.set_attr('data', 'data', raw_data, size = len(raw_data))
+                arp_dgram.set_attr('header', 'opcode', ARP_Dgram.ARP_REPLY)
 
                 # send the arp reply using the tap device
-                self.tap.send_frame(Ethernet.PROTO_ARP, arp_data.dmac, arp_packet.pack())
+                self.stack.send_frame(Ethernet.PROTO_ARP, arp_data.dmac, arp_dgram.pack())
