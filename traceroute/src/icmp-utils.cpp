@@ -30,124 +30,130 @@ uint16_t ICMPUtils::in_cksum(uint16_t * addr, int len) {
     return answer;
 }
 
-int ICMPUtils::get_icmphdr_from_icmp(
-    char * pckt_buff, 
-    int pckt_bytes,
-    int ipv4_hdr_len, 
-    int icmp_len,
-    struct icmp * & in_icmp_hdr) {
+int ICMPUtils::get_inner_ip_hdr(
+    char * icmp_pckt,               // array of icmp packet bytes
+    int icmp_pckt_len,              // length of icmp packet
+    struct ip * & inner_ip_hdr) {
 
-    // the reply should at least have its icmp header + an ip header within 
-    // its payload
-    if (icmp_len < 8 + (int) sizeof(struct ip)) {
+    // at least icmp header + an ip header within its payload
+    if (icmp_pckt_len < 8 + (int) sizeof(struct ip)) {
 
-        std::cerr << "icmp-utils::get_icmphdr_from_icmp() : [ERROR] malformed ICMP "\
+        std::cerr << "icmp-utils::get_inner_ip_hdr() : [ERROR] malformed ICMP "\
             "reply. payload too short to be meaningful (" 
-            << icmp_len << " byte). skip processing." << std::endl;  
+            << icmp_pckt_len << " byte). skip processing." << std::endl;
 
         return -1;            
     }
 
-    // let's now look at the ip header embedded in the icmp reply
-    struct ip * in_ipv4_hdr = (struct ip *) (pckt_buff + ipv4_hdr_len + 8);
-    int in_ipv4_hdr_len = in_ipv4_hdr->ip_hl << 2;
+    // inner ip header should be after icmp header : 8 byte in the icmp packet
+    inner_ip_hdr = (struct ip *) (icmp_pckt + 8);
 
-    if (icmp_len < 8 + in_ipv4_hdr_len + 4) {
+    return 0;
+}
 
-        std::cout << 8 + in_ipv4_hdr_len + 4 << std::endl;
+int ICMPUtils::get_inner_icmp_hdr(
+    char * icmp_pckt, 
+    int icmp_pckt_len,
+    struct icmp * & inner_icmp_hdr) {
 
-        std::cerr << "icmp-utils::get_icmphdr_from_icmp() : [ERROR] not "\
-            "enough data to validate answer (" << icmp_len << " byte). skip "\
-            "processing." << std::endl;  
+    if (icmp_pckt_len < 8 + (int) sizeof(struct ip)) {
 
-        return -1;              
+        std::cerr << "icmp-utils::get_inner_icmp_hdr() : [ERROR] malformed ICMP "\
+            "reply. payload too short to be meaningful (" 
+            << icmp_pckt_len << " byte). skip processing." << std::endl;
+
+        return -1;
     }
 
-    if (in_ipv4_hdr->ip_p != IPPROTO_ICMP) {
+    // let's now look at the ip header embedded in the icmp reply
+    struct ip * inner_ipv4_hdr = NULL;
+    if (get_inner_ip_hdr(icmp_pckt, icmp_pckt_len, inner_ipv4_hdr) < 0)
+        return -1;
+    int inner_ipv4_hdr_len = (inner_ipv4_hdr->ip_hl << 2);
 
-        std::cerr << "icmp-utils::get_icmphdr_from_icmp() : [ERROR] not "\
-            "an icmp packet (proto code = " << in_ipv4_hdr->ip_p << "). skip "\
-            "processing." << std::endl;  
+    if (inner_ipv4_hdr->ip_p != IPPROTO_ICMP) {
 
-        return -1;                      
+        std::cerr << "icmp-utils::get_inner_icmp_hdr() : [ERROR] not "\
+            "an icmp packet (proto code = " << inner_ipv4_hdr->ip_p << "). skip "\
+            "processing." << std::endl;
+
+        return -1; 
     }
 
     // we offset the pckt_buff starting address with the length of all the 
     // headers in between, till the start of the icmp header
-    in_icmp_hdr = (struct icmp *) (pckt_buff + ipv4_hdr_len + 8 + in_ipv4_hdr_len);
+    inner_icmp_hdr = (struct icmp *) (icmp_pckt + 8 + inner_ipv4_hdr_len);
     // the icmp_len should be at least 8 byte (size of icmp header). 
     // if not, abort.
-    int in_icmp_len = pckt_bytes - (ipv4_hdr_len + 8 + in_ipv4_hdr_len);
+    int inner_icmp_pckt_len = icmp_pckt_len - (8 + inner_ipv4_hdr_len);
 
-    if (in_icmp_len < 8) {
+    if (inner_icmp_pckt_len < 8) {
 
-        std::cerr << "icmp-utils::get_icmphdr_from_icmp() : [ERROR] malformed ICMP "\
-            "packet. header too short (" << icmp_len << " byte). not "\
+        std::cerr << "icmp-utils::get_inner_icmp_hdr() : [ERROR] malformed ICMP "\
+            "packet. header too short (" << inner_icmp_pckt_len << " byte). not "\
             "processing." << std::endl;  
 
         return -1;              
     }
 
     // return a positive int if inner icmp packet isn't an icmp ECHO reply
-    if (in_icmp_hdr->icmp_type == ICMP_ECHOREPLY) {
+    if (inner_icmp_hdr->icmp_type == ICMP_ECHOREPLY) {
 
-        if (icmp_len < 16) {
+        if (inner_icmp_pckt_len < 16) {
 
-            std::cerr << "icmp-utils::get_icmphdr_from_icmp() : [ERROR] malformed ICMP "\
+            std::cerr << "icmp-utils::get_inner_icmp_hdr() : [ERROR] malformed ICMP "\
                 "echo reply. payload too short to be meaningful (" 
-                << icmp_len << " byte). not processing." << std::endl;  
+                << inner_icmp_pckt_len << " byte). not processing." << std::endl;  
 
             return -1;            
         }
 
     } else {
 
-        return (in_icmp_hdr->icmp_type);
+        return (inner_icmp_hdr->icmp_type);
     }
 
     return 0;
 }
 
-int ICMPUtils::get_updhdr_from_icmp(
-    char * pckt_buff, 
-    int ipv4_hdr_len, 
-    int icmp_len,
-    struct udphdr * & udp_hdr) {
+int ICMPUtils::get_inner_udp_hdr(
+    char * icmp_pckt, 
+    int icmp_pckt_len,
+    struct udphdr * & inner_udp_hdr) {
 
-    // the reply should at least have its icmp header + an ip header within 
-    // its payload
-    if (icmp_len < 8 + (int) sizeof(struct ip)) {
+    if (icmp_pckt_len < 8 + (int) sizeof(struct ip)) {
 
-        std::cerr << "icmp-utils::get_updhdr_from_icmp() : [ERROR] malformed ICMP "\
+        std::cerr << "icmp-utils::get_inner_udp_hdr() : [ERROR] malformed ICMP "\
             "reply. payload too short to be meaningful (" 
-            << icmp_len << " byte). skip processing." << std::endl;  
+            << icmp_pckt_len << " byte). skip processing." << std::endl;  
 
         return -1;            
     }
 
-    // let's now look at the ip header embedded in the icmp reply
-    struct ip * in_ipv4_hdr = (struct ip *) (pckt_buff + ipv4_hdr_len + 8);
-    int in_ipv4_hdr_len = in_ipv4_hdr->ip_hl << 2;
+    struct ip * inner_ipv4_hdr = NULL;
+    if (get_inner_ip_hdr(icmp_pckt, icmp_pckt_len, inner_ipv4_hdr) < 0)
+        return -1;
+    int inner_ipv4_hdr_len = (inner_ipv4_hdr->ip_hl << 2);
 
-    if (icmp_len < 8 + in_ipv4_hdr_len + 4) {
+    if (icmp_pckt_len < 8 + inner_ipv4_hdr_len + 4) {
 
-        std::cerr << "icmp-utils::get_updhdr_from_icmp() : [ERROR] not "\
-            "enough data to look at udp ports (" << icmp_len << " byte). skip "\
+        std::cerr << "icmp-utils::get_inner_udp_hdr() : [ERROR] not "\
+            "enough data to look at udp ports (" << icmp_pckt_len << " byte). skip "\
             "processing." << std::endl;  
 
         return -1;              
     }
 
-    if (in_ipv4_hdr->ip_p != IPPROTO_UDP) {
+    if (inner_ipv4_hdr->ip_p != IPPROTO_UDP) {
 
-        std::cerr << "icmp-utils::get_updhdr_from_icmp() : [ERROR] not "\
-            "and udp packet (proto code = " << in_ipv4_hdr->ip_p << "). skip "\
+        std::cerr << "icmp-utils::get_inner_udp_hdr() : [ERROR] not "\
+            "and udp packet (proto code = " << inner_ipv4_hdr->ip_p << "). skip "\
             "processing." << std::endl;  
 
         return -1;                      
     }
 
-    udp_hdr = (struct udphdr *) (pckt_buff + ipv4_hdr_len + 8 + in_ipv4_hdr_len);
+    inner_udp_hdr = (struct udphdr *) (icmp_pckt + 8 + inner_ipv4_hdr_len);
 
     return 0;
 }

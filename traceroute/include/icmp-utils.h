@@ -28,18 +28,20 @@ class ICMPUtils {
         ICMPUtils() {}
         ~ICMPUtils() {}
 
-        static int get_updhdr_from_icmp(
-            char * pckt_buff, 
-            int ipv4_hdr_len, 
-            int icmp_len,
-            struct udphdr * & udp_hdr);
+        static int get_inner_ip_hdr(
+            char * icmp_pckt,               // array of icmp packet bytes
+            int icmp_pckt_len,              // length of icmp packet
+            struct ip * & inner_ip_hdr);
 
-        static int get_icmphdr_from_icmp(
-            char * pckt_buff, 
-            int pckt_bytes,
-            int ipv4_hdr_len, 
-            int icmp_len,
+        static int get_inner_icmp_hdr(
+            char * icmp_pckt, 
+            int icmp_pckt_len,
             struct icmp * & in_icmp_hdr);
+
+        static int get_inner_udp_hdr(
+            char * icmp_pckt, 
+            int icmp_pckt_len,
+            struct udphdr * & inner_udp_hdr);
 
         static uint16_t in_cksum(uint16_t * addr, int len);
 
