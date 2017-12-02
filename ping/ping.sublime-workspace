@@ -519,22 +519,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "src/pingy.cpp",
-			"settings":
-			{
-				"buffer_size": 14439,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Makefile",
-			"settings":
-			{
-				"buffer_size": 883,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -576,6 +560,8 @@
 	},
 	"file_history":
 	[
+		"/home/adamiaonr/workbench/networking-sandbox/ping/Makefile",
+		"/home/adamiaonr/workbench/networking-sandbox/ping/src/pingy.cpp",
 		"/home/adamiaonr/workbench/dns-performance/src/dns-performance.cpp",
 		"/home/adamiaonr/workbench/networking-sandbox/ping/include/argvparser.h",
 		"/home/adamiaonr/workbench/networking-sandbox/ping/src/argvparser.cpp",
@@ -701,9 +687,7 @@
 		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/no-caching/r10/os-1-10-ll-nls.scn",
 		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/prefix-management/pm-5-10-t2.scn",
 		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/no-caching/r5/os-9-5-ll-nls.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity/r5/os-9-5-ll-nls.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity/r10/os-1-10-ll-nls.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity/r10/os-3-10-ll-nls.scn"
+		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity/r5/os-9-5-ll-nls.scn"
 	],
 	"find":
 	{
@@ -723,6 +707,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"ip_src",
+			"_ip",
 			"send_icmp_echo",
 			"proccess_icmp_ipv4_reply",
 			"recv_addr",
@@ -848,9 +834,7 @@
 			"calc_joint_lpm_pmf",
 			"calc_joint_log_prob",
 			"calc_joint_lpm_pmf(",
-			"forward(",
-			"build_n",
-			"get_outcome"
+			"forward("
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -996,68 +980,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "src/pingy.cpp",
-					"settings":
-					{
-						"buffer_size": 14439,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7139,
-								7139
-							]
-						],
-						"settings":
-						{
-							"rulers":
-							[
-								80
-							],
-							"spell_check": true,
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 204.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Makefile",
-					"settings":
-					{
-						"buffer_size": 883,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								452,
-								452
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Makefile/Makefile.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],

@@ -139,6 +139,9 @@ class ARP_Module:
         # update_arp_table() method
         arp_data = ARP_IPv4_Data()
         arp_data.unpack(arp_dgram.get_attr('data', 'data'))
+        # note that regardless of the destination ip of this ARP dgram,
+        # the table is updated (however, it doesn't tell anything about
+        # destination mac address of the Ethernet frame which contains it)
         merge_flag = self.update_arp_table(arp_dgram, arp_data)
 
         # is this arp frame destined to this node? if not, abort

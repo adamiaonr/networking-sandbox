@@ -4,6 +4,62 @@
 		"selected_items":
 		[
 			[
+				"icm",
+				"icmp_pckt_len"
+			],
+			[
+				"inne",
+				"inner_ipv4_hdr"
+			],
+			[
+				"inn",
+				"inner_icmp_hdr"
+			],
+			[
+				"icmp_",
+				"icmp_pckt"
+			],
+			[
+				"icmp",
+				"icmp_pckt"
+			],
+			[
+				"times",
+				"timestamp"
+			],
+			[
+				"repl",
+				"reply_addrlen"
+			],
+			[
+				"rc",
+				"rcv_timestamp"
+			],
+			[
+				"ic",
+				"icmp_rsp"
+			],
+			[
+				"req_",
+				"req_src_addr"
+			],
+			[
+				"icmp_r",
+				"icmp_rsp"
+			],
+			[
+				"res",
+				"response_record"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"get",
+				"get_inner_ip_header"
+			],
+			[
 				"rcv_ad",
 				"rcv_addrlen"
 			],
@@ -14,14 +70,6 @@
 			[
 				"ICM",
 				"ICMP_ECHOREPLY"
-			],
-			[
-				"ic",
-				"icmp_type"
-			],
-			[
-				"icm",
-				"icmp_hdr"
 			],
 			[
 				"ip",
@@ -38,10 +86,6 @@
 			[
 				"end",
 				"endl"
-			],
-			[
-				"icmp",
-				"icmp_hdr"
 			],
 			[
 				"check",
@@ -78,10 +122,6 @@
 			[
 				"in_ic",
 				"in_icmp_hdr"
-			],
-			[
-				"icmp_",
-				"icmp_hdr"
 			],
 			[
 				"w",
@@ -236,10 +276,6 @@
 				"cout"
 			],
 			[
-				"rc",
-				"rcv_bytes"
-			],
-			[
 				"sin_",
 				"sin_addr"
 			],
@@ -296,10 +332,6 @@
 				"TIMEOUT_REPLY"
 			],
 			[
-				"get",
-				"gettimeofday"
-			],
-			[
 				"ICMP",
 				"ICMP_UNREACH"
 			],
@@ -341,10 +373,6 @@
 			],
 			[
 				"rp",
-				"reply_hostname"
-			],
-			[
-				"repl",
 				"reply_hostname"
 			],
 			[
@@ -486,34 +514,6 @@
 			[
 				"_r",
 				"_r5"
-			],
-			[
-				"pt",
-				"ptree_size"
-			],
-			[
-				"ptr",
-				"ptree_iface"
-			],
-			[
-				"IF",
-				"IFACE_LOCAL"
-			],
-			[
-				"_p",
-				"_ptree_size"
-			],
-			[
-				"_i",
-				"_ingress_tree_contribution"
-			],
-			[
-				"_su",
-				"_sum_egress_size_pmf"
-			],
-			[
-				"_s",
-				"_sum_egress_size_pmf"
 			]
 		]
 	},
@@ -531,7 +531,7 @@
 			"file": "src/traceroute.cpp",
 			"settings":
 			{
-				"buffer_size": 23303,
+				"buffer_size": 24253,
 				"line_ending": "Unix"
 			}
 		},
@@ -539,7 +539,7 @@
 			"file": "src/icmp-utils.cpp",
 			"settings":
 			{
-				"buffer_size": 6025,
+				"buffer_size": 6224,
 				"line_ending": "Unix"
 			}
 		},
@@ -547,7 +547,7 @@
 			"file": "include/icmp-utils.h",
 			"settings":
 			{
-				"buffer_size": 1416,
+				"buffer_size": 1558,
 				"line_ending": "Unix"
 			}
 		},
@@ -555,7 +555,7 @@
 			"file": "/home/adamiaonr/workbench/pagerank/cpp/pagerank.cpp",
 			"settings":
 			{
-				"buffer_size": 5030,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -624,6 +624,7 @@
 	},
 	"file_history":
 	[
+		"/home/adamiaonr/workbench/networking-sandbox/ping/ping.sublime-project",
 		"/home/adamiaonr/workbench/xia-core/applications/Makefile",
 		"/home/adamiaonr/workbench/pagerank/cpp/Makefile",
 		"/home/adamiaonr/workbench/pagerank/cpp/table.h",
@@ -750,8 +751,7 @@
 		"/Users/adamiaonr/workbench/rid-analytics/src/argvparser.cpp",
 		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/prefix-management/pm-5-10-th10.scn",
 		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/prefix-management/pm-5-10-th9.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/prefix-management/pm-5-10-th6.scn",
-		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/prefix-management/pm-5-10-th7.scn"
+		"/Users/adamiaonr/workbench/rid-analytics/test/configs/sanity-check/prefix-management/pm-5-10-th6.scn"
 	],
 	"find":
 	{
@@ -771,6 +771,49 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"get_udp_hdr",
+			"get_updhdr_from_icmp",
+			"in_icmp_hdr",
+			"_header",
+			"signal_handler",
+			"use_icmp_echo",
+			"get_icmp_response",
+			"icmp_echo_probe",
+			"in_icmp_hdr",
+			"rsp_rcrd",
+			"rcv_timestamp",
+			"icmp_rsp.reply_addr",
+			"get_icmp_response",
+			"malformed ICMP",
+			"inet_ntoa",
+			"->snd_timestamp",
+			"->snd_ttl",
+			"->snd_seq",
+			"snd_seq",
+			"send_rcrd",
+			"response_record",
+			"snd_record",
+			"snd_rec",
+			"send_rcrd",
+			"snd_rec",
+			"&rcv_addr",
+			"icmp_rsp.rcv_addr",
+			"rcv_addr",
+			"addrlen",
+			"icmp_rsp",
+			"get_icmp_response",
+			"pckt_bytes",
+			"get_icmphdr_from_icmp",
+			"rcv_timestamp",
+			"traceroute_params",
+			"rcv_addr",
+			"snd_src_port",
+			"ip_src",
+			"ipv4_hdr",
+			"ipv4_hdr_len",
+			"snd_ttl",
+			"rcv_addr",
+			"get_icmp_response",
 			"header",
 			"addrlen",
 			"traceroute::",
@@ -855,50 +898,7 @@
 			"egress_size",
 			"0,5,0",
 			"fig",
-			"6,0",
-			"_for_real_dir",
-			"$file",
-			"0,10,0",
-			"10,0",
-			"5,0",
-			"0,5,0",
-			"exp_factors",
-			"find_tp",
-			"printf",
-			"erase_access_tree_rec",
-			"build_network_rec",
-			"from_router",
-			"tp_sizes",
-			"tp_s",
-			"tp_",
-			"colors",
-			"get_log_fp_rates",
-			"calc_lpm_pmf",
-			"num_entries",
-			"fwd_table_size",
-			"calc_lpm_pmf",
-			"add_f",
-			"expansion",
-			"get_log_fp_rates",
-			"fwd_table_si",
-			"num_entries",
-			"fwd_table_size",
-			"expanded_size",
-			"add_fwd_table_entry",
-			"_original_local",
-			"DEFAULT_CSV_DIR",
-			"DEFAULT_SCN_FILE",
-			"build_network",
-			"build_ne",
-			"fwd_table_size",
-			"f_distribution",
-			"_dis",
-			"0,5,0",
-			"0,2,0",
-			"bf_size",
-			"160",
-			"320",
-			"sys.argv"
+			"6,0"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -906,6 +906,20 @@
 		"regex": false,
 		"replace_history":
 		[
+			"get_inner_udp_hdr",
+			"get_udp_hdr",
+			"inner_icmp_hdr",
+			"_hdr",
+			"use_icmp_probe",
+			"->timestamp",
+			"->ttl",
+			"->seq",
+			"seq",
+			"sent_rcrd",
+			"trace_record",
+			"response_record",
+			"send_rcrd",
+			"icmp_rsp.reply_addr",
 			"icmp-utils::",
 			"traceroute::",
 			"<< \" byte)",
@@ -1019,21 +1033,7 @@
 			"level",
 			"depth",
 			"graphviz_",
-			"next_depth",
-			"prev_depth",
-			"Drawbacks:",
-			"Advantages:",
-			"",
-			"fps-rates-fib",
-			"fig:fps-rates-entry",
-			"",
-			"*",
-			"       ",
-			"   -#",
-			"    ",
-			"o_optimistic",
-			"o-optimistic",
-			"o_optimistic"
+			"next_depth"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1044,7 +1044,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -1078,15 +1078,15 @@
 					"file": "src/traceroute.cpp",
 					"settings":
 					{
-						"buffer_size": 23303,
+						"buffer_size": 24253,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9349,
-								9349
+								9131,
+								9131
 							]
 						],
 						"settings":
@@ -1101,7 +1101,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3622.0,
+						"translation.y": 3466.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1111,15 +1111,15 @@
 					"file": "src/icmp-utils.cpp",
 					"settings":
 					{
-						"buffer_size": 6025,
+						"buffer_size": 6224,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3866,
-								3866
+								5023,
+								5023
 							]
 						],
 						"settings":
@@ -1133,7 +1133,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2433.0,
+						"translation.y": 1697.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1143,15 +1143,15 @@
 					"file": "include/icmp-utils.h",
 					"settings":
 					{
-						"buffer_size": 1416,
+						"buffer_size": 1558,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								248,
-								248
+								1293,
+								1293
 							]
 						],
 						"settings":
@@ -1165,7 +1165,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 90.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1175,7 +1175,7 @@
 					"file": "/home/adamiaonr/workbench/pagerank/cpp/pagerank.cpp",
 					"settings":
 					{
-						"buffer_size": 5030,
+						"buffer_size": 0,
 						"regions":
 						{
 						},

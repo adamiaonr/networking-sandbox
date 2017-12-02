@@ -59,24 +59,27 @@ class ICMP_Packet(MetaFrame):
         icmp_pckt = self.pack(parts = ['header', 'data'])
         # keep summing blocks of 2 byte from icmp_pckt to get a 32 bit sum
         count = len(icmp_pckt)
+        # transform each byte in icmp packet to a number in [0, 255]
+        dgram_bytes = [ord(byte_str) for byte_str in icmp_pckt]
+
         while (count > 1):
             # the 16 bit sum is done in 2 parts:
             #   - isolate 2 bytes in icmp_pckt
             #   - use int(<pair>, 16) to convert it to a numerical value
-            cksum += int(icmp_pckt[(count - 2):(count - 1)], 16)
+            cksum += (dgram_bytes[(count - 2)] * 8) + dgram_bytes[(count - 1)]
             count -= 2
 
         # add left-over byte, if any
         if count > 0:
             # note how we use int(, 8) to convert it to a numerical value
-            cksum += int(icmp_pckt[0], 8)
+            cksum += dgram_bytes[0]
 
         # fold result into a 16 bit 1's complement sum
         while (cksum >> 16):
             cksum = (cksum & 0xFFFF) + (cksum >> 16)
 
         # return the complement of the 16 bit 1's complement sum. done.
-        return ~cksum
+        return ((~cksum) & 0xFFFF)
 
 class ICMP_Module:
 
@@ -90,7 +93,7 @@ class ICMP_Module:
         # unpack the ipv4 payload into an ICMP packet object, extract the header
         # fields
         icmp_pckt = ICMP_Packet()
-        icmp_pckt.unpack_hdr(ipv4_dgram.get_attr('data', 'data'))
+        icmp_pckt.unpack(ipv4_dgram.get_attr('data', 'data'))
 
         # process the icmp packet according to the 'type' field. we only 
         # support: ECHO_REQUEST and DESTINATION_UNREACHABLE
@@ -99,13 +102,14 @@ class ICMP_Module:
             # the icmp header info to send in the reply differs in the 'type' field
             icmp_pckt.set_attr('header', 'type', ICMP_Packet.ICMP_TYPE_ECHO_REPLY)
             icmp_pckt.set_attr('header', 'code', 0)
-            icmp_pckt.set_attr('header', 'cksum', self.get_cksum())
+            icmp_pckt.set_attr('header', 'cksum', icmp_pckt.get_cksum())
 
             # encapsulate icmp packet within an ipv4 packet and send it back
             # to the source
             self.stack.ipv4_mod.send_dgram(
                 src_ip  = self.stack.ip,
                 dst_ip  = ipv4_dgram.get_attr('header', 'saddr'),
+                proto = ipv4_dgram.get_attr('header', 'proto'),
                 payload = icmp_pckt.pack())
 
         else:
