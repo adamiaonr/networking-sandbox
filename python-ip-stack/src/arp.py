@@ -1,8 +1,9 @@
 import struct
 import binascii
 import collections
+import ipaddress
 
-from ethernet import Ethernet
+from ethernet import Ethernet, mac_to_str
 from metaframe import MetaFrame
 from collections import defaultdict
 
@@ -14,6 +15,10 @@ class ARP_IPv4_Entry:
         self.sip = sip
         self.smac = smac
         self.state = state
+
+    def __str__(self):
+        return ("type: %s, src ip: %s, src mac: %s, state: %s" % 
+            (self.hwtype, str(ipaddress.IPv4Address(self.sip)), mac_to_str(self.smac), self.state))
 
     def update(self, arp_data):
 
@@ -93,6 +98,11 @@ class ARP_Module:
         self.hwtypes    = set([0x0001])
         self.protypes   = set([0x0800])
 
+    def print_table(self):
+
+        for entry in self.arp_table:
+            print("[%s, %s] : %s" % (entry[0], str(ipaddress.IPv4Address(entry[1])), str(self.arp_table[entry])))
+
     def update_arp_table(self, arp_dgram, arp_data):
 
         # set merge_flag to False
@@ -107,7 +117,9 @@ class ARP_Module:
             merge_flag = True
 
         else:
-            print("ARP_Module::update_arp_table() : [WARNING] %s not in ARP table" % (str(arp_table_key)))
+            print("ARP_Module::update_arp_table() : [WARNING] %s not in ARP table" % (str(ipaddress.IPv4Address(arp_table_key[1]))))
+
+        self.print_table()
 
         return merge_flag
 
@@ -144,6 +156,13 @@ class ARP_Module:
         # destination mac address of the Ethernet frame which contains it)
         merge_flag = self.update_arp_table(arp_dgram, arp_data)
 
+        # print("ARP_Module::update_arp_table() : [INFO] dst ip : %s (%d)" % 
+        #     (str(ipaddress.IPv4Address(arp_data.dip)), arp_data.dip))
+        # print("ARP_Module::update_arp_table() : [INFO] src ip : %s (%d)" % 
+        #     (str(ipaddress.IPv4Address(arp_data.dip)), arp_data.sip))
+        # print("ARP_Module::update_arp_table() : [INFO] stack ip : %s (%d)" % 
+        #     (str(ipaddress.IPv4Address(self.stack.ip)), self.stack.ip))
+
         # is this arp frame destined to this node? if not, abort
         if arp_data.dip == self.stack.ip:
 
@@ -166,7 +185,7 @@ class ARP_Module:
                 arp_data.dip = arp_data.sip
                 arp_data.dmac = arp_data.smac
                 arp_data.sip = self.stack.ip
-                arp_data.smac = self.stack.mac
+                arp_data.smac = binascii.unhexlify(self.stack.mac.replace(':', ''))
 
                 raw_data = arp_data.pack()
                 arp_dgram.set_attr('data', 'data', raw_data, size = len(raw_data))

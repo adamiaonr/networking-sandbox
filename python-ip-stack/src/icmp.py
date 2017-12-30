@@ -1,6 +1,7 @@
 import struct
 import binascii
 import collections
+import ipaddress
 
 from ethernet import Ethernet
 from metaframe import MetaFrame
@@ -54,7 +55,7 @@ class ICMP_Packet(MetaFrame):
         sum of all 16 bit words in the header AND data. for purposes of 
         computing the checksum, the value of the checksum field is zero."""
 
-        cksum = 0
+        cksum = 0x0000
         # get a byte array representation of the icmp packet
         icmp_pckt = self.pack(parts = ['header', 'data'])
         # keep summing blocks of 2 byte from icmp_pckt to get a 32 bit sum
@@ -62,23 +63,33 @@ class ICMP_Packet(MetaFrame):
         # transform each byte in icmp packet to a number in [0, 255]
         dgram_bytes = [ord(byte_str) for byte_str in icmp_pckt]
 
+        i = 0
         while (count > 1):
-            # the 16 bit sum is done in 2 parts:
-            #   - isolate 2 bytes in icmp_pckt
-            #   - use int(<pair>, 16) to convert it to a numerical value
-            cksum += (dgram_bytes[(count - 2)] * 8) + dgram_bytes[(count - 1)]
+
+            cksum += (dgram_bytes[i] << 8) + dgram_bytes[i + 1]
+
+            # print("{0:#018b}".format((dgram_bytes[i] << 8) & 0xFFFF))
+            # print("{0:#018b}".format(dgram_bytes[i + 1] & 0xFFFF))
+            # print("------------------")
+            # print("{0:#018b}".format(cksum & 0xFFFF))
+            # print("\n")
+
             count -= 2
+            i += 2
 
-        # add left-over byte, if any
+
+        # add left-over byte (if any)
         if count > 0:
-            # note how we use int(, 8) to convert it to a numerical value
             cksum += dgram_bytes[0]
+        # print("{0:#018b}".format(cksum & 0xFFFF))
 
-        # fold result into a 16 bit 1's complement sum
+        # now fold result into a 16 bit 1's complement sum
         while (cksum >> 16):
             cksum = (cksum & 0xFFFF) + (cksum >> 16)
 
-        # return the complement of the 16 bit 1's complement sum. done.
+        # print("{0:#018b}".format(cksum & 0xFFFF))
+        # print("0x%0.2X" % cksum)
+
         return ((~cksum) & 0xFFFF)
 
 class ICMP_Module:
@@ -97,11 +108,16 @@ class ICMP_Module:
 
         # process the icmp packet according to the 'type' field. we only 
         # support: ECHO_REQUEST and DESTINATION_UNREACHABLE
+
         if icmp_pckt.get_attr('header', 'type') == ICMP_Packet.ICMP_TYPE_ECHO_REQUEST:
 
             # the icmp header info to send in the reply differs in the 'type' field
             icmp_pckt.set_attr('header', 'type', ICMP_Packet.ICMP_TYPE_ECHO_REPLY)
             icmp_pckt.set_attr('header', 'code', 0)
+            # set the data field to be equal to the data sent in the echo request
+            icmp_pckt.set_attr('data', 'data', icmp_pckt.get_attr('data', 'data'), size = len(icmp_pckt.get_attr('data', 'data')))
+            # calculate the checksum
+            icmp_pckt.set_attr('header', 'cksum', 0x0000)
             icmp_pckt.set_attr('header', 'cksum', icmp_pckt.get_cksum())
 
             # encapsulate icmp packet within an ipv4 packet and send it back

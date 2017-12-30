@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"fra",
+				"frame_type"
+			],
+			[
 				"icm",
 				"icmp_ipv4_dgram"
 			],
@@ -141,10 +145,6 @@
 			],
 			[
 				"frag",
-				"frag_offset"
-			],
-			[
-				"fra",
 				"frag_offset"
 			],
 			[
@@ -523,23 +523,7 @@
 			"file": "src/stack.py",
 			"settings":
 			{
-				"buffer_size": 3797,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/adamiaonr/workbench/rid-analytics/scripts/rocketfuel/generate_tests.py",
-			"settings":
-			{
-				"buffer_size": 10418,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/adamiaonr/workbench/rid-analytics/scripts/rocketfuel/convert_rocketfuel.py",
-			"settings":
-			{
-				"buffer_size": 35407,
+				"buffer_size": 4013,
 				"line_ending": "Unix"
 			}
 		},
@@ -555,7 +539,7 @@
 			"file": "src/metaframe.py",
 			"settings":
 			{
-				"buffer_size": 3833,
+				"buffer_size": 3829,
 				"line_ending": "Unix"
 			}
 		},
@@ -571,7 +555,7 @@
 			"file": "src/ipv4.py",
 			"settings":
 			{
-				"buffer_size": 5864,
+				"buffer_size": 5948,
 				"line_ending": "Unix"
 			}
 		},
@@ -579,7 +563,7 @@
 			"file": "src/icmp.py",
 			"settings":
 			{
-				"buffer_size": 4270,
+				"buffer_size": 4490,
 				"line_ending": "Unix"
 			}
 		},
@@ -587,7 +571,7 @@
 			"file": "src/arp.py",
 			"settings":
 			{
-				"buffer_size": 5914,
+				"buffer_size": 6133,
 				"line_ending": "Unix"
 			}
 		}
@@ -632,6 +616,8 @@
 	},
 	"file_history":
 	[
+		"/home/adamiaonr/workbench/rid-analytics/scripts/rocketfuel/convert_rocketfuel.py",
+		"/home/adamiaonr/workbench/rid-analytics/scripts/rocketfuel/generate_tests.py",
 		"/home/adamiaonr/workbench/accelerator/doc/final/Makefile",
 		"/home/adamiaonr/workbench/networking-sandbox/traceroute/traceroute.sublime-project",
 		"/home/adamiaonr/workbench/networking-sandbox/python-ip-stack/metaframe.py",
@@ -757,9 +743,7 @@
 		"/home/adamiaonr/workbench/dns-performance/src/dns-performance.cpp",
 		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/cache/fls",
 		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/cache/f02.scn",
-		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/r15-events/data/request-sizes/r15.scn",
-		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/r15-events/data/request-sizes/r10.scn",
-		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/r15-events/data/request-sizes/r05.scn"
+		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/r15-events/data/request-sizes/r15.scn"
 	],
 	"find":
 	{
@@ -779,6 +763,16 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"print(",
+			"IPv4::",
+			".pack()",
+			"send_",
+			"inet",
+			"got something",
+			"MetaFrame",
+			"get_format_str",
+			"MetaFrame",
+			"handle_frame",
 			"ARP_Dgram",
 			"raw_dgram",
 			"ARP_Daemon",
@@ -896,24 +890,16 @@
 			"<tp iface=",
 			"<tp iface=\"0\">15</tp>",
 			"\"3.0\"",
-			"\"3.0",
-			"get_log_fp_rates(",
-			"fp_rate",
-			"get_log_fp_rates",
-			"\"3.3\"",
-			"\"3.1\"",
-			"\"2.0\"",
-			"\"1.0\"",
-			"\"2.0\"",
-			"\"1.0\"",
-			"1.0"
+			"\"3.0"
 		],
 		"highlight": true,
 		"in_selection": false,
-		"preserve_case": true,
+		"preserve_case": false,
 		"regex": false,
 		"replace_history":
 		[
+			"ipv4::",
+			"metaframe",
 			"raw_frame",
 			"ARP_Module",
 			"ARP_Dgram",
@@ -1039,9 +1025,7 @@
 			"0,10,0",
 			"num_entries",
 			"0,10,0",
-			"0,9,0",
-			"0,8,0",
-			"0,7,0"
+			"0,9,0"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1052,7 +1036,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -1060,15 +1044,15 @@
 					"file": "src/stack.py",
 					"settings":
 					{
-						"buffer_size": 3797,
+						"buffer_size": 4013,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3298,
-								3298
+								2976,
+								2976
 							]
 						],
 						"settings":
@@ -1082,69 +1066,13 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 966.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/home/adamiaonr/workbench/rid-analytics/scripts/rocketfuel/generate_tests.py",
-					"settings":
-					{
-						"buffer_size": 10418,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3360.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/home/adamiaonr/workbench/rid-analytics/scripts/rocketfuel/convert_rocketfuel.py",
-					"settings":
-					{
-						"buffer_size": 35407,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								34998,
-								34998
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 11078.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "src/tap.py",
 					"settings":
 					{
@@ -1172,19 +1100,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 2,
 					"file": "src/metaframe.py",
 					"settings":
 					{
-						"buffer_size": 3833,
+						"buffer_size": 3829,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2670,
-								2670
+								2485,
+								2485
 							]
 						],
 						"settings":
@@ -1194,13 +1122,13 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 990.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 3,
 					"file": "src/ethernet.py",
 					"settings":
 					{
@@ -1222,91 +1150,91 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 42.0,
+						"translation.y": 45.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/ipv4.py",
+					"settings":
+					{
+						"buffer_size": 5948,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5922,
+								5922
+							]
+						],
+						"settings":
+						{
+							"rulers":
+							[
+								80
+							],
+							"spell_check": true,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1845.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/icmp.py",
+					"settings":
+					{
+						"buffer_size": 4490,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3479,
+								3479
+							]
+						],
+						"settings":
+						{
+							"rulers":
+							[
+								80
+							],
+							"spell_check": true,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1116.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "src/ipv4.py",
-					"settings":
-					{
-						"buffer_size": 5864,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								351,
-								351
-							]
-						],
-						"settings":
-						{
-							"rulers":
-							[
-								80
-							],
-							"spell_check": true,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 672.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "src/icmp.py",
-					"settings":
-					{
-						"buffer_size": 4270,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								48,
-								48
-							]
-						],
-						"settings":
-						{
-							"rulers":
-							[
-								80
-							],
-							"spell_check": true,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 714.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
 					"file": "src/arp.py",
 					"settings":
 					{
-						"buffer_size": 5914,
+						"buffer_size": 6133,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4633,
-								4633
+								3639,
+								3639
 							]
 						],
 						"settings":
@@ -1316,7 +1244,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1596.0,
+						"translation.y": 1800.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

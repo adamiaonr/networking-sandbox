@@ -11,6 +11,9 @@ from metaframe import MetaFrame
 # ETHERNET_PREAMBLE = '\x55\x55\x55\x55\x55\x55\x55'
 # ETHERNET_SFD = 171
 
+def mac_to_str(mac_addr):
+    return (":".join([x.encode('hex') for x in mac_addr])).upper()
+
 class Ethernet(MetaFrame):
 
     ETH_HDR_SIZE = 0x0E
