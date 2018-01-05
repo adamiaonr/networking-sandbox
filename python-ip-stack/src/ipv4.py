@@ -3,9 +3,8 @@ import binascii
 import collections
 import ipaddress
 
-from socket import *
-
-from arp import *
+from pytransport import PyTransport
+from arp import ARP_Module, ARP_Dgram
 from ethernet import Ethernet
 from metaframe import MetaFrame
 from collections import defaultdict
@@ -127,8 +126,6 @@ class IPv4_Dgram(MetaFrame):
 class IPv4_Module:
 
     def __init__(self, stack):
-
-        # reference to the stack ipv4 obj belongs to
         self.stack = stack
 
     def process_dgram(self, raw_dgram):
@@ -141,6 +138,10 @@ class IPv4_Module:
         # handler
         if ipv4_dgram.get_attr('header', 'proto') == IPv4_Dgram.IPv4_PROTO_ICMP:
             self.stack.icmp_mod.process_pckt(ipv4_dgram)
+
+        elif ipv4_dgram.get_attr('header', 'proto') == IPv4_Dgram.IPv4_PROTO_UDP:
+            self.stack.transport_mod.process_dgram(ipv4_dgram)
+
         # else:
         #     print("ipv4::process_dgram() [ERROR] unknown protocol type : %02x" % (ipv4_dgram.get_attr('header', 'proto')))
 

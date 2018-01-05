@@ -4,9 +4,9 @@ import struct
 import subprocess
 import ipaddress
 import arch
+# only used for socket.AF_UNIX constant
 import socket
 
-# from pytun import TunTapDevice, IFF_TAP, IFF_NO_PI
 # pytun alternative: http://www.secdev.org/projects/tuntap_udp/files/tunproxy.py 
 from fcntl import ioctl
 # custom import
@@ -120,6 +120,7 @@ class Tap:
         if run_cmd('ip link delete %s' % (self.dev_name), wait = True)[0]:
             print("tap::up() : [ERROR] error bringing down %s tap device" % (self.dev_name))
 
+        # close tap device file
         self.fd.close()
         return 0
 

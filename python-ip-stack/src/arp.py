@@ -89,8 +89,8 @@ class ARP_Module:
 
     def __init__(self, stack):
 
-        # stack the ARP module belongs too
         self.stack = stack
+
         # since clients will query using L3 addresses, keys are the sip
         self.arp_table = defaultdict(ARP_IPv4_Entry)
         # set of L2 and L3 types supported by the daemon. by default, let's 
@@ -155,13 +155,6 @@ class ARP_Module:
         # the table is updated (however, it doesn't tell anything about
         # destination mac address of the Ethernet frame which contains it)
         merge_flag = self.update_arp_table(arp_dgram, arp_data)
-
-        # print("ARP_Module::update_arp_table() : [INFO] dst ip : %s (%d)" % 
-        #     (str(ipaddress.IPv4Address(arp_data.dip)), arp_data.dip))
-        # print("ARP_Module::update_arp_table() : [INFO] src ip : %s (%d)" % 
-        #     (str(ipaddress.IPv4Address(arp_data.dip)), arp_data.sip))
-        # print("ARP_Module::update_arp_table() : [INFO] stack ip : %s (%d)" % 
-        #     (str(ipaddress.IPv4Address(self.stack.ip)), self.stack.ip))
 
         # is this arp frame destined to this node? if not, abort
         if arp_data.dip == self.stack.ip:

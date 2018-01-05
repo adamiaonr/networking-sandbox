@@ -5,13 +5,12 @@ import binascii
 import ipaddress
 import thread
 
-from socket import *
-
 from tap import Tap
-from ethernet import Ethernet, mac_to_str
+from ethernet import Ethernet
 from arp import ARP_Module
-from ipv4 import IPv4_Module, IPv4_Dgram
+from ipv4 import IPv4_Module
 from icmp import ICMP_Module
+from pytransport import PyTransport
 
 class Stack:
 
@@ -23,7 +22,8 @@ class Stack:
         self.mac = self.tap.hw_addr
         self.ip = int(ipaddress.IPv4Address(unicode(self.tap.net_addr)))
 
-        # initialize modules for supported protocols:
+        # initialize (singleton) modules for supported protocols:
+
         #   - ARP : maintains local ARP table and processes ARP requests
         self.arp_mod = ARP_Module(self)
 
@@ -35,6 +35,9 @@ class Stack:
 
         #   - ICMP : handles ICMP protocol packets (mainly ping responses)
         self.icmp_mod = ICMP_Module(self)
+
+        #   - PyTransport : handles everything related to tcp/udp
+        self.transport_mod = PyTransport(self)
 
     def send_frame(self, frame_type, dst_mac, data):
 
@@ -50,7 +53,7 @@ class Stack:
             self.tap.write(eth_frame.pack())
 
         else:
-            print("Stack::send_frame() : [ERROR] unknown frame type : %d" % (frame_type))
+            print("stack::send_frame() : [ERROR] unknown frame type : %d" % (frame_type))
 
     def handle_frame(self, raw_frame):
 
@@ -76,39 +79,11 @@ class Stack:
         # else:
         #     print("Stack::handle_frame() [ERROR] unknown protocol type : %02x" % (frame_type))
 
-# def start_icmp_listener(stack):
-
-#     # hack : i've found it hard to re-direct icmp traffic to the tap 
-#     # interface. to circumvent this problem, i try using a raw socket, 
-#     # w/ protocol option 'IPPROTO_ICMP'
-#     stack.icmp_listener_sock = socket(AF_INET, SOCK_RAW, IPPROTO_ICMP)
-
-#     # bind the socket to the tap interface if the python stack
-#     stack.icmp_listener_sock.bind((stack.tap.dev.addr, 0))
-
-#     # recv loop
-#     (raw_dgram, snd_addr) = stack.icmp_listener_sock.recvfrom(2048)
-
-#     print("\n******** GOT SOMETHING **********\n")
-
-#     # process icmp packet (since proto is IPPROTO_ICMP, we know for sure that 
-#     # the received packet will be icmp)
-#     icmp_ipv4_dgram = IPv4_Dgram()
-#     icmp_ipv4_dgram.unpack(raw_dgram)
-#     stack.icmp_mod.process_pckt(icmp_ipv4_dgram)
-
 if __name__ == "__main__":
 
     # initialize a python tcp/ip stack
     stack = Stack('10.0.0.4')
     stack.tap.print_info()
-
-    # # hack : start icmp listener thread, to overcome the limitations of icmp 
-    # # handling in Linux's networking Stack
-    # try:
-    #     thread.start_new_thread(start_icmp_listener, (stack,))
-    # except:
-    #     print("error while starting thread...")
 
     steps = 100
     while (steps > 0):

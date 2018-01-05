@@ -95,9 +95,7 @@ class ICMP_Packet(MetaFrame):
 class ICMP_Module:
 
     def __init__(self, stack):
-
-        # reference to the stack the icmp object belongs to
-        self.stack  = stack
+        self.stack = stack
 
     def process_pckt(self, ipv4_dgram):
 
@@ -129,4 +127,4 @@ class ICMP_Module:
                 payload = icmp_pckt.pack())
 
         else:
-            print("ICMP::process_pckt() [ERROR] unknown icmp type : %02x" % (icmp_pckt.get_attr('header', 'type')))
+            print("icmp::process_pckt() [ERROR] unknown icmp type : %02x" % (icmp_pckt.get_attr('header', 'type')))

@@ -4,6 +4,170 @@
 		"selected_items":
 		[
 			[
+				"po",
+				"port"
+			],
+			[
+				"por",
+				"port_table"
+			],
+			[
+				"ds",
+				"dst_port"
+			],
+			[
+				"src",
+				"src_port"
+			],
+			[
+				"udp",
+				"udp_pckt"
+			],
+			[
+				"pr",
+				"proto"
+			],
+			[
+				"Ip",
+				"IPv4_Dgram"
+			],
+			[
+				"ipv",
+				"ipv4"
+			],
+			[
+				"ps",
+				"pseudo_header"
+			],
+			[
+				"def",
+				"defaultdict"
+			],
+			[
+				"UD",
+				"UDP_FTR_SIZE"
+			],
+			[
+				"IP",
+				"IPv4_PROTO_UDP"
+			],
+			[
+				"0x00",
+				"0x0000"
+			],
+			[
+				"ip",
+				"ipv4_dgram"
+			],
+			[
+				"dg",
+				"dgram_bytes"
+			],
+			[
+				"inc",
+				"include_data"
+			],
+			[
+				"pa",
+				"part"
+			],
+			[
+				"da",
+				"data"
+			],
+			[
+				"h",
+				"header"
+			],
+			[
+				"TU",
+				"TUNSETPERSIST"
+			],
+			[
+				"mact",
+				"mac_str"
+			],
+			[
+				"ar",
+				"arp_table_key"
+			],
+			[
+				"mac",
+				"mac_addr"
+			],
+			[
+				"st",
+				"state"
+			],
+			[
+				"hw",
+				"hwtype"
+			],
+			[
+				"arp_",
+				"arp_table"
+			],
+			[
+				"et",
+				"eth_frame"
+			],
+			[
+				"if",
+				"ifr"
+			],
+			[
+				"pri",
+				"print"
+			],
+			[
+				"de",
+				"dev_name"
+			],
+			[
+				"prin",
+				"print_info"
+			],
+			[
+				"cl",
+				"close"
+			],
+			[
+				"ne",
+				"net_mask"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"retu",
+				"return"
+			],
+			[
+				"dev",
+				"dev_name"
+			],
+			[
+				"net",
+				"net_mask"
+			],
+			[
+				"ta",
+				"tap_fd"
+			],
+			[
+				"IFF_",
+				"IFF_NO_PI"
+			],
+			[
+				"tap",
+				"tap_fd"
+			],
+			[
+				"arp",
+				"arp_dgram"
+			],
+			[
 				"fra",
 				"frame_type"
 			],
@@ -20,10 +184,6 @@
 				"icmp_ipv4_dgram"
 			],
 			[
-				"st",
-				"stack"
-			],
-			[
 				"IC",
 				"IPPROTO_ICMP"
 			],
@@ -32,28 +192,12 @@
 				"self"
 			],
 			[
-				"IP",
-				"IPPROTO_ICMP"
-			],
-			[
 				"pro",
 				"proto"
 			],
 			[
 				"ge",
 				"get_format_str"
-			],
-			[
-				"pr",
-				"print"
-			],
-			[
-				"ip",
-				"ipaddress"
-			],
-			[
-				"ar",
-				"arp_table"
 			],
 			[
 				"dst",
@@ -66,10 +210,6 @@
 			[
 				"ap",
 				"arp_data"
-			],
-			[
-				"pa",
-				"payload"
 			],
 			[
 				"proc",
@@ -106,10 +246,6 @@
 			[
 				"I",
 				"IPv4_Daemon"
-			],
-			[
-				"ipv",
-				"ipv4_dgram"
 			],
 			[
 				"Ma",
@@ -152,26 +288,6 @@
 				"frame_type"
 			],
 			[
-				"et",
-				"Ethernet"
-			],
-			[
-				"arp",
-				"arp_data"
-			],
-			[
-				"arp_",
-				"arp_table_key"
-			],
-			[
-				"ta",
-				"tap"
-			],
-			[
-				"de",
-				"def	Function"
-			],
-			[
 				"AR",
 				"ARP_REPLY"
 			],
@@ -196,10 +312,6 @@
 				"ETH_HDR_SIZE"
 			],
 			[
-				"h",
-				"hdr_size"
-			],
-			[
 				"of",
 				"offset"
 			],
@@ -220,10 +332,6 @@
 				"self"
 			],
 			[
-				"hw",
-				"hwaddr"
-			],
-			[
 				"print",
 				"print_tap_dev_info"
 			],
@@ -236,10 +344,6 @@
 				"format_str"
 			],
 			[
-				"re",
-				"return"
-			],
-			[
 				"ARP",
 				"ARP_IPv4_Data"
 			],
@@ -250,14 +354,6 @@
 			[
 				"eh",
 				"eth"
-			],
-			[
-				"tap",
-				"tap_dev"
-			],
-			[
-				"ne",
-				"net_addr"
 			],
 			[
 				"set",
@@ -348,10 +444,6 @@
 				"discarded"
 			],
 			[
-				"cl",
-				"cluster"
-			],
-			[
 				"sim",
 				"similarity_score"
 			],
@@ -422,98 +514,6 @@
 			[
 				"ed",
 				"edge_type"
-			],
-			[
-				"edg",
-				"edge_type"
-			],
-			[
-				"do",
-				"dotted"
-			],
-			[
-				"bl",
-				"blue"
-			],
-			[
-				"gre",
-				"green"
-			],
-			[
-				"edge_",
-				"edge_color"
-			],
-			[
-				"head",
-				"head_label"
-			],
-			[
-				"dir",
-				"direction"
-			],
-			[
-				"tail",
-				"tail_label"
-			],
-			[
-				"he",
-				"head"
-			],
-			[
-				"clo",
-				"color"
-			],
-			[
-				"file",
-				"filename"
-			],
-			[
-				"nod",
-				"node_color"
-			],
-			[
-				"no",
-				"node_labels"
-			],
-			[
-				"dat",
-				"data"
-			],
-			[
-				"ad",
-				"adj_service_name"
-			],
-			[
-				"node",
-				"node_label"
-			],
-			[
-				"cap",
-				"capitalize"
-			],
-			[
-				"pri",
-				"print_label"
-			],
-			[
-				"to",
-				"to_caps"
-			],
-			[
-				"serv",
-				"service_name"
-			],
-			[
-				"rel",
-				"relevant_services"
-			],
-			[
-				"metric",
-				"metric_diffs_by_service"
-			],
-			[
-				"plo",
-				"rca_plots"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "src/stack.py",
 			"settings":
 			{
-				"buffer_size": 4013,
+				"buffer_size": 2863,
 				"line_ending": "Unix"
 			}
 		},
@@ -531,7 +531,7 @@
 			"file": "src/tap.py",
 			"settings":
 			{
-				"buffer_size": 1151,
+				"buffer_size": 4136,
 				"line_ending": "Unix"
 			}
 		},
@@ -539,7 +539,7 @@
 			"file": "src/metaframe.py",
 			"settings":
 			{
-				"buffer_size": 3829,
+				"buffer_size": 3843,
 				"line_ending": "Unix"
 			}
 		},
@@ -547,7 +547,7 @@
 			"file": "src/ethernet.py",
 			"settings":
 			{
-				"buffer_size": 4603,
+				"buffer_size": 4697,
 				"line_ending": "Unix"
 			}
 		},
@@ -555,7 +555,7 @@
 			"file": "src/ipv4.py",
 			"settings":
 			{
-				"buffer_size": 5948,
+				"buffer_size": 6539,
 				"line_ending": "Unix"
 			}
 		},
@@ -563,7 +563,15 @@
 			"file": "src/icmp.py",
 			"settings":
 			{
-				"buffer_size": 4490,
+				"buffer_size": 4938,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/udp.py",
+			"settings":
+			{
+				"buffer_size": 4179,
 				"line_ending": "Unix"
 			}
 		},
@@ -571,7 +579,7 @@
 			"file": "src/arp.py",
 			"settings":
 			{
-				"buffer_size": 6133,
+				"buffer_size": 7078,
 				"line_ending": "Unix"
 			}
 		}
@@ -616,6 +624,9 @@
 	},
 	"file_history":
 	[
+		"/home/adamiaonr/workbench/networking-sandbox/python-ip-stack/src/example.py",
+		"/home/adamiaonr/workbench/wifi-vehicles/wifi-assist/src/blind-handovers/wifi-connections.py",
+		"/home/adamiaonr/workbench/wifi-vehicles/wifi-assist/src/blind-handovers/connection_manager.py",
 		"/home/adamiaonr/workbench/rid-analytics/scripts/rocketfuel/convert_rocketfuel.py",
 		"/home/adamiaonr/workbench/rid-analytics/scripts/rocketfuel/generate_tests.py",
 		"/home/adamiaonr/workbench/accelerator/doc/final/Makefile",
@@ -740,10 +751,7 @@
 		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/cache/f10.scn",
 		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/cache/f05.scn",
 		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/cache/f01.scn",
-		"/home/adamiaonr/workbench/dns-performance/src/dns-performance.cpp",
-		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/cache/fls",
-		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/cache/f02.scn",
-		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/r15-events/data/request-sizes/r15.scn"
+		"/home/adamiaonr/workbench/dns-performance/src/dns-performance.cpp"
 	],
 	"find":
 	{
@@ -763,6 +771,16 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"set_a",
+			"hdr_size",
+			"version & ihl",
+			"binascii",
+			"self.tap",
+			"self.stack",
+			"sp",
+			"shell = Fal",
+			"ipaddress",
+			"update_arp_table",
 			"print(",
 			"IPv4::",
 			".pack()",
@@ -880,17 +898,7 @@
 			"                <link local=\"0\" remote=\"0\" rrouter=\"3.3\">\n                    <fwd_size_dist size=\"1\">0.90</fwd_size_dist>\n                    <fwd_size_dist size=\"2\">0.10</fwd_size_dist>",
 			"\"3.3\"",
 			"\"2.1\"",
-			"\"1.0\"",
-			"\"3.1\"",
-			"\"3.0\"",
-			"<tp iface=\"0\">15</tp>",
-			"\"3.1\"",
-			"\"2.0\"",
-			"\"3.0\"",
-			"<tp iface=",
-			"<tp iface=\"0\">15</tp>",
-			"\"3.0\"",
-			"\"3.0"
+			"\"1.0\""
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -898,6 +906,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"subprocess",
 			"ipv4::",
 			"metaframe",
 			"raw_frame",
@@ -1024,8 +1033,7 @@
 			"10,0",
 			"0,10,0",
 			"num_entries",
-			"0,10,0",
-			"0,9,0"
+			"0,10,0"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1036,7 +1044,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -1044,15 +1052,15 @@
 					"file": "src/stack.py",
 					"settings":
 					{
-						"buffer_size": 4013,
+						"buffer_size": 2863,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2976,
-								2976
+								2678,
+								2678
 							]
 						],
 						"settings":
@@ -1066,7 +1074,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 966.0,
+						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1076,15 +1084,75 @@
 					"file": "src/tap.py",
 					"settings":
 					{
-						"buffer_size": 1151,
+						"buffer_size": 4136,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								80,
+								3753,
+								3753
+							]
+						],
+						"settings":
+						{
+							"rulers":
+							[
 								80
+							],
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 765.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/metaframe.py",
+					"settings":
+					{
+						"buffer_size": 3843,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2202,
+								2202
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 936.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/ethernet.py",
+					"settings":
+					{
+						"buffer_size": 4697,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								428,
+								428
 							]
 						],
 						"settings":
@@ -1100,75 +1168,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "src/metaframe.py",
-					"settings":
-					{
-						"buffer_size": 3829,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2485,
-								2485
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 990.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/ethernet.py",
-					"settings":
-					{
-						"buffer_size": 4603,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								491,
-								491
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 45.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
 					"buffer": 4,
 					"file": "src/ipv4.py",
 					"settings":
 					{
-						"buffer_size": 5948,
+						"buffer_size": 6539,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5922,
-								5922
+								1740,
+								1740
 							]
 						],
 						"settings":
@@ -1183,7 +1195,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1845.0,
+						"translation.y": 450.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1193,15 +1205,15 @@
 					"file": "src/icmp.py",
 					"settings":
 					{
-						"buffer_size": 4490,
+						"buffer_size": 4938,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3479,
-								3479
+								4223,
+								4223
 							]
 						],
 						"settings":
@@ -1216,25 +1228,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1116.0,
+						"translation.y": 1395.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "src/arp.py",
+					"file": "src/udp.py",
 					"settings":
 					{
-						"buffer_size": 6133,
+						"buffer_size": 4179,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3639,
-								3639
+								3615,
+								3615
 							]
 						],
 						"settings":
@@ -1244,7 +1256,35 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1800.0,
+						"translation.y": 810.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/arp.py",
+					"settings":
+					{
+						"buffer_size": 7078,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6691,
+								6691
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2340.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
