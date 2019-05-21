@@ -1,4 +1,3 @@
-import os
 import time
 import ipaddress
 import hashlib
@@ -70,7 +69,6 @@ class PySocket:
         self.protocol = protocol
         self.id = hashlib.md5(str(self.protocol) + str(time.time())).hexdigest()
 
-        # this can be later set by 
         self.ip = None
         self.port = None
 
@@ -87,7 +85,7 @@ class PySocket:
         socket.connect('tcp://127.0.0.1:5555')
 
         # send BIND request to pytransport            
-        socket.send('bind;%s;%s;%d' % (self.id, str(ip), port))
+        socket.send('bind;%s;%d;%s;%d' % (self.id, self.protocol, str(ip), port))
         # wait for reply
         reply = socket.recv().split(';')
         # 's' means success, 'e' means error
@@ -139,16 +137,11 @@ class PySocket:
         reply = socket.recv().split(';')
 
         if reply[1] == 's':
-            
-            # success : update final (ip address, port)
-            self.ip = int(ipaddress.IPv4Address(unicode(reply[3])))
-            self.port = int(reply[4])
 
-            print("pysocket::bind() [INFO] socket %s bound to (%s, %d)" % (reply[2], reply[3], int(reply[4])))
-
+            print("pysocket::send() [INFO] sent %d bytes over socket id %s to (%s, %d)" % (int(reply[3], reply[2], dst_addr[0], dst_addr[1])))
             return 0
 
         else:
-            print("pysocket::bind() [ERROR] can't bind to (%s, %d) : %s" % (str(ip), port, reply[2]))
+            print("pysocket::send() [ERROR] couldn't send data : %s" % (reply[2]))
 
         return -1

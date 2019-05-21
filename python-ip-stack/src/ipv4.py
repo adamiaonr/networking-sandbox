@@ -1,7 +1,4 @@
 import struct
-import binascii
-import collections
-import ipaddress
 
 from pytransport import PyTransport
 from arp import ARP_Module, ARP_Dgram
@@ -12,7 +9,7 @@ from collections import defaultdict
 class IPv4_Dgram(MetaFrame):
 
 	# ipv4 header is 20 byte 
-    IPv4_HDR_SIZE = 0x05
+    IPv4_HDR_SIZE = 0x05    # nr. of 32 bit (4 byte) words
     IPv4_FTR_SIZE = 0x00
 
     IPv4_FLAG_DF  = 0x02

@@ -1,6 +1,3 @@
-import os
-import hashlib
-import time
 import ipaddress
 # finally use zeromq (after looked at it in the long gone summer of 2014...)
 import zmq
@@ -10,7 +7,14 @@ from udp import UDP_Dgram
 from metaframe import MetaFrame
 from collections import defaultdict
 
+# bind to Stack's ip address (note this has a different meaning from the C API, 
+# in which INADDR_ANY is used to bind the socket to all local interfaces)
 INADDR_ANY = 0x0000
+# only 2 types of sockets:
+#   -# SOCK_DGRAM   : udp socket
+#   -# SOCK_STREAM  : tcp socket
+SOCK_DGRAM  = 0x00
+SOCK_STREAM = 0x01
 
 class PyPacket:
 
@@ -20,6 +24,14 @@ class PyPacket:
 
         self.peer = peer
         self.data = data
+
+class socket_record:
+
+    def __init__(self, protocol, ip, port):
+    
+        self.ip = ip
+        self.port = port
+        self.protocol = protocol
 
 def listen(transp_mod):
 
@@ -38,8 +50,9 @@ def listen(transp_mod):
 
             # extract command params
             socket_id = req[1]
-            ip = req[2]
-            port = int(req[3])
+            protocol = int(req[2])
+            ip = req[3]
+            port = int(req[4])
 
             # convert ip and port params to integer format
             if ip == str(INADDR_ANY):
@@ -54,6 +67,7 @@ def listen(transp_mod):
 
             # add record to pytransport's port table
             transp_mod.port_table[port] = socket_id
+            transp_mod.pysock_table[socket_id] = socket_record(protocol, ip, port)
 
             # send 's'uccess response back to pysocket api
             socket.send('bind;s;%s;%s;%d' % (socket_id, str(ipaddress.IPv4Address(ip)), port))
@@ -61,15 +75,15 @@ def listen(transp_mod):
         elif req[0] == 'send':
 
             socket_id = req[1]
-            ip = int(ipaddress.IPv4Address(req[2]))
+            ip = int(ipaddress.IPv4Address(unicode(req[2])))
             port = int(req[3])
             data = req[4]
 
-            if socket_id not in transp_mode.pysock_table:
+            if socket_id not in transp_mod.pysock_table:
                 socket.send('send;e;socket w/ id %s unknown' % (socket_id))
                 continue
 
-            transp_mod.send(transp_mode.pysock_table[socket_id], PyPacket((ip, port), data))
+            transp_mod.send(transp_mod.pysock_table[socket_id], PyPacket((ip, port), data))
             socket.send('send;s;%s;%d' % (socket_id, len(data)))
 
         else:

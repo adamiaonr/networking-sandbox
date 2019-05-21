@@ -1,6 +1,5 @@
 import struct
 import binascii
-import collections
 import ipaddress
 
 from ethernet import Ethernet, mac_to_str

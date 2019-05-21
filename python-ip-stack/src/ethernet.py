@@ -1,6 +1,4 @@
 import struct
-import binascii
-import collections
 
 from metaframe import MetaFrame
 
@@ -40,7 +38,7 @@ class Ethernet(MetaFrame):
         self.frame['header']['dst_mac']   = {'size': 6, 'type': 's', 'value': dst_mac}
         self.frame['header']['src_mac']   = {'size': 6, 'type': 's', 'value': src_mac}
         self.frame['header']['eth_type']  = {'size': 1, 'type': 'H', 'value': eth_type};
-        self.frame['data']['payload']   = {'size': payload_size, 'type': 's', 'value': payload}
+        self.frame['data']['payload']     = {'size': payload_size, 'type': 's', 'value': payload}
         self.frame['footer']['fcs']       = {'size': 4, 'type': 's', 'value': struct.pack("I", self.calc_fcs())}
 
     # def __str__(self):

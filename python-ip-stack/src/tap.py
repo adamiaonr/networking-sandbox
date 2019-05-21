@@ -3,7 +3,6 @@ import sys
 import struct
 import subprocess
 import ipaddress
-import arch
 # only used for socket.AF_UNIX constant
 import socket
 

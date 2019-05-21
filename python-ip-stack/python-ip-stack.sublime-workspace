@@ -4,32 +4,192 @@
 		"selected_items":
 		[
 			[
-				"po",
-				"port"
+				"sock",
+				"socket_record"
 			],
 			[
-				"por",
-				"port_table"
+				"py",
+				"pysock_table"
+			],
+			[
+				"tr",
+				"transp_mode"
+			],
+			[
+				"tran",
+				"transp_mod"
+			],
+			[
+				"se",
+				"send"
+			],
+			[
+				"re",
+				"reply"
+			],
+			[
+				"soc",
+				"socket_id"
+			],
+			[
+				"tra",
+				"transport_mod"
+			],
+			[
+				"P",
+				"PyTransport"
+			],
+			[
+				"arp",
+				"arp_mod"
+			],
+			[
+				"IP",
+				"IPv4_Module"
+			],
+			[
+				"AR",
+				"ARP_Module"
+			],
+			[
+				"get",
+				"get_instance"
+			],
+			[
+				"get_",
+				"get_instance"
+			],
+			[
+				"sta",
+				"stack"
+			],
+			[
+				"ic",
+				"icmp"
+			],
+			[
+				"IC",
+				"ICMP_Module"
+			],
+			[
+				"A",
+				"ARP_Module"
+			],
+			[
+				"un",
+				"unknown"
+			],
+			[
+				"prc",
+				"process_dgram"
+			],
+			[
+				"src",
+				"src_addr"
 			],
 			[
 				"ds",
 				"dst_port"
 			],
 			[
-				"src",
-				"src_port"
+				"dst",
+				"dst_port"
+			],
+			[
+				"ud",
+				"udp_dgram"
 			],
 			[
 				"udp",
-				"udp_pckt"
+				"udp_dgram"
 			],
 			[
-				"pr",
-				"proto"
+				"rcv",
+				"rcv_queue"
+			],
+			[
+				"por",
+				"port_table"
+			],
+			[
+				"pys",
+				"pysocket"
+			],
+			[
+				"port",
+				"port_table"
+			],
+			[
+				"__",
+				"__transport_mod"
+			],
+			[
+				"ip",
+				"ip_addr"
+			],
+			[
+				"ne",
+				"net_addr"
 			],
 			[
 				"Ip",
-				"IPv4_Dgram"
+				"IPv4_Module"
+			],
+			[
+				"I",
+				"IPv4_Module"
+			],
+			[
+				"data",
+				"datagram"
+			],
+			[
+				"pac",
+				"packet"
+			],
+			[
+				"pyt",
+				"pytransport"
+			],
+			[
+				"_",
+				"__instance"
+			],
+			[
+				"st",
+				"stack"
+			],
+			[
+				"Py",
+				"PyTransport"
+			],
+			[
+				"pack",
+				"Packet"
+			],
+			[
+				"pr",
+				"protocol"
+			],
+			[
+				"cl",
+				"class	New Class"
+			],
+			[
+				"id",
+				"id_table"
+			],
+			[
+				"def",
+				"defaultdict"
+			],
+			[
+				"pro",
+				"protocol"
+			],
+			[
+				"po",
+				"port"
 			],
 			[
 				"ipv",
@@ -40,24 +200,12 @@
 				"pseudo_header"
 			],
 			[
-				"def",
-				"defaultdict"
-			],
-			[
 				"UD",
 				"UDP_FTR_SIZE"
 			],
 			[
-				"IP",
-				"IPv4_PROTO_UDP"
-			],
-			[
 				"0x00",
 				"0x0000"
-			],
-			[
-				"ip",
-				"ipv4_dgram"
 			],
 			[
 				"dg",
@@ -96,10 +244,6 @@
 				"mac_addr"
 			],
 			[
-				"st",
-				"state"
-			],
-			[
 				"hw",
 				"hwtype"
 			],
@@ -128,18 +272,6 @@
 				"print_info"
 			],
 			[
-				"cl",
-				"close"
-			],
-			[
-				"ne",
-				"net_mask"
-			],
-			[
-				"re",
-				"return"
-			],
-			[
 				"retu",
 				"return"
 			],
@@ -164,10 +296,6 @@
 				"tap_fd"
 			],
 			[
-				"arp",
-				"arp_dgram"
-			],
-			[
 				"fra",
 				"frame_type"
 			],
@@ -180,28 +308,12 @@
 				"sender_addr"
 			],
 			[
-				"ic",
-				"icmp_ipv4_dgram"
-			],
-			[
-				"IC",
-				"IPPROTO_ICMP"
-			],
-			[
 				"sf",
 				"self"
 			],
 			[
-				"pro",
-				"proto"
-			],
-			[
 				"ge",
 				"get_format_str"
-			],
-			[
-				"dst",
-				"dst_ip"
 			],
 			[
 				"send",
@@ -216,24 +328,12 @@
 				"process_pckt"
 			],
 			[
-				"get",
-				"get_attr"
-			],
-			[
 				"fr",
 				"frame"
 			],
 			[
-				"pac",
-				"pack"
-			],
-			[
 				"ech",
 				"echo_reply"
-			],
-			[
-				"un",
-				"unpack"
 			],
 			[
 				"ICM",
@@ -242,10 +342,6 @@
 			[
 				"icmp",
 				"icmp_pckt"
-			],
-			[
-				"I",
-				"IPv4_Daemon"
 			],
 			[
 				"Ma",
@@ -276,20 +372,12 @@
 				"integrity"
 			],
 			[
-				"data",
-				"datagram"
-			],
-			[
 				"frag",
 				"frag_offset"
 			],
 			[
 				"frm",
 				"frame_type"
-			],
-			[
-				"AR",
-				"ARP_REPLY"
 			],
 			[
 				"ra",
@@ -302,10 +390,6 @@
 			[
 				"fi",
 				"field_exceptions"
-			],
-			[
-				"A",
-				"ARP_Packet"
 			],
 			[
 				"ET",
@@ -326,10 +410,6 @@
 			[
 				"a",
 				"all"
-			],
-			[
-				"se",
-				"self"
 			],
 			[
 				"print",
@@ -384,16 +464,8 @@
 				"state"
 			],
 			[
-				"__",
-				"__init__"
-			],
-			[
 				"daa",
 				"data_size"
-			],
-			[
-				"pack",
-				"packet"
 			],
 			[
 				"b",
@@ -442,78 +514,6 @@
 			[
 				"di",
 				"discarded"
-			],
-			[
-				"sim",
-				"similarity_score"
-			],
-			[
-				"nove",
-				"novelty_score"
-			],
-			[
-				"cluster",
-				"cluster_list"
-			],
-			[
-				"similarity_",
-				"similarity_score"
-			],
-			[
-				"gra",
-				"graph_dir"
-			],
-			[
-				"rp",
-				"rep_metric"
-			],
-			[
-				"ke",
-				"key"
-			],
-			[
-				"su",
-				"sub_keys"
-			],
-			[
-				"key",
-				"keys"
-			],
-			[
-				"tot",
-				"totals"
-			],
-			[
-				"get_",
-				"get_metric_diffs"
-			],
-			[
-				"ser",
-				"service_name"
-			],
-			[
-				"ot",
-				"other_graph"
-			],
-			[
-				"extr",
-				"extract"
-			],
-			[
-				"add",
-				"added_edges"
-			],
-			[
-				"c_",
-				"c_service"
-			],
-			[
-				"p_",
-				"p_service"
-			],
-			[
-				"ed",
-				"edge_type"
 			]
 		]
 	},
@@ -523,23 +523,39 @@
 			"file": "src/stack.py",
 			"settings":
 			{
-				"buffer_size": 2863,
+				"buffer_size": 2980,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/tap.py",
+			"file": "src/netapp.py",
 			"settings":
 			{
-				"buffer_size": 4136,
+				"buffer_size": 276,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/metaframe.py",
+			"file": "src/pysocket.py",
 			"settings":
 			{
-				"buffer_size": 3843,
+				"buffer_size": 4384,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/pytransport.py",
+			"settings":
+			{
+				"buffer_size": 5172,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/adamiaonr/workbench/sandbox/udp-echo.py",
+			"settings":
+			{
+				"buffer_size": 714,
 				"line_ending": "Unix"
 			}
 		},
@@ -547,7 +563,7 @@
 			"file": "src/ethernet.py",
 			"settings":
 			{
-				"buffer_size": 4697,
+				"buffer_size": 4699,
 				"line_ending": "Unix"
 			}
 		},
@@ -555,31 +571,15 @@
 			"file": "src/ipv4.py",
 			"settings":
 			{
-				"buffer_size": 6539,
+				"buffer_size": 6560,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/icmp.py",
+			"file": "src/tap.py",
 			"settings":
 			{
-				"buffer_size": 4938,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/udp.py",
-			"settings":
-			{
-				"buffer_size": 4179,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/arp.py",
-			"settings":
-			{
-				"buffer_size": 7078,
+				"buffer_size": 4123,
 				"line_ending": "Unix"
 			}
 		}
@@ -624,7 +624,21 @@
 	},
 	"file_history":
 	[
+		"/home/adamiaonr/workbench/networking-sandbox/python-ip-stack/src/arp.py",
+		"/home/adamiaonr/workbench/networking-sandbox/python-ip-stack/src/ipv4.py",
+		"/home/adamiaonr/workbench/networking-sandbox/python-ip-stack/src/pytransport.py",
+		"/home/adamiaonr/workbench/networking-sandbox/python-ip-stack/src/pysocket.py",
+		"/home/adamiaonr/workbench/networking-sandbox/python-ip-stack/src/netapp.py",
+		"/home/adamiaonr/workbench/networking-sandbox/python-ip-stack/src/icmp.py",
+		"/home/adamiaonr/workbench/networking-sandbox/python-ip-stack/src/udp.py",
 		"/home/adamiaonr/workbench/networking-sandbox/python-ip-stack/src/example.py",
+		"/home/adamiaonr/workbench/networking-sandbox/python-ip-stack/src/ethernet.py",
+		"/home/adamiaonr/workbench/networking-sandbox/python-ip-stack/src/metaframe.py",
+		"/home/adamiaonr/workbench/networking-sandbox/python-ip-stack/src/tap.py",
+		"/home/adamiaonr/workbench/networking-sandbox/python-ip-stack/src/icmp.cap",
+		"/home/adamiaonr/workbench/wifi-vehicles/data-analysis/src/channels.py",
+		"/home/adamiaonr/workbench/wifi-vehicles/data-analysis/src/association.py",
+		"/home/adamiaonr/workbench/wifi-vehicles/data-analysis/src/performance.py",
 		"/home/adamiaonr/workbench/wifi-vehicles/wifi-assist/src/blind-handovers/wifi-connections.py",
 		"/home/adamiaonr/workbench/wifi-vehicles/wifi-assist/src/blind-handovers/connection_manager.py",
 		"/home/adamiaonr/workbench/rid-analytics/scripts/rocketfuel/convert_rocketfuel.py",
@@ -737,21 +751,7 @@
 		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/global/h01.scn",
 		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/global/h05.scn",
 		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/cache/scenarios/pro-active/announce/f02-3.scn",
-		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/global/f01.scn",
-		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/cache/scenarios/opportunistic/off-path/a33-02-15.scn",
-		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/cache/scenarios/opportunistic/on-path/f01-a20-15.scn",
-		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/cache/scenarios/opportunistic/on-path/f01-a10-15.scn",
-		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/cache/scenarios/pro-active/announce/f02-2.scn",
-		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/cache/scenarios/opportunistic/off-path/a33-01-15.scn",
-		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/cache/scenarios/opportunistic/off-path/a33-00-15.scn",
-		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/cache/scenarios/opportunistic/f01-a20-15.scn",
-		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/cache/scenarios/opportunistic/f01-a10-07.scn",
-		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/cache/scenarios/opportunistic/f01-a20-07.scn",
-		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/cache/f15.scn",
-		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/cache/f10.scn",
-		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/cache/f05.scn",
-		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/cache/f01.scn",
-		"/home/adamiaonr/workbench/dns-performance/src/dns-performance.cpp"
+		"/home/adamiaonr/workbench/rid-analytics/test/configs/evaluation/global/f01.scn"
 	],
 	"find":
 	{
@@ -771,6 +771,44 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"pys",
+			"msg[",
+			"transport_listener",
+			"get_ins",
+			"ipaddress",
+			"time",
+			"hashlib",
+			"__pytransport_mod",
+			"get_instance(",
+			"get_instance(self)",
+			"IPv4",
+			"_mod",
+			".get_instance()",
+			".get_instance(",
+			"__pytransport_mod",
+			"get_instance",
+			"mac_to_str",
+			"IPv4_Dgram",
+			"get_ins",
+			"IPv4",
+			"Stack.get_instance()",
+			"arp",
+			"Stack.get_instance()",
+			"Stack.",
+			"Ethernet",
+			"self.stack",
+			"socket",
+			".stack",
+			"__transport_mod",
+			".stack",
+			"ipaddr",
+			"udp_pckt",
+			"UDP_Packet",
+			"packet",
+			"socket",
+			"time",
+			"hash",
+			"socket",
 			"set_a",
 			"hdr_size",
 			"version & ihl",
@@ -860,45 +898,7 @@
 			"get_callgraph_scores",
 			"Node(",
 			"class Node",
-			"node",
-			"egress",
-			"separate",
-			"Graph()",
-			"GC_LAGS",
-			"graphs[gc_dir]",
-			"gc_dir",
-			"updated_services",
-			"max",
-			"args.mode",
-			"processing_times",
-			"723",
-			"path",
-			"Directed",
-			"TARGET_SANITY",
-			"TARGET_SENSITIVITY",
-			":03",
-			"c33.03.",
-			"distance/strong-full",
-			"SF:",
-			"data/req-sizes",
-			"distance/strong-full",
-			"distance/strong/",
-			"S:",
-			"S:3",
-			"id=\"1.0\"",
-			"id=\"2.0\"",
-			"\"2.0\"",
-			"delivery_probs",
-			"id=\"3.1\"",
-			"id=\"3.3\"",
-			"id=\"2.1\"",
-			"id=\"1.0\"",
-			"size=\"15\">1.00</fwd",
-			"\"3.1\"",
-			"                <link local=\"0\" remote=\"0\" rrouter=\"3.3\">\n                    <fwd_size_dist size=\"1\">0.90</fwd_size_dist>\n                    <fwd_size_dist size=\"2\">0.10</fwd_size_dist>",
-			"\"3.3\"",
-			"\"2.1\"",
-			"\"1.0\""
+			"node"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -906,6 +906,15 @@
 		"regex": false,
 		"replace_history":
 		[
+			"req[",
+			"listen",
+			"PyTransport.get_instance()",
+			".get_instance(self.stack)",
+			"self.stack",
+			"Stack.get_instance()",
+			"__pytransport_mod",
+			"udp_dgram",
+			"UDP_Dgram",
 			"subprocess",
 			"ipv4::",
 			"metaframe",
@@ -1024,16 +1033,7 @@
 			"0,0,3",
 			"0,3,0",
 			"0,10,0",
-			"_real_dir",
-			"$scn_file",
-			"0,5,0",
-			"5,0",
-			"10,0",
-			"0,5,0",
-			"10,0",
-			"0,10,0",
-			"num_entries",
-			"0,10,0"
+			"_real_dir"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1044,7 +1044,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 6,
 			"sheets":
 			[
 				{
@@ -1052,15 +1052,15 @@
 					"file": "src/stack.py",
 					"settings":
 					{
-						"buffer_size": 2863,
+						"buffer_size": 2980,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2678,
-								2678
+								2720,
+								2720
 							]
 						],
 						"settings":
@@ -1074,57 +1074,51 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 540.0,
+						"translation.y": 900.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "src/tap.py",
+					"file": "src/netapp.py",
 					"settings":
 					{
-						"buffer_size": 4136,
+						"buffer_size": 276,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3753,
-								3753
+								251,
+								251
 							]
 						],
 						"settings":
 						{
-							"rulers":
-							[
-								80
-							],
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 765.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "src/metaframe.py",
+					"file": "src/pysocket.py",
 					"settings":
 					{
-						"buffer_size": 3843,
+						"buffer_size": 4384,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2202,
-								2202
+								2439,
+								2439
 							]
 						],
 						"settings":
@@ -1134,25 +1128,79 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 936.0,
+						"translation.y": 855.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "src/ethernet.py",
+					"file": "src/pytransport.py",
 					"settings":
 					{
-						"buffer_size": 4697,
+						"buffer_size": 5172,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								428,
-								428
+								4769,
+								4769
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 103.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/adamiaonr/workbench/sandbox/udp-echo.py",
+					"settings":
+					{
+						"buffer_size": 714,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								433,
+								433
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/ethernet.py",
+					"settings":
+					{
+						"buffer_size": 4699,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1168,85 +1216,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 6,
 					"file": "src/ipv4.py",
 					"settings":
 					{
-						"buffer_size": 6539,
+						"buffer_size": 6560,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1740,
-								1740
-							]
-						],
-						"settings":
-						{
-							"rulers":
-							[
-								80
-							],
-							"spell_check": true,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 450.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "src/icmp.py",
-					"settings":
-					{
-						"buffer_size": 4938,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4223,
-								4223
-							]
-						],
-						"settings":
-						{
-							"rulers":
-							[
-								80
-							],
-							"spell_check": true,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1395.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "src/udp.py",
-					"settings":
-					{
-						"buffer_size": 4179,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3615,
-								3615
+								350,
+								350
 							]
 						],
 						"settings":
@@ -1256,25 +1238,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 810.0,
+						"translation.y": 495.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 7,
-					"file": "src/arp.py",
+					"file": "src/tap.py",
 					"settings":
 					{
-						"buffer_size": 7078,
+						"buffer_size": 4123,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6691,
-								6691
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1284,7 +1266,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2340.0,
+						"translation.y": 1170.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1484,6 +1466,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 348.0,
+	"side_bar_width": 273.0,
 	"status_bar_visible": true
 }

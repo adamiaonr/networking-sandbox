@@ -1,9 +1,5 @@
-import array
-import time
-import struct
 import binascii
 import ipaddress
-import thread
 
 from tap import Tap
 from ethernet import Ethernet

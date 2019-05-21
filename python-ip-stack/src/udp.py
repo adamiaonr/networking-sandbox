@@ -1,8 +1,3 @@
-import struct
-import binascii
-import collections
-import ipaddress
-
 from ethernet import Ethernet
 from metaframe import MetaFrame
 from collections import defaultdict
