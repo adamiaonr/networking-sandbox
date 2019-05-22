@@ -1,22 +1,27 @@
+import array
+import time
+import struct
 import binascii
 import ipaddress
+import thread
 
 from tap import Tap
 from ethernet import Ethernet
 from arp import ARP_Module
 from ipv4 import IPv4_Module
+from route import Route_Module
 from icmp import ICMP_Module
 from pytransport import PyTransport
 
 class Stack:
 
-    def __init__(self, net_addr = '10.0.0.4'):
+    def __init__(self, tap_addr = '10.0.0.1', net_addr = '10.0.0.4', mac_addr = '00:0c:29:6d:50:25'):
 
         # tap device used by stack to send/receive packets
-        self.tap = Tap(net_addr)
+        self.tap = Tap(tap_addr)
         # local mac and ip
-        self.mac = self.tap.hw_addr
-        self.ip = int(ipaddress.IPv4Address(unicode(self.tap.net_addr)))
+        self.mac = mac_addr
+        self.ip = int(ipaddress.IPv4Address(unicode(net_addr)))
 
         # initialize (singleton) modules for supported protocols:
 
@@ -28,6 +33,11 @@ class Stack:
         #            daemons), marshalling data coming from upper layer 
         #            protocol daemons
         self.ipv4_mod = IPv4_Module(self)
+        
+        #   - route : stack's routing module
+        self.route_mod = Route_Module(self)
+        self.route_mod.initialize()
+        self.route_mod.print_table()
 
         #   - ICMP : handles ICMP protocol packets (mainly ping responses)
         self.icmp_mod = ICMP_Module(self)
@@ -78,7 +88,7 @@ class Stack:
 if __name__ == "__main__":
 
     # initialize a python tcp/ip stack
-    stack = Stack('10.0.0.4')
+    stack = Stack()
     stack.tap.print_info()
 
     steps = 100

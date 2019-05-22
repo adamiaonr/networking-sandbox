@@ -8,8 +8,6 @@ import socket
 
 # pytun alternative: http://www.secdev.org/projects/tuntap_udp/files/tunproxy.py 
 from fcntl import ioctl
-# custom import
-from ethernet import Ethernet
 
 # ioctl constants
 TUNSETIFF = 0x400454ca
@@ -43,7 +41,7 @@ def run_cmd(cmd, wait = False):
 class Tap:
 
     def __init__(self, 
-        net_addr = '10.0.0.4', 
+        net_addr = '10.0.0.1', 
         net_mask = '255.255.255.0', 
         hw_addr = '', 
         mtu = 1500):
@@ -105,11 +103,16 @@ class Tap:
             print("tap::up() : [ERROR] error setting up %s tap device" % (self.dev_name))
             return 1
 
-        # add route for tap device net address
+        # add route for tap subnet 
         cidr = str(ipaddress.IPv4Network((unicode(".".join(self.net_addr.split(".")[:-1]) + ".0"), unicode(self.net_mask))))
         if run_cmd('ip route add dev %s %s' % (self.dev_name, cidr), wait = True)[0]:
             print("tap::up() : [ERROR] error route for %s tap device (%s)" % (self.dev_name, cidr))
             return 1
+
+        # set tap addr
+        if run_cmd('ip address add dev %s local %s' % (self.dev_name, self.net_addr), wait = True)[0]:
+            print("tap::up() : [ERROR] error setting up %s tap device" % (self.dev_name))
+            return 1        
 
         return 0
 

@@ -1,10 +1,11 @@
 import struct
+import socket
 
 from pytransport import PyTransport
 from arp import ARP_Module, ARP_Dgram
 from ethernet import Ethernet
 from metaframe import MetaFrame
-from collections import defaultdict
+from route import Route_Entry
 
 class IPv4_Dgram(MetaFrame):
 
@@ -136,29 +137,37 @@ class IPv4_Module:
         if ipv4_dgram.get_attr('header', 'proto') == IPv4_Dgram.IPv4_PROTO_ICMP:
             self.stack.icmp_mod.process_pckt(ipv4_dgram)
 
-        elif ipv4_dgram.get_attr('header', 'proto') == IPv4_Dgram.IPv4_PROTO_UDP:
-            self.stack.transport_mod.process_dgram(ipv4_dgram)
+#        elif ipv4_dgram.get_attr('header', 'proto') == IPv4_Dgram.IPv4_PROTO_UDP:
+#            self.stack.transport_mod.process_dgram(ipv4_dgram)
 
         # else:
         #     print("ipv4::process_dgram() [ERROR] unknown protocol type : %02x" % (ipv4_dgram.get_attr('header', 'proto')))
 
     def send_dgram(self, src_ip, dst_ip, proto, payload = ''):
 
-        # prepare ipv4 dgram to send
-        # FIXME : not how we used a LOT of default values for the IPv4 header, 
+        # prepare ipv4 datagram to send
+        # FIXME : we use a LOT of default values for the IPv4 header, 
         # whose impact has not been tested
         ipv4_dgram = IPv4_Dgram(
             proto   = proto,
             saddr   = src_ip, 
             daddr   = dst_ip,
             data    = payload)
-
-        # encapsulate it in a Ethernet frame and send it
-        # get dmac using ARP (you see? this is the stack workin'...)
+        
+        # FIXME: add a route lookup step
+        rt = self.stack.route_mod.lookup(dst_ip)
+        if (rt.flags & Route_Entry.RT_GATEWAY):
+            dst_ip = rt.gw
+        
+        # get destination mac addr using ARP
         arp_entry = self.stack.arp_mod.get_record(ARP_Dgram.ARP_PROTYPE_IPv4, dst_ip)
+                
         if arp_entry is None:
-            print("ipv4::send_dgram() [ERROR] no mac address on ARP table for dst ip : %s" % (inet_ntoa(struct.pack('!L', dst_ip))))
-            # FIXME: we should send an ARP request and update the ARP table now
+            print("ipv4::send_dgram() [ERROR] no mac address on ARP table for dst ip : %s" % (socket.inet_ntoa(struct.pack('!L', dst_ip))))
+            # FIXME: send an ARP request and update the ARP table now
+            self.stack.arp_mod.send_req(dst_ip)
             return -1
 
-        self.stack.send_frame(Ethernet.PROTO_IPv4, arp_entry.smac, ipv4_dgram.pack())
+        else:
+            # encapsulate the ipv4 datagram in a Ethernet frame and send it
+            self.stack.send_frame(Ethernet.PROTO_IPv4, arp_entry.smac, ipv4_dgram.pack())

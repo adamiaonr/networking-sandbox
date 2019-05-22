@@ -1,4 +1,5 @@
 import struct
+import binascii
 import collections
 
 class MetaFrame:

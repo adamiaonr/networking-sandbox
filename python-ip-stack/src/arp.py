@@ -128,6 +128,24 @@ class ARP_Module:
             return None
         else:
             return self.arp_table[(protype, sip)]
+        
+    def send_req(self, dip):
+        
+        arp_req = ARP_Dgram()
+        
+        arp_req_data = ARP_IPv4_Data()
+        arp_req_data.sip = self.stack.ip
+        arp_req_data.dip = dip
+        arp_req_data.smac = binascii.unhexlify(self.stack.mac.replace(':', ''))
+        # ARP requests set dmac to 00:00:00:00:00:00
+        arp_req_data.dmac = binascii.unhexlify('000000000000')
+        
+        raw_data = arp_req_data.pack()
+        arp_req.set_attr('data', 'data', raw_data, size = len(raw_data))
+        arp_req.set_attr('header', 'opcode', ARP_Dgram.ARP_REQUEST)
+
+        # send the arp request using the tap device
+        self.stack.send_frame(Ethernet.PROTO_ARP, arp_req_data.dmac, arp_req.pack())
 
     def process_dgram(self, raw_dgram):
 
@@ -168,6 +186,8 @@ class ARP_Module:
                     hwtype = arp_dgram.get_attr('header', 'hwtype'),
                     sip = arp_data.sip,
                     smac = arp_data.smac)
+                
+                self.print_table()
 
             # if arp dgram is an arp request
             if arp_dgram.get_attr('header', 'opcode') == ARP_Dgram.ARP_REQUEST:

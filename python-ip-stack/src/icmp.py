@@ -103,7 +103,7 @@ class ICMP_Module:
         # support: ECHO_REQUEST and DESTINATION_UNREACHABLE
 
         if icmp_pckt.get_attr('header', 'type') == ICMP_Packet.ICMP_TYPE_ECHO_REQUEST:
-
+            
             # the icmp header info to send in the reply differs in the 'type' field
             icmp_pckt.set_attr('header', 'type', ICMP_Packet.ICMP_TYPE_ECHO_REPLY)
             icmp_pckt.set_attr('header', 'code', 0)
