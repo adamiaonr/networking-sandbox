@@ -134,9 +134,9 @@ class ARP_Module:
         arp_req = ARP_Dgram()
         
         arp_req_data = ARP_IPv4_Data()
-        arp_req_data.sip = self.stack.ip
+        arp_req_data.sip = int(self.stack.ip_addr)
         arp_req_data.dip = dip
-        arp_req_data.smac = binascii.unhexlify(self.stack.mac.replace(':', ''))
+        arp_req_data.smac = binascii.unhexlify(self.stack.mac_addr.replace(':', ''))
         # ARP requests set dmac to 00:00:00:00:00:00
         arp_req_data.dmac = binascii.unhexlify('000000000000')
         
@@ -174,7 +174,7 @@ class ARP_Module:
         merge_flag = self.update_arp_table(arp_dgram, arp_data)
 
         # is this arp frame destined to this node? if not, abort
-        if arp_data.dip == self.stack.ip:
+        if arp_data.dip == int(self.stack.ip_addr):
 
             # if merge_flag is false, add a new entry to arp_table
             if not merge_flag:
@@ -196,8 +196,8 @@ class ARP_Module:
                 # hw and protocol fields as smac and sip
                 arp_data.dip = arp_data.sip
                 arp_data.dmac = arp_data.smac
-                arp_data.sip = self.stack.ip
-                arp_data.smac = binascii.unhexlify(self.stack.mac.replace(':', ''))
+                arp_data.sip = int(self.stack.ip_addr)
+                arp_data.smac = binascii.unhexlify(self.stack.mac_addr.replace(':', ''))
 
                 raw_data = arp_data.pack()
                 arp_dgram.set_attr('data', 'data', raw_data, size = len(raw_data))

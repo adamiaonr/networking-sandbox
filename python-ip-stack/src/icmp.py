@@ -116,7 +116,7 @@ class ICMP_Module:
             # encapsulate icmp packet within an ipv4 packet and send it back
             # to the source
             self.stack.ipv4_mod.send_dgram(
-                src_ip  = self.stack.ip,
+                src_ip  = int(self.stack.ip_addr),
                 dst_ip  = ipv4_dgram.get_attr('header', 'saddr'),
                 proto = ipv4_dgram.get_attr('header', 'proto'),
                 payload = icmp_pckt.pack())

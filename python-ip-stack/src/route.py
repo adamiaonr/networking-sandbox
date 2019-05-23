@@ -1,10 +1,5 @@
-import struct
-import binascii
 import ipaddress
 
-from ethernet import Ethernet, mac_to_str
-from metaframe import MetaFrame
-from collections import defaultdict
 from prettytable import PrettyTable
 
 
@@ -26,6 +21,9 @@ class Route_Entry:
         self.netmask = netmask
         self.flags = flags
         self.iface = iface
+        
+    def __lt__(self, other):
+         return self.nemask < other.netmask        
         
     def print_flags(self):
         
@@ -75,13 +73,16 @@ class Route_Module:
 
     def initialize(self):
         # gw :: dst : 0.0.0.0, gw : 10.0.0.5, netmask : 0.0.0.0, flags : UG, iface : tap0 
-        self.add_route(0, int(ipaddress.IPv4Address(unicode(self.stack.tap.net_addr))), 0, Route_Entry.RT_GATEWAY, self.stack.tap.dev_name)
+        self.add_route(0, int(self.stack.tap.ip_addr), 0, Route_Entry.RT_GATEWAY, self.stack.tap.dev_name)
 
     def add_route(self, dst, gw, netmask, flags, iface):
         self.route_table.add(Route_Entry(dst, gw, netmask, flags, iface))
+        # sort table in descending order of netmask (more to less specific entries)
+        self.route_table = sorted(self.route_table, key = lambda x : x.netmask, reverse = True)
         
     def lookup(self, dst_ip):
         
+        # assuming table is sorted in desc order of netmask size, this does LPM
         for rt_entry in self.route_table:
             if ((rt_entry.dst & rt_entry.netmask) & (dst_ip & rt_entry.netmask)):
                 break

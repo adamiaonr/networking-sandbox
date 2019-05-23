@@ -1,9 +1,7 @@
-import array
-import time
-import struct
+import sys
 import binascii
 import ipaddress
-import thread
+import argparse
 
 from tap import Tap
 from ethernet import Ethernet
@@ -15,13 +13,13 @@ from pytransport import PyTransport
 
 class Stack:
 
-    def __init__(self, tap_addr = '10.0.0.1', net_addr = '10.0.0.4', mac_addr = '00:0c:29:6d:50:25'):
+    def __init__(self, tap_addr, node_mac_addr, node_ip_addr):
 
         # tap device used by stack to send/receive packets
         self.tap = Tap(tap_addr)
         # local mac and ip
-        self.mac = mac_addr
-        self.ip = int(ipaddress.IPv4Address(unicode(net_addr)))
+        self.mac_addr = node_mac_addr
+        self.ip_addr = ipaddress.IPv4Address(unicode(node_ip_addr))
 
         # initialize (singleton) modules for supported protocols:
 
@@ -50,7 +48,7 @@ class Stack:
         if frame_type in [Ethernet.PROTO_ARP, Ethernet.PROTO_IPv4]:
 
             eth_frame = Ethernet(
-                src_mac      = binascii.unhexlify(self.mac.replace(':', '')),
+                src_mac      = binascii.unhexlify(self.mac_addr.replace(':', '')),
                 dst_mac      = dst_mac,
                 eth_type     = frame_type,
                 payload      = data,
@@ -86,9 +84,46 @@ class Stack:
         #     print("Stack::handle_frame() [ERROR] unknown protocol type : %02x" % (frame_type))
 
 if __name__ == "__main__":
+    
+    # use an ArgumentParser for a nice CLI
+    parser = argparse.ArgumentParser()
+
+    # options (self-explanatory)
+    parser.add_argument(
+        "--tap-addr", 
+         help = """ip addr & netmask of tap interface in cidr notation. 
+         default : 10.0.0.1/24""")
+
+    parser.add_argument(
+        "--node-mac-addr", 
+         help = """mac addr of 'virtual' network node. 
+         default : 00:0c:29:6d:50:25""")    
+
+    parser.add_argument(
+        "--node-ip-addr", 
+         help = """ip addr of 'virtual' network node. 
+         must be in tap-addr subnet.
+         e.g., if tap-addr is 10.0.0.1/24, node-addr should be 10.0.0.[2-254].
+         default : 10.0.0.4""")
+
+    args = parser.parse_args()
+
+    if not args.tap_addr:
+        args.tap_addr = '10.0.0.1/24'
+
+    if not args.node_mac_addr:
+        args.node_mac_addr = '01:23:45:67:89:ab'
+
+    if not args.node_ip_addr:
+        args.node_ip_addr = '10.0.0.4'
+        
+    if ipaddress.IPv4Address(unicode(args.node_ip_addr)) not in ipaddress.IPv4Network(unicode(args.tap_addr), strict = False):
+        sys.stderr.write("""%s: [ERROR] node ip addr not in tap subnet\n""" % sys.argv[0]) 
+        parser.print_help()
+        sys.exit(1)
 
     # initialize a python tcp/ip stack
-    stack = Stack()
+    stack = Stack(tap_addr = args.tap_addr, node_mac_addr = args.node_mac_addr, node_ip_addr = args.node_ip_addr)
     stack.tap.print_info()
 
     steps = 100

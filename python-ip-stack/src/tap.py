@@ -41,16 +41,15 @@ def run_cmd(cmd, wait = False):
 class Tap:
 
     def __init__(self, 
-        net_addr = '10.0.0.1', 
-        net_mask = '255.255.255.0', 
-        hw_addr = '', 
+        tap_cidr_addr = '10.0.0.1/24',
+        mac_addr = '', 
         mtu = 1500):
 
         # create a tap device to send/receive L2 frames
-        self.net_addr = net_addr
-        self.net_mask = net_mask
+        self.ip_addr = ipaddress.IPv4Address(unicode(tap_cidr_addr.split('/')[0]))
+        self.cidr_addr = ipaddress.IPv4Network(unicode(tap_cidr_addr), strict = False)
         self.mtu = mtu
-        self.hw_addr = hw_addr
+        self.mac_addr = mac_addr
         # tap device name
         # FIXME: now hardcoded, try to fix this
         self.dev_name = 'tap0'
@@ -103,16 +102,15 @@ class Tap:
             print("tap::up() : [ERROR] error setting up %s tap device" % (self.dev_name))
             return 1
 
-        # add route for tap subnet 
-        cidr = str(ipaddress.IPv4Network((unicode(".".join(self.net_addr.split(".")[:-1]) + ".0"), unicode(self.net_mask))))
-        if run_cmd('ip route add dev %s %s' % (self.dev_name, cidr), wait = True)[0]:
-            print("tap::up() : [ERROR] error route for %s tap device (%s)" % (self.dev_name, cidr))
+        # add route for tap subnet
+        if run_cmd('ip route add dev %s %s' % (self.dev_name, str(self.cidr_addr)), wait = True)[0]:
+            print("tap::up() : [ERROR] error setting route for %s tap device (%s)" % (self.dev_name, str(self.cidr_addr)))
             return 1
 
         # set tap addr
-        if run_cmd('ip address add dev %s local %s' % (self.dev_name, self.net_addr), wait = True)[0]:
-            print("tap::up() : [ERROR] error setting up %s tap device" % (self.dev_name))
-            return 1        
+        if run_cmd('ip address add dev %s local %s' % (self.dev_name, str(self.ip_addr)), wait = True)[0]:
+            print("tap::up() : [ERROR] error assigning ip addr to %s tap device" % (self.dev_name))
+            return 1
 
         return 0
 
@@ -130,7 +128,7 @@ class Tap:
 
         print("tap::print_info() : [INFO] tap device info:")
         print("\tname: %s" % (self.dev_name))
-        print("\taddr: %s" % (self.net_addr))
-        print("\tnetmask: %s" % (self.net_mask))
-        print("\thwaddr: %s (%s)" % (self.hw_addr, type(self.hw_addr)))
+        print("\taddr: %s" % (str(self.ip_addr)))
+        print("\tnetmask: %s" % (str(self.cidr_addr.netmask)))
+        print("\thwaddr: %s (%s)" % (self.mac_addr, type(self.mac_addr)))
         print("\tmtu: %s" % (self.mtu))
