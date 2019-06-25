@@ -6,45 +6,6 @@ import zmq
 from pytransport import PyPacket
 from collections import defaultdict
 
-# def listen(transp_mod):
-
-#     context = zmq.Context()
-
-#     # zmq.REP is for the server side, the pysocket_module listens on 
-#     # tcp port 5556
-#     socket = context.socket(zmq.REP)
-#     socket.bind('tcp://127.0.0.1:5556')
-    
-#     while True:
-    
-#         # block till next message is received
-#         msg = socket.recv().split('|')
-    
-#         if msg[0] == 'RECV':
-
-#             # socket assoc. w/ the command
-#             socket_id = msg[1]
-
-
-
-#         else:
-
-#             print("pytransport::listen() [ERROR] unknown message code : %s" % (msg[0]))
-
-# class PySocket_Module:
-
-#     def __init__(self, stack):
-
-#         # lookup tables: 
-#         #   - socket_table :  links socket_id to pysocket objects
-#         self.socket_table = defaultdict()
-
-#         # start thread to listen from calls from pytransport
-#         try:
-#             thread.start_new_thread(listen, (self,))
-#         except:
-#             print("pysocket_module::init() [ERROR] error while starting thread...")
-
 class PySocket:
 
     """a simplified C-like socket api for apps to use my python tcp/ip stack"""

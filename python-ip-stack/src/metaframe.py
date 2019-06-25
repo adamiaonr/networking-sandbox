@@ -9,9 +9,9 @@ class MetaFrame:
         # order of fields within the packet is important
         self.frame = collections.OrderedDict()
 
-        self.frame['header']    = collections.OrderedDict()
-        self.frame['data']      = collections.OrderedDict()
-        self.frame['footer']    = collections.OrderedDict()
+        self.frame['header'] = collections.OrderedDict()
+        self.frame['data'] = collections.OrderedDict()
+        self.frame['footer'] = collections.OrderedDict()
 
         # important for unpacking
         self.hdr_size = 0
@@ -32,7 +32,7 @@ class MetaFrame:
 
     def get_format_str(self, raw_frame, part = 'header', field_exceptions = []):
 
-        # build the format string based on the metadate info in fields
+        # build the format string based on the metadata info in fields
         format_str = '! '
 
         if part == 'data':
@@ -78,6 +78,23 @@ class MetaFrame:
 
                 values.append(self.frame[part][field]['value'])
                 format_str += ('%d%s ' % (self.frame[part][field]['size'], self.frame[part][field]['type']))
+
+        return struct.pack(format_str.rstrip(' '), *values)
+
+    @staticmethod
+    def pack_custom(frame, fields = ['header', 'data'], field_exceptions = []):
+
+        values = []
+        format_str = '! '
+
+        # pack each field into a big endian byte array, using the respective type
+        for field in frame:
+
+            if field in field_exceptions:
+                continue
+
+            values.append(frame[field]['value'])
+            format_str += ('%d%s ' % (frame[field]['size'], frame[field]['type']))
 
         return struct.pack(format_str.rstrip(' '), *values)
 

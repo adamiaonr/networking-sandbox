@@ -1,7 +1,6 @@
 import struct
 import socket
 
-from pytransport import PyTransport
 from arp import ARP_Module, ARP_Dgram
 from ethernet import Ethernet
 from metaframe import MetaFrame
@@ -137,8 +136,8 @@ class IPv4_Module:
         if ipv4_dgram.get_attr('header', 'proto') == IPv4_Dgram.IPv4_PROTO_ICMP:
             self.stack.icmp_mod.process_pckt(ipv4_dgram)
 
-#        elif ipv4_dgram.get_attr('header', 'proto') == IPv4_Dgram.IPv4_PROTO_UDP:
-#            self.stack.transport_mod.process_dgram(ipv4_dgram)
+        elif ipv4_dgram.get_attr('header', 'proto') == IPv4_Dgram.IPv4_PROTO_TCP:
+           self.stack.tcp_in_mod.process_tcp_seg(ipv4_dgram)
 
         # else:
         #     print("ipv4::process_dgram() [ERROR] unknown protocol type : %02x" % (ipv4_dgram.get_attr('header', 'proto')))

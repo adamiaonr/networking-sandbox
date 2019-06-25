@@ -9,7 +9,7 @@ from arp import ARP_Module
 from ipv4 import IPv4_Module
 from route import Route_Module
 from icmp import ICMP_Module
-from pytransport import PyTransport
+from tcp_input import TCP_Input_Module
 
 class Stack:
 
@@ -40,8 +40,8 @@ class Stack:
         #   - ICMP : handles ICMP protocol packets (mainly ping responses)
         self.icmp_mod = ICMP_Module(self)
 
-        #   - PyTransport : handles everything related to tcp/udp
-        self.transport_mod = PyTransport(self)
+        #   - TCP input : handles TCP input
+        self.tcp_in_mod = TCP_Input_Module(self)
 
     def send_frame(self, frame_type, dst_mac, data):
 

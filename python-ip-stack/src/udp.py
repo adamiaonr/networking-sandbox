@@ -54,7 +54,7 @@ class UDP_Dgram(MetaFrame):
 
         it is defined as the 16 bit 1's complement of the 1's complement 
         sum of all 16 bit words in the header AND data. for purposes of 
-        computing the checksum, the value of the checksum field is zero."""
+        computing the checksum, the value of the checksum field is 0x0000."""
 
         cksum = 0x0000
         # get a byte array representation of the icmp packet
