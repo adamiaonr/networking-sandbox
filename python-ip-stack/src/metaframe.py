@@ -18,7 +18,6 @@ class MetaFrame:
         self.ftr_size = 0
 
     def get_attr(self, part, attr):
-
         try:
             return self.frame[part][attr]['value']
         except KeyError:
@@ -26,7 +25,6 @@ class MetaFrame:
 
     def set_attr(self, part, attr, value, size = None):
         self.frame[part][attr]['value'] = value
-
         if size:
             self.frame[part][attr]['size'] = size
 
@@ -34,7 +32,6 @@ class MetaFrame:
 
         # build the format string based on the metadata info in fields
         format_str = '! '
-
         if part == 'data':
 
             # subtract header size from the extracted bytes
@@ -43,7 +40,7 @@ class MetaFrame:
             # make sure the header doesn't subtract everything
             if start >= end:
                 print("metaframe::get_format_str() : [ERROR] malformed packet (start > end)")
-                return -1
+                return ''
             # else:
             #     print("metaframe::get_format_str() : [INFO] payload size : %d" % (end - start))
 
@@ -55,7 +52,6 @@ class MetaFrame:
         else:
 
             for field in self.frame[part]:
-
                 if field in field_exceptions:
                     continue
 
@@ -100,7 +96,11 @@ class MetaFrame:
 
     def unpack_hdr(self, raw_frame, field_exceptions = []):
         # unpack the data into a tuple made of frame's fields
-        unpacked_hdr = struct.unpack(self.get_format_str(raw_frame), raw_frame[:self.hdr_size])
+        format_str = self.get_format_str(raw_frame)
+        if not format_str:
+            return -1
+
+        unpacked_hdr = struct.unpack(format_str, raw_frame[:self.hdr_size])
         # print("metaframe::unpack_hdr() : [INFO] unpacked %s" % (str(unpacked_hdr)))
         # finally, re-set the frame's fields, extracted from the unpacked tuple 
         i = 0
@@ -112,7 +112,11 @@ class MetaFrame:
 
     def unpack_data(self, raw_frame, field_exceptions = []):
         # unpack the data into a tuple made of frame's fields
-        unpacked_data = struct.unpack(self.get_format_str(raw_frame, 'data'), raw_frame[self.hdr_size:len(raw_frame)])
+        format_str = self.get_format_str(raw_frame, 'data')
+        if not format_str:
+            return -1
+            
+        unpacked_data = struct.unpack(format_str, raw_frame[self.hdr_size:len(raw_frame)])
         # print("metaframe::unpack_data() : [INFO] unpacked %s" % (str(unpacked_data)))
         # finally, re-set the frame's fields, extracted from the unpacked tuple 
         i = 0

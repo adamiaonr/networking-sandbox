@@ -89,8 +89,8 @@ class TCP_Flags():
 class TCP_Seg(MetaFrame):
 
     # tcp header is 20 byte long:
-    TCP_HDR_SIZE = 0x14
-    TCP_FTR_SIZE = 0x00
+    TCP_HDR_SIZE = 20
+    TCP_FTR_SIZE = 0
 
     def __init__(self,
         src_addr = 0,
