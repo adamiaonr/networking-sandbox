@@ -26,7 +26,9 @@ In the nodes running the custom Python TCP/IP stack:
 * The option `node-ip-addr` is the IP address to be adopted by the specific node. This IP address should be in the same subnet as that specified with `tap-addr`. Replace `<x>` with a number between 2 and 254.
 
 As you'll be testing your code over an existing network infrastructure, you may need to add static routes to have traffic routed to the custom Python TCP/IP stack nodes.
+
 E.g., say you're running your Python TCP/IP stack on a node with 'native' IP address 192.168.1.129, and you want to test it against standard network applications (e.g., `ping`) in your MacBook Pro.
+
 Then, you should add the following static route:
 
 ```
